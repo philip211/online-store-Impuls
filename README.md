@@ -8,6 +8,44 @@
 
 Полное руководство со скриншотами десктопа и телефона — [docs/index.html](docs/index.html): витрина и кабинет, работа в управлении магазином, архитектура, API, развёртывание и решение проблем.
 
+## Скриншоты
+
+Десктоп 1440 px и телефон 390 px. Все экраны с пояснениями — в [документации](docs/index.html).
+
+### Витрина
+
+| Главная                                                                                  | Каталог                                                                            |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/d-home.webp" alt="Главная" width="100%">                      | <img src="docs/screenshots/d-catalog.webp" alt="Каталог с фильтрами" width="100%"> |
+| **Поиск**                                                                                | **Карточка товара**                                                                |
+| <img src="docs/screenshots/d-search.webp" alt="Поиск с опечатками и ценой" width="100%"> | <img src="docs/screenshots/d-product.webp" alt="Карточка товара" width="100%">     |
+| **Корзина и оформление**                                                                 | **Статус заказа**                                                                  |
+| <img src="docs/screenshots/d-cart.webp" alt="Корзина и оформление" width="100%">         | <img src="docs/screenshots/d-tracking.webp" alt="Статус заказа" width="100%">      |
+
+### Личный кабинет
+
+| Мои заказы                                                                       | Заказ с таймлайном доставки                                                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/d-account-orders.webp" alt="Мои заказы" width="100%"> | <img src="docs/screenshots/d-account-order.webp" alt="Заказ в кабинете" width="100%"> |
+
+### Управление магазином
+
+| Сводка                                                                                  | Заказы                                                                             |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/d-admin-dashboard.webp" alt="Сводка" width="100%">           | <img src="docs/screenshots/d-admin-orders.webp" alt="Список заказов" width="100%"> |
+| **Карточка заказа**                                                                     | **Товары и остатки**                                                               |
+| <img src="docs/screenshots/d-admin-order.webp" alt="Карточка заказа" width="100%">      | <img src="docs/screenshots/d-admin-products.webp" alt="Товары" width="100%">       |
+| **Редактор товара и фото**                                                              | **Модерация отзывов**                                                              |
+| <img src="docs/screenshots/d-admin-product-photos.webp" alt="Фото товара" width="100%"> | <img src="docs/screenshots/d-admin-reviews.webp" alt="Отзывы" width="100%">        |
+
+### Мобильная версия
+
+| Главная                                                                         | Меню                                                                      | Товар                                                                                  | Корзина                                                                                |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/m-home.webp" alt="Главная на телефоне" width="200">  | <img src="docs/screenshots/m-menu.webp" alt="Меню" width="200">           | <img src="docs/screenshots/m-product.webp" alt="Товар" width="200">                    | <img src="docs/screenshots/m-cart.webp" alt="Корзина" width="200">                     |
+| **Мои заказы**                                                                  | **Заказ**                                                                 | **Управление: заказы**                                                                 | **Управление: фото**                                                                   |
+| <img src="docs/screenshots/m-account-orders.webp" alt="Мои заказы" width="200"> | <img src="docs/screenshots/m-account-order.webp" alt="Заказ" width="200"> | <img src="docs/screenshots/m-admin-orders.webp" alt="Заказы в управлении" width="200"> | <img src="docs/screenshots/m-admin-product-photos.webp" alt="Фото товара" width="200"> |
+
 ## Стек
 
 | Задача               | Инструмент                                                                        |
