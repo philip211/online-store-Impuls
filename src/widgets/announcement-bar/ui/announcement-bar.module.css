@@ -1,0 +1,64 @@
+.bar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  /* +1px for the border (border-box), so the 44px link fits and every message is the same height. */
+  min-height: calc(var(--target) + 1px);
+  padding: 0 calc(var(--target) + var(--space-2));
+  background: var(--s1);
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  /* Persistent chrome: its own layer, so page transitions don't slide it with the root. */
+  view-transition-name: announce-bar;
+}
+
+.msg {
+  font-size: 14px;
+  text-align: center;
+  animation: fade var(--dur-enter) var(--ease-out);
+}
+
+/* Underlined so it reads as a link without leaning on colour alone. */
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: var(--target);
+  height: var(--target);
+  border-radius: var(--radius-pill);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+  &:focus-visible {
+    outline-offset: -4px;
+  }
+  & svg {
+    width: 14px;
+    height: 14px;
+  }
+}

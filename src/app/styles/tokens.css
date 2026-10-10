@@ -1,0 +1,138 @@
+/*
+ * Design tokens.
+ * Principles: one typeface, quiet neutrals, a single accent reserved for the
+ * primary action and price reductions, hairline rules instead of glow,
+ * motion that decelerates and never overshoots.
+ */
+:root {
+  /* One family, set at different weights. Legacy names map to it. */
+  --font-body: 'Onest Variable', 'Onest Fallback', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: var(--font-body);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-2xl: 18px;
+  --radius-pill: 999px;
+
+  /*
+   * Motion system (one language for the whole store):
+   * - UI feedback (hover, press, toggles): --dur-fast / --dur-base with --ease-standard,
+   *   colour/opacity only — no movement on hover.
+   * - Things entering the screen (panels, toasts, sections): --dur-slow / --dur-enter
+   *   with --ease-out (decelerate). Small distances: 8–16px.
+   * - Product imagery may scale up to 1.04 on hover over --dur-image.
+   * Never springs, never infinite loops on content.
+   */
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 320ms;
+  --dur-enter: 480ms;
+  --dur-image: 700ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out-strong: var(--ease-out);
+  --ease-spring: var(--ease-out);
+  --ease-pop: var(--ease-out);
+
+  /* Minimum interactive size (Apple 44pt / Android 48dp / WCAG 2.2 24px). */
+  --target: 44px;
+
+  /* One focus ring for every control. */
+  --focus-ring: 2px solid var(--focus);
+  --focus-offset: 3px;
+
+  /* 4px spacing scale. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --header-h: 64px;
+  --container: 1320px;
+  --gutter: 20px;
+  --sec-pad: 72px;
+
+  /*
+   * Type scale for titles, so every index page is set by the same hand:
+   * page H1 (catalog, favorites, finder, help) > section H2 (home sections, deals).
+   * The home hero and the product title keep their own display sizes.
+   */
+  --page-top: 32px;
+  --page-title: clamp(36px, 4.4vw, 64px);
+  --section-title: clamp(28px, 3.2vw, 44px);
+
+  --tile-bg: linear-gradient(180deg, var(--tile-a), var(--tile-b));
+  --check-accent: var(--ink);
+
+  color-scheme: dark;
+}
+
+:root,
+:root[data-theme='dark'] {
+  --bg: #0c0c0d;
+  --s1: #151516;
+  --s2: #1d1d1f;
+  --line: #2a2a2c;
+  /* Borders that are a control's only affordance (inputs, radios): >= 3:1 on bg/s1/s2. */
+  --line-strong: #6c6c6e;
+  --ink: #f4f4f1;
+  /* 6.0:1 on bg, 5.6:1 on s1, 5.2:1 on s2. */
+  --muted: #8f8f8c;
+  --acc: #c6ff3d;
+  --acc-ink: #0c0c0d;
+  /* Text-level "accent" is simply ink: emphasis through weight, not colour. */
+  --acc-text: var(--ink);
+  --ok: #8fd1a6;
+  --err: #ff8a7a;
+  --focus: var(--ink);
+  --tile-a: #18181a;
+  --tile-b: #131314;
+  --spot: rgba(244, 244, 241, 0.06);
+  /* Overlay layers: modal scrim and the one shadow floating surfaces may use. */
+  --scrim: rgba(0, 0, 0, 0.55);
+  --shadow-overlay: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f4f0;
+  --s1: #ffffff;
+  --s2: #ecebe6;
+  --line: #e0ded7;
+  --line-strong: #82807a;
+  --ink: #121212;
+  /* 5.3:1 on bg, 5.8:1 on s1, 4.9:1 on s2 (was 4.4:1 there). */
+  --muted: #666560;
+  /* Slightly deeper, less saturated lime so the accent doesn't glow on cream; 13.7:1 with --acc-ink. */
+  --acc: #b8ef2a;
+  --acc-ink: #121212;
+  --ok: #2f6b48;
+  --err: #b3261e;
+  --tile-a: #eeede8;
+  --tile-b: #e7e6e0;
+  --spot: rgba(18, 18, 18, 0.05);
+  --scrim: rgba(18, 18, 18, 0.32);
+  --shadow-overlay: 0 24px 64px rgba(18, 18, 18, 0.14);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 72px;
+    --gutter: 40px;
+    --sec-pad: 112px;
+    --page-top: 56px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --sec-pad: 144px;
+  }
+}

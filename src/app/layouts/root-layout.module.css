@@ -1,0 +1,72 @@
+.main {
+  flex: 1;
+  outline: none;
+}
+
+/* Fallback route animation; browsers with View Transitions animate the swap instead. */
+@supports not (view-transition-name: none) {
+  .main {
+    animation: fade var(--dur-enter) var(--ease-out) both;
+  }
+}
+
+.skip {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 500;
+
+  &:focus {
+    top: var(--space-3);
+  }
+}
+
+/* Route transition indicator: a hairline, nothing more. */
+.progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  height: 2px;
+  width: 100%;
+  background: var(--ink);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    opacity var(--dur-slow) var(--ease-standard) var(--dur-fast);
+  pointer-events: none;
+}
+
+.progressOn {
+  opacity: 1;
+  transform: scaleX(0.8);
+  /* Deliberately long: an honest "still working" creep, not a fake completion. */
+  transition:
+    transform 2.4s var(--ease-out),
+    opacity var(--dur-fast) var(--ease-standard);
+}
+
+.fallback {
+  flex: 1;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  animation: fade var(--dur-image) var(--ease-out) both;
+}

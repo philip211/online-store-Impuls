@@ -1,0 +1,71 @@
+/* Product photo frame: the dominant colour, then a blurred preview, then the photo. */
+.frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--ph-color, var(--s2));
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--ph) center / cover no-repeat;
+    /* The 16px preview is upscaled; a blur hides the pixels, the scale hides soft edges. */
+    filter: blur(12px);
+    transform: scale(1.1);
+    transition: opacity var(--dur-slow) var(--ease-standard);
+  }
+}
+
+.img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focal, 50% 50%);
+  opacity: 0;
+  transition:
+    opacity var(--dur-slow) var(--ease-standard),
+    transform var(--dur-image) var(--ease-out);
+}
+
+.loaded {
+  & .img {
+    opacity: 1;
+  }
+
+  &::before {
+    opacity: 0;
+  }
+}
+
+/*
+ * Above-the-fold photo (the LCP): painted the moment it decodes, with no fade, so LCP timing
+ * is unchanged. The blurred preview stays underneath until onLoad, then fades out unseen.
+ * Declared after .loaded, so at equal specificity this opacity wins.
+ */
+.priority .img {
+  opacity: 1;
+  transition: transform var(--dur-image) var(--ease-out);
+}
+
+/* Unsplash attribution */
+.credit {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+
+  & a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+
+  & a:hover {
+    color: var(--ink);
+  }
+}

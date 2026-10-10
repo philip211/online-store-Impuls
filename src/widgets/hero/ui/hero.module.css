@@ -1,0 +1,167 @@
+.hero {
+  position: relative;
+  padding-bottom: calc(var(--sec-pad) / 2);
+}
+
+.inner {
+  display: grid;
+  gap: 40px;
+  padding-block: 32px 48px;
+  align-items: center;
+}
+
+.copy {
+  max-width: 620px;
+}
+
+.kicker {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.title {
+  font-size: clamp(48px, 7.4vw, 112px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 18px 0 28px;
+}
+
+.ln {
+  display: block;
+
+  & > span {
+    display: block;
+    animation: scr var(--dur-enter) var(--ease-out) both;
+  }
+}
+
+.l2 > span {
+  animation-delay: 60ms;
+  color: var(--muted);
+}
+
+.lead {
+  font-size: clamp(16px, 1.3vw, 19px);
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+.fade {
+  animation: fade var(--dur-enter) 120ms var(--ease-out) both;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 36px 0 24px;
+
+  & b {
+    font-size: clamp(28px, 2.6vw, 36px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+}
+
+.old {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* The product photographed large; nothing laid over the picture except the frame's radius. */
+.stage {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* No entrance fade: the photo is the LCP and must paint at full opacity on the first frame. */
+}
+
+.photo {
+  border-radius: var(--radius-2xl);
+}
+
+/* Colour and credit sit under the photo on the page background, so they never fight it. */
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  min-height: var(--target);
+}
+
+.swatches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorName {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.credit {
+  margin-left: auto;
+}
+
+.dots {
+  display: flex;
+  order: -1;
+  margin-left: -13px;
+}
+
+/* 44px hit area around an 18px swatch; a ring with a gap marks the chosen colour. */
+.dot {
+  width: var(--target);
+  height: var(--target);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+
+  & span {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(128, 128, 128, 0.35);
+    outline: 1.5px solid transparent;
+    outline-offset: 3px;
+    transition: outline-color var(--dur-fast) var(--ease-standard);
+  }
+  &:hover span {
+    outline-color: var(--line);
+  }
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+.dotOn span,
+.dotOn:hover span {
+  outline-color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 64px;
+    padding-block: 40px 72px;
+  }
+
+  /* Tall enough to carry the page, short enough that the caption stays on the first screen. */
+  .photo {
+    max-height: calc(100svh - var(--header-h) - 190px);
+    min-height: 480px;
+  }
+}

@@ -1,0 +1,47 @@
+/* Stepper: every button is a full 44px target; colour feedback only. */
+.qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--s1);
+
+  & button {
+    width: var(--target);
+    height: var(--target);
+    border-radius: var(--radius-lg);
+    display: grid;
+    place-items: center;
+    transition: background-color var(--dur-fast) var(--ease-standard);
+
+    &:hover:not(:disabled) {
+      background: var(--s2);
+    }
+    &:disabled {
+      color: var(--muted);
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+  }
+
+  & output {
+    min-width: 32px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+}
+
+.rm {
+  min-height: var(--target);
+  padding-inline: var(--space-1);
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}

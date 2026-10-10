@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: scr var(--dur-slow) var(--ease-out);
+}
+
+/* Password field: the show/hide toggle sits at the right end of the label row, so it stays
+   put when an error appears under the input. */
+.secret {
+  position: relative;
+}
+
+.reveal {
+  position: absolute;
+  right: 0;
+  /* Centred on the 21px label line with a full 44px target. */
+  top: calc(10.5px - var(--target) / 2);
+  min-height: var(--target);
+  padding-inline: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--target);
+  color: var(--muted);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}

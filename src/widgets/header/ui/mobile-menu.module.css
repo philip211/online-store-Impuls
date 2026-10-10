@@ -1,0 +1,106 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  padding: 0 var(--space-3) 0 var(--space-5);
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  border-bottom: 1px solid var(--line);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  & svg {
+    color: var(--muted);
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.on {
+  color: var(--ink);
+}
+
+.link:not(.on) {
+  color: color-mix(in srgb, var(--ink) 80%, transparent);
+}
+
+.meta {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.group {
+  padding: var(--space-6) 0 var(--space-2);
+}
+
+.sub {
+  display: flex;
+  align-items: center;
+  min-height: var(--target);
+  color: var(--muted);
+  font-size: 16px;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.subOn {
+  color: var(--ink);
+}
+
+/* Gentle staggered entrance. */
+:global(dialog[open]) .body > * {
+  animation: scr var(--dur-enter) var(--ease-out) both;
+}
+:global(dialog[open]) .body > :nth-child(2) {
+  animation-delay: 0.03s;
+}
+:global(dialog[open]) .body > :nth-child(3) {
+  animation-delay: 0.06s;
+}
+:global(dialog[open]) .body > :nth-child(4) {
+  animation-delay: 0.09s;
+}
+:global(dialog[open]) .body > :nth-child(5) {
+  animation-delay: 0.12s;
+}
+:global(dialog[open]) .body > :nth-child(n + 6) {
+  animation-delay: 0.15s;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 15px;
+}

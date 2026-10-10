@@ -1,0 +1,108 @@
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(20px);
+  border-bottom: 1px solid transparent;
+  /* Stays put while page content cross-fades between routes. */
+  view-transition-name: site-header;
+  transition: border-color var(--dur-base) var(--ease-standard);
+}
+
+.scrolled {
+  border-bottom-color: var(--line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--header-h);
+}
+
+/* Wordmark: small caps with generous tracking — the classic quiet luxury mark. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-right: var(--space-2);
+}
+
+.nav {
+  display: none;
+  gap: var(--space-1);
+  margin-left: var(--space-6);
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding: 0 var(--space-3);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover,
+  &.on {
+    color: var(--ink);
+  }
+}
+
+.sp {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.count {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.bump {
+  animation: pop var(--dur-slow) var(--ease-out);
+}
+
+.desktopOnly {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .desktopOnly {
+    display: grid !important;
+  }
+}
+
+/* Four links plus actions need room; tablets keep the menu button until then. */
+@media (min-width: 960px) {
+  .nav {
+    display: flex;
+  }
+  .mobileOnly {
+    display: none !important;
+  }
+}

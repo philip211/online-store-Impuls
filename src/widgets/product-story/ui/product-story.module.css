@@ -1,0 +1,248 @@
+/* Without JS there is no data-chapter: the first photo stays on. */
+.story {
+  padding-bottom: var(--sec-pad);
+}
+
+.layout {
+  display: grid;
+  /* minmax(0, …): a long child can never widen the single mobile column past the container. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.kicker {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.title {
+  font-size: clamp(32px, 4.4vw, 60px);
+}
+
+/* Every chapter's photo is stacked in one frame; only the current one is opaque. */
+.stage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-2xl);
+  background: var(--s2);
+  overflow: hidden;
+}
+
+/* Two classes: outranks the frame's own `position: relative`. */
+.stage .shot {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--dur-enter) var(--ease-standard);
+}
+
+.story:not([data-chapter]) .shot:nth-child(1),
+.story[data-chapter='0'] .shot:nth-child(1),
+.story[data-chapter='1'] .shot:nth-child(2),
+.story[data-chapter='2'] .shot:nth-child(3) {
+  opacity: 1;
+}
+
+/* Hairline progress marks on a soft scrim, so they read on light and dark photos alike. */
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  display: flex;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: var(--radius-pill);
+  background: rgb(0 0 0 / 0.32);
+  transform: translateX(-50%);
+
+  & span {
+    width: 20px;
+    height: 2px;
+    border-radius: 1px;
+    background: rgb(255 255 255 / 0.45);
+    transition: background-color var(--dur-slow) var(--ease-out);
+  }
+}
+
+.story:not([data-chapter]) [data-dot='0'],
+.story[data-chapter='0'] [data-dot='0'],
+.story[data-chapter='1'] [data-dot='1'],
+.story[data-chapter='2'] [data-dot='2'] {
+  background: #fff;
+}
+
+.chapters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-block: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.figure {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.value {
+  display: block;
+  margin-bottom: 4px;
+  font-size: clamp(56px, 7vw, 104px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--ink);
+  transition: color var(--dur-slow) var(--ease-out);
+}
+
+/* Once the observer runs, numbers other than the current one step back. */
+.story[data-chapter] .value {
+  color: var(--muted);
+}
+
+.story[data-chapter='0'] [data-index='0'] .value,
+.story[data-chapter='1'] [data-index='1'] .value,
+.story[data-chapter='2'] [data-index='2'] .value {
+  color: var(--ink);
+}
+
+.chapterTitle {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.body {
+  max-width: 44ch;
+  color: var(--muted);
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+
+  /* The CTA may wrap on narrow screens instead of pushing the column wider (1.4.10). */
+  & > a {
+    max-width: 100%;
+  }
+
+  & > p {
+    flex-basis: 100%;
+    margin-top: 6px;
+  }
+}
+
+.foot > .cta {
+  white-space: normal;
+  text-align: center;
+  text-wrap: balance;
+  padding-block: 12px;
+}
+
+/* One flex item for the whole label, so it wraps as text rather than as separate pieces. */
+.label {
+  min-width: 0;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Secondary route out of the story: an underlined link, not a second pill. */
+.more {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding-inline: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    text-decoration-color: var(--ink);
+  }
+}
+
+/* Below 900px the stage is not sticky and scrolls away before the chapters: a still image. */
+@media (max-width: 899.98px) {
+  .story .stage .shot:not(.still) {
+    opacity: 0;
+  }
+
+  .story .stage .shot.still {
+    opacity: 1;
+  }
+
+  .dots {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 80px;
+    row-gap: 0;
+  }
+
+  .head {
+    grid-column: 1 / -1;
+    margin-bottom: clamp(28px, 4vw, 56px);
+  }
+
+  .stageCol {
+    grid-row: span 2;
+  }
+
+  /* 4:5 while it fits; on short screens the frame is cropped shorter so it never outgrows the screen. */
+  .stage {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+    max-height: calc(100svh - var(--header-h) - 64px);
+  }
+
+  .chapters {
+    border-top: 0;
+  }
+
+  /* Tall chapters give each one a moment in the middle of the screen. */
+  .chapter {
+    justify-content: center;
+    min-height: min(60vh, 540px);
+    padding-block: 48px;
+  }
+
+  .chapter:last-child {
+    border-bottom: 0;
+  }
+
+  .foot {
+    grid-column: 2;
+    padding-top: 16px;
+  }
+}

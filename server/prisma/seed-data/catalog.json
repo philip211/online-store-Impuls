@@ -1,0 +1,3158 @@
+{
+  "categories": [
+    {
+      "id": "sound",
+      "name": "Звук",
+      "sortOrder": 0,
+      "coverProductId": 4
+    },
+    {
+      "id": "mobile",
+      "name": "Смартфоны и часы",
+      "sortOrder": 1,
+      "coverProductId": 10
+    },
+    {
+      "id": "photo",
+      "name": "Фото",
+      "sortOrder": 2,
+      "coverProductId": 15
+    },
+    {
+      "id": "desk",
+      "name": "Работа и чтение",
+      "sortOrder": 3,
+      "coverProductId": 23
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "slug": "sony-wh-1000xm5",
+      "category": "sound",
+      "kind": "Наушники",
+      "name": "Sony WH-1000XM5",
+      "brand": "Sony",
+      "price": 32990,
+      "oldPrice": 36990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#1c1c1c"
+        },
+        {
+          "name": "Платиновый серебристый",
+          "hex": "#cfc6b8"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Наушники с чехлом"
+      ],
+      "description": "Полноразмерные беспроводные наушники с одним из лучших шумоподавлений в классе: восемь микрофонов и два процессора гасят гул самолёта, метро и офиса. Весят 250 г и не давят даже после долгого перелёта. Подключаются к двум устройствам сразу и звучат детально по LDAC.",
+      "specs": [
+        {
+          "label": "Шумоподавление",
+          "value": "Активное, 8 микрофонов, процессоры QN1 и V1"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 30 часов с шумоподавлением"
+        },
+        {
+          "label": "Быстрая зарядка",
+          "value": "3 минуты — до 3 часов музыки"
+        },
+        {
+          "label": "Динамики",
+          "value": "30 мм"
+        },
+        {
+          "label": "Связь",
+          "value": "Bluetooth 5.2, LDAC, AAC, мультипоинт"
+        },
+        {
+          "label": "Вес",
+          "value": "250 г"
+        }
+      ],
+      "popularity": 98,
+      "tags": [
+        "шумоподавление",
+        "наушники с шумоподавлением",
+        "накладные наушники",
+        "полноразмерные",
+        "беспроводные",
+        "bluetooth",
+        "для перелётов",
+        "для путешествий",
+        "для метро",
+        "для работы",
+        "для офиса",
+        "сони",
+        "sony xm5",
+        "wh1000xm5",
+        "в подарок",
+        "LDAC"
+      ],
+      "dimensions": {
+        "size": "около 22 × 19 × 7 см",
+        "weight": "250 г",
+        "compare": "вчетверо легче пачки сахара"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 2,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные Sony WH-1000XM5 рядом с очками и часами на светло-сером фоне, вид сверху",
+          "focal": "40% 42%",
+          "tone": "light",
+          "credit": {
+            "author": "Kofi Nartey",
+            "authorUrl": "https://unsplash.com/@kofinartey",
+            "sourceUrl": "https://unsplash.com/photos/black-headphones-glasses-and-smartwatch-on-gray-background-RXiq_O1Jc10",
+            "id": "RXiq_O1Jc10"
+          },
+          "width": 1600,
+          "height": 1340,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAA0AAsBMJZwAAsQevYSLaYAA/u1dT308Ivf+9VEHcxdeOVBS1HPu1Pu4uAQVp+BVCALv4rn0swAA",
+          "dominant": "#a0a8aa"
+        },
+        {
+          "n": 3,
+          "role": "gallery",
+          "color": "Платиновый серебристый",
+          "alt": "Крупный план серебристых Sony WH-1000XM5 на деревянной подставке в тёплом свете",
+          "focal": "62% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "JJ ROCHA",
+            "authorUrl": "https://unsplash.com/@that_person",
+            "sourceUrl": "https://unsplash.com/photos/close-up-of-beige-sony-headphones-on-a-wooden-stand-VqJKiiExW9I",
+            "id": "VqJKiiExW9I"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwBACdASoQABQAPtFUpEuoJKOhsAgBABoJQBOmUI4ABEF5eqaf2JP2Pd5MAAD+8M6/IIPhl1JfEwbMABYObb+S9usU9R3VUxP5hKF/eCoGZ7TEve95oPeI7OriN12bZ+hwEeG4JRsAAA==",
+          "dominant": "#50341c"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "apple-airpods-max",
+      "category": "sound",
+      "kind": "Наушники",
+      "name": "Apple AirPods Max",
+      "brand": "Apple",
+      "price": 54990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Тёмная ночь",
+          "hex": "#2a3135"
+        }
+      ],
+      "optionLabel": "Разъём",
+      "options": [
+        "USB-C"
+      ],
+      "description": "Полноразмерные наушники Apple в алюминиевом корпусе с сетчатым оголовьем, которое распределяет вес по голове. Активное шумоподавление и режим прозрачности, пространственное аудио с отслеживанием положения головы. Мгновенно переключаются между iPhone, iPad и Mac.",
+      "specs": [
+        {
+          "label": "Чип",
+          "value": "Apple H1 в каждой чашке"
+        },
+        {
+          "label": "Динамики",
+          "value": "40 мм, разработка Apple"
+        },
+        {
+          "label": "Шумоподавление",
+          "value": "Активное, 9 микрофонов, режим прозрачности"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 20 часов с шумоподавлением"
+        },
+        {
+          "label": "Зарядка",
+          "value": "USB-C"
+        },
+        {
+          "label": "Вес",
+          "value": "384,8 г"
+        }
+      ],
+      "popularity": 90,
+      "tags": [
+        "airpods max",
+        "эирподс макс",
+        "наушники apple",
+        "полноразмерные наушники",
+        "полноразмерные",
+        "беспроводные",
+        "шумоподавление",
+        "пространственное аудио",
+        "для iphone",
+        "для дома",
+        "для путешествий",
+        "в подарок",
+        "премиальные наушники",
+        "эпл"
+      ],
+      "dimensions": {
+        "size": "16,9 × 8,3 × 18,7 см",
+        "weight": "384,8 г",
+        "compare": "примерно как банка консервированной кукурузы"
+      },
+      "featuredRank": 1,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Тёмная ночь",
+          "alt": "Тёмные наушники AirPods Max лежат на светло-сером столе, вид сверху",
+          "focal": "72% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Sam Grozyan",
+            "authorUrl": "https://unsplash.com/@ijeunes",
+            "sourceUrl": "https://unsplash.com/photos/black-wireless-headphones-on-white-desk-P7KF3cTRKcE",
+            "id": "P7KF3cTRKcE"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAsAAsBMJZQCdAEecAjo6eBHAAD+9S8QfuZOoNuX0HJ8PRsmwVq2EQBGgY/n9EMoPzL2F8aoxmFLlrsu00e3WTyvMQP+AAA=",
+          "dominant": "#a5b1b4"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Тёмная ночь",
+          "alt": "Алюминиевые чашки AirPods Max с сетчатыми амбушюрами крупным планом",
+          "focal": "45% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Sam Grozyan",
+            "authorUrl": "https://unsplash.com/@ijeunes",
+            "sourceUrl": "https://unsplash.com/photos/black-headphones-on-white-table-uNC9-RgzjTA",
+            "id": "uNC9-RgzjTA"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAAsBMJZQCdAEX99LSWprAAP7zyKg457/Lmy6MJeK0lvZBpQWQFxprh2wxxGXOSN+5gQCQJyVTXpPrU2Tnd0Db6DgTrpQo3C9M8AA=",
+          "dominant": "#808f91"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "marshall-major-iv",
+      "category": "sound",
+      "kind": "Наушники",
+      "name": "Marshall Major IV",
+      "brand": "Marshall",
+      "price": 11990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#161412"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Наушники с кабелем 3,5 мм"
+      ],
+      "description": "Складные накладные наушники с фирменной текстурой винила и золотистым кнопочным джойстиком. Держат заряд больше 80 часов, то есть неделю-две обычного использования, и заряжаются без провода на любой Qi-площадке. Лёгкие, 165 г, и легко складываются в карман куртки.",
+      "specs": [
+        {
+          "label": "Работа от батареи",
+          "value": "более 80 часов"
+        },
+        {
+          "label": "Зарядка",
+          "value": "USB-C и беспроводная Qi; 15 минут — 15 часов"
+        },
+        {
+          "label": "Динамики",
+          "value": "40 мм"
+        },
+        {
+          "label": "Связь",
+          "value": "Bluetooth 5.0, проводной вход 3,5 мм"
+        },
+        {
+          "label": "Управление",
+          "value": "Многофункциональная кнопка-джойстик"
+        },
+        {
+          "label": "Вес",
+          "value": "165 г"
+        }
+      ],
+      "popularity": 82,
+      "tags": [
+        "маршал",
+        "marshall major",
+        "накладные наушники",
+        "беспроводные",
+        "bluetooth",
+        "беспроводная зарядка",
+        "долгая батарея",
+        "складные",
+        "для города",
+        "для улицы",
+        "для метро",
+        "в подарок",
+        "рок",
+        "винтажный стиль"
+      ],
+      "dimensions": {
+        "size": "около 16 × 17 × 7 см",
+        "weight": "165 г",
+        "compare": "как спелое яблоко"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные наушники Marshall Major IV стоят на тёмной колонке, тёплый бежевый фон",
+          "focal": "50% 45%",
+          "tone": "mid",
+          "credit": {
+            "author": "Fujiphilm",
+            "authorUrl": "https://unsplash.com/@fujiphilm",
+            "sourceUrl": "https://unsplash.com/photos/a-pair-of-headphones-sitting-on-top-of-a-wooden-table-TXV0Jij4zR8",
+            "id": "TXV0Jij4zR8"
+          },
+          "width": 1600,
+          "height": 2401,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoQABgAPtFUo0uoJKMhsAgBABoJQBWAA+wQ+nwKirNZh95hkADvN3QlKmWX9HLNzh+xBnmVJmUCVs54v4zWnCiROylh94/T9c48WX+ZcLvPVVuxuj+wIkttrwt1rtBXtKcJ1J+CKaUZlSjTyK0iEMUia8kMs4AA",
+          "dominant": "#665a4b"
+        },
+        {
+          "n": 2,
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "Marshall Major IV на столе с фотокнигой, мягкий дневной свет",
+          "focal": "55% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Fujiphilm",
+            "authorUrl": "https://unsplash.com/@fujiphilm",
+            "sourceUrl": "https://unsplash.com/photos/a-black-and-silver-telephone-FWOeGZ5OGiY",
+            "id": "FWOeGZ5OGiY"
+          },
+          "width": 1600,
+          "height": 2400,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABgAPtFUo0uoJKMhsAgBABoJZACdABivemxs0VRNjf/AAP7wM+rularDag1CPTrP4je9WIWlruk7nNdX5wuFEYC/iN9tgpwNGsVbIryDIGR/gcDIRtud6XQhTaRtE37xCferQ6qozvn4p9xSWQ7A+xY9dCs49W2zh6tQ75WFRlVEnLO7jFoAAAA=",
+          "dominant": "#84795d"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "bang-olufsen-beosound-a1-2nd-gen",
+      "category": "sound",
+      "kind": "Портативная колонка",
+      "name": "Bang & Olufsen Beosound A1 2nd Gen",
+      "brand": "Bang & Olufsen",
+      "price": 24990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Зелёный",
+          "hex": "#5a5328"
+        },
+        {
+          "name": "Серый туман",
+          "hex": "#b8b4ae"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Колонка с кожаным ремешком"
+      ],
+      "description": "Круглая колонка из анодированного алюминия размером с ладонь: заполняет звуком комнату и не боится воды и пыли по IP67. Кожаный ремешок позволяет повесить её на ветку или крючок в душе. Работает до 18 часов и служит громкой связью благодаря встроенным микрофонам.",
+      "specs": [
+        {
+          "label": "Защита",
+          "value": "IP67 — пыль и погружение в воду"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 18 часов"
+        },
+        {
+          "label": "Усилители",
+          "value": "2 × 30 Вт, класс D"
+        },
+        {
+          "label": "Динамики",
+          "value": "Вуфер 3,5″ и твитер 0,6″"
+        },
+        {
+          "label": "Связь",
+          "value": "Bluetooth 5.1, aptX Adaptive, AAC"
+        },
+        {
+          "label": "Вес",
+          "value": "558 г"
+        }
+      ],
+      "popularity": 76,
+      "tags": [
+        "колонка b&o",
+        "бэнг энд олуфсен",
+        "беосаунд",
+        "портативная колонка",
+        "водонепроницаемая",
+        "влагозащита",
+        "для пикника",
+        "для душа",
+        "для улицы",
+        "для путешествий",
+        "bluetooth колонка",
+        "bluetooth",
+        "в подарок",
+        "алюминий"
+      ],
+      "dimensions": {
+        "size": "Ø 13,3 × 4,6 см",
+        "weight": "558 г",
+        "compare": "размером с блюдце"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Зелёный",
+          "alt": "Зелёная колонка Beosound A1 с кожаным ремешком на тёплом песочном фоне",
+          "focal": "50% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ryan Waring",
+            "authorUrl": "https://unsplash.com/@ryanwaring",
+            "sourceUrl": "https://unsplash.com/photos/round-black-speaker-BMest61rcqs",
+            "id": "BMest61rcqs"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAsAAsBMJZwC7ADwB3gNAADx37mBDDfXj27vmVVoKZyThmwAeETWgEvDfwAA",
+          "dominant": "#6c6665"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Зелёный",
+          "alt": "Beosound A1 лежит на границе светлой и тёмной поверхности, вид сверху",
+          "focal": "45% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ryan Waring",
+            "authorUrl": "https://unsplash.com/@ryanwaring",
+            "sourceUrl": "https://unsplash.com/photos/black-portable-speaker-eeEsmrTVH7Q",
+            "id": "eeEsmrTVH7Q"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAsAAsBMJZgCdADp/raFrgUAAP7f+R6aryYgOuCofCpJhH/zIGZmnCshSH+PvFOXWgAF4dvYj1uyNds8kUAA",
+          "dominant": "#7b5d3f"
+        },
+        {
+          "n": 4,
+          "role": "context",
+          "color": "Серый туман",
+          "alt": "Колонка Beosound A1 цвета «Серый туман» с кожаным ремешком, вид целиком на сером фоне",
+          "focal": "52% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "I'M ZION",
+            "authorUrl": "https://unsplash.com/@ziontech",
+            "sourceUrl": "https://unsplash.com/photos/a-round-object-with-a-wire-attached-to-it-qMuaoRV5Om4",
+            "id": "qMuaoRV5Om4"
+          },
+          "width": 1600,
+          "height": 1601,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQABAAAsBMJZwAAudLeHZOqIAA/u6NOm6qovzudCZUZToE1LhQlRgeN4uAAA==",
+          "dominant": "#50585b"
+        },
+        {
+          "n": 3,
+          "role": "gallery",
+          "color": "Серый туман",
+          "alt": "Перфорированный алюминиевый корпус и кожаный ремешок Beosound A1 крупным планом",
+          "focal": "40% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "WELLSTUDIO",
+            "authorUrl": "https://unsplash.com/@wellstudio",
+            "sourceUrl": "https://unsplash.com/photos/a-bluetooth-speaker-sitting-on-top-of-a-wooden-table-qEln8dcm1jo",
+            "id": "qEln8dcm1jo"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsAAsBMJQBOgCIe6dF6Y7QA/uGfoixLZfMjK08mXYqVdpPppUYbLx6qMPBgWkfMV8sxjPCbGja8+u6z54AA",
+          "dominant": "#baae9f"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "apple-airpods-pro-2",
+      "category": "sound",
+      "kind": "Беспроводные наушники",
+      "name": "Apple AirPods Pro 2",
+      "brand": "Apple",
+      "price": 21990,
+      "oldPrice": 24990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Белый",
+          "hex": "#ecebe7"
+        }
+      ],
+      "optionLabel": "Разъём кейса",
+      "options": [
+        "USB-C"
+      ],
+      "description": "Внутриканальные наушники с активным шумоподавлением на чипе H2 и адаптивным режимом, который сам приглушает резкие звуки улицы. Четыре размера амбушюр и проверка посадки помогают подобрать плотное прилегание. Кейс заряжается от USB-C, MagSafe и зарядки Apple Watch.",
+      "specs": [
+        {
+          "label": "Чип",
+          "value": "Apple H2"
+        },
+        {
+          "label": "Шумоподавление",
+          "value": "Активное, адаптивный режим и режим прозрачности"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 6 часов, до 30 часов с кейсом"
+        },
+        {
+          "label": "Защита",
+          "value": "IP54 — наушники и кейс"
+        },
+        {
+          "label": "Кейс",
+          "value": "USB-C, MagSafe, динамик для поиска"
+        },
+        {
+          "label": "Вес",
+          "value": "5,3 г наушник, 50,8 г кейс"
+        }
+      ],
+      "popularity": 95,
+      "tags": [
+        "airpods pro",
+        "эирподс про",
+        "аирподс",
+        "tws",
+        "внутриканальные",
+        "беспроводные",
+        "шумоподавление",
+        "для iphone",
+        "для бега",
+        "для спорта",
+        "для метро",
+        "в подарок",
+        "эпл"
+      ],
+      "dimensions": {
+        "size": "кейс 6,1 × 4,5 × 2,2 см",
+        "weight": "61,4 г с кейсом",
+        "compare": "кейс как спичечный коробок, только толще"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Белый",
+          "alt": "Белые AirPods Pro и зарядный кейс на светлом деревянном столе",
+          "focal": "50% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Andres Jasso",
+            "authorUrl": "https://unsplash.com/@andresjasso",
+            "sourceUrl": "https://unsplash.com/photos/white-apple-airpods-on-brown-wooden-table-6hQB-U2nWG8",
+            "id": "6hQB-U2nWG8"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoQABQAPtFUo0uoJKMssAgBkBoJZwC+SCHpTNrm6M7AAP6LwoXf9Tnjma0QrAgyc4o2YYq2zxTjQAAA",
+          "dominant": "#a7a296"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Белый",
+          "alt": "Два наушника AirPods Pro на чёрной коже крупным планом",
+          "focal": "45% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Miguel Angel Avila",
+            "authorUrl": "https://unsplash.com/@miketopus",
+            "sourceUrl": "https://unsplash.com/photos/white-earbuds-on-black-textile-3p5cPfbpVTc",
+            "id": "3p5cPfbpVTc"
+          },
+          "width": 1600,
+          "height": 1060,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAgCdASoQAAsAAsBMJZQCdAEPCb7nqomAAP74gyKHDnqH7Lse/8WEfZLFsCSe5bkj4bsAAAA=",
+          "dominant": "#2b2f35"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "bang-olufsen-beolit-20",
+      "category": "sound",
+      "kind": "Портативная колонка",
+      "name": "Bang & Olufsen Beolit 20",
+      "brand": "Bang & Olufsen",
+      "price": 54990,
+      "oldPrice": null,
+      "inStock": false,
+      "colors": [
+        {
+          "name": "Серый туман",
+          "hex": "#b9b5ad"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Колонка с кожаной ручкой"
+      ],
+      "description": "Переносная колонка для дома и дачи с ручкой из натуральной кожи и алюминиевой решёткой. Звук на 360 градусов заполняет большую комнату, а батареи хватает примерно на 37 часов. На верхней панели — беспроводная Qi-зарядка для телефона.",
+      "specs": [
+        {
+          "label": "Пиковая мощность",
+          "value": "240 Вт"
+        },
+        {
+          "label": "Звук",
+          "value": "Всенаправленный, True360"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 37 часов"
+        },
+        {
+          "label": "Зарядка телефона",
+          "value": "Встроенная площадка Qi"
+        },
+        {
+          "label": "Связь",
+          "value": "Bluetooth 5.1, aptX Adaptive"
+        },
+        {
+          "label": "Вес",
+          "value": "2,7 кг"
+        }
+      ],
+      "popularity": 64,
+      "tags": [
+        "beolit",
+        "беолит",
+        "колонка b&o",
+        "бэнг энд олуфсен",
+        "колонка для дома",
+        "для дачи",
+        "для дома",
+        "с ручкой",
+        "стерео",
+        "беспроводная зарядка",
+        "bluetooth колонка",
+        "bluetooth",
+        "в подарок"
+      ],
+      "dimensions": {
+        "size": "около 26 × 16 × 15 см",
+        "weight": "2,7 кг",
+        "compare": "как небольшая корзинка для пикника"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Серый туман",
+          "alt": "Колонка Beolit 20 цвета серый туман с кожаной ручкой на светлой полке у окна",
+          "focal": "100% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Lasse Jensen",
+            "authorUrl": "https://unsplash.com/@maybejensen",
+            "sourceUrl": "https://unsplash.com/photos/white-and-black-portable-speaker-on-brown-wooden-table-s27u-G8pnUE",
+            "id": "s27u-G8pnUE"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAsAAsBMJYwCdADwzD0UAAD2qp3fOQKOOGEujmWAxvvsLfexNUk9Vd4lpnnD8waD2bjxF6HSYxtpAAA=",
+          "dominant": "#969188"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "apple-iphone-16-pro",
+      "category": "mobile",
+      "kind": "Смартфон",
+      "name": "Apple iPhone 16 Pro",
+      "brand": "Apple",
+      "price": 89990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Натуральный титан",
+          "hex": "#b3aa9c"
+        }
+      ],
+      "optionLabel": "Память",
+      "options": [
+        "128 ГБ",
+        "256 ГБ",
+        "512 ГБ"
+      ],
+      "description": "Компактный флагман с титановым корпусом и экраном 6,3 дюйма. Три камеры по 48, 48 и 12 Мп, включая пятикратный телеобъектив, и отдельная кнопка управления камерой. Хватит для съёмки 4K 120 к/с и монтажа прямо на телефоне.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "6,3″ Super Retina XDR, ProMotion до 120 Гц"
+        },
+        {
+          "label": "Процессор",
+          "value": "A18 Pro"
+        },
+        {
+          "label": "Камеры",
+          "value": "48 Мп Fusion + 48 Мп сверхширокоугольная + 12 Мп телефото 5×"
+        },
+        {
+          "label": "Видео",
+          "value": "4K Dolby Vision до 120 к/с"
+        },
+        {
+          "label": "Корпус",
+          "value": "Титан класса 5, стекло Ceramic Shield"
+        },
+        {
+          "label": "Разъём",
+          "value": "USB-C (USB 3)"
+        }
+      ],
+      "popularity": 97,
+      "tags": [
+        "айфон",
+        "iphone 16 pro",
+        "эпл",
+        "смартфон apple",
+        "телефон",
+        "титановый корпус",
+        "для фото",
+        "для съёмки видео",
+        "телеобъектив",
+        "в подарок",
+        "флагман",
+        "ios",
+        "5g"
+      ],
+      "dimensions": {
+        "size": "14,96 × 7,15 × 0,83 см",
+        "weight": "199 г",
+        "compare": "чуть меньше почтовой открытки"
+      },
+      "featuredRank": 0,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Натуральный титан",
+          "alt": "iPhone 16 Pro в цвете «натуральный титан» лежит задней панелью вверх на сером войлоке",
+          "focal": "50% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "appshunter.io",
+            "authorUrl": "https://unsplash.com/@appshunter",
+            "sourceUrl": "https://unsplash.com/photos/the-back-of-a-silver-iphone-11-JkWymCWipxA",
+            "id": "JkWymCWipxA"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAsAAsBMJZQCdACRvjFeAADiVgPdnSF807FHZcE/milEJ+K3Vjzycqsa7qAA",
+          "dominant": "#999385"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Натуральный титан",
+          "alt": "iPhone 16 Pro под углом на сером войлоке: блок из трёх камер и титановая рамка",
+          "focal": "50% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "appshunter.io",
+            "authorUrl": "https://unsplash.com/@appshunter",
+            "sourceUrl": "https://unsplash.com/photos/a-silver-iphone-sitting-on-top-of-a-table-N5qbfch8PrU",
+            "id": "N5qbfch8PrU"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABwAQCdASoQAAsAAsBMJZQAAVv8AAD+YAoRzaC8utkGUs1S6lDqQPHUpkAAXqfhv7hZQAAA",
+          "dominant": "#8f8f81"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "google-pixel-9-pro",
+      "category": "mobile",
+      "kind": "Смартфон",
+      "name": "Google Pixel 9 Pro",
+      "brand": "Google",
+      "price": 74990,
+      "oldPrice": 84990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Серо-зелёный",
+          "hex": "#8e9893"
+        },
+        {
+          "name": "Фарфоровый",
+          "hex": "#e3e2de"
+        }
+      ],
+      "optionLabel": "Память",
+      "options": [
+        "128 ГБ",
+        "256 ГБ",
+        "512 ГБ"
+      ],
+      "description": "Pixel 9 Pro с экраном 6,3 дюйма и тремя камерами: основная на 50 Мп и две по 48 Мп. Фотографии получаются ровными без ручной настройки, а ночная съёмка и пятикратный зум остаются сильной стороной Pixel. Google обещает семь лет обновлений Android.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "6,3″ Super Actua LTPO OLED, 1–120 Гц"
+        },
+        {
+          "label": "Процессор",
+          "value": "Google Tensor G4, 16 ГБ ОЗУ"
+        },
+        {
+          "label": "Камеры",
+          "value": "50 Мп + 48 Мп сверхширокоугольная + 48 Мп телефото 5×"
+        },
+        {
+          "label": "Батарея",
+          "value": "4700 мА·ч, беспроводная зарядка"
+        },
+        {
+          "label": "Обновления",
+          "value": "7 лет обновлений ОС и безопасности"
+        },
+        {
+          "label": "Защита",
+          "value": "IP68"
+        }
+      ],
+      "popularity": 84,
+      "tags": [
+        "пиксель",
+        "pixel 9 pro",
+        "гугл",
+        "google pixel",
+        "android",
+        "телефон",
+        "для фото",
+        "ночная съёмка",
+        "чистый андроид",
+        "смартфон с хорошей камерой",
+        "телеобъектив",
+        "влагозащита",
+        "5g"
+      ],
+      "dimensions": {
+        "size": "15,28 × 7,2 × 0,85 см",
+        "weight": "199 г",
+        "compare": "как небольшой блокнот на ладони"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 2,
+          "role": "primary",
+          "color": "Серо-зелёный",
+          "alt": "Крупный план панели камер Pixel 9 Pro серо-зелёного цвета на тёмной поверхности",
+          "focal": "55% 40%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-cell-phone-on-a-table-oALMJ8tpnBs",
+            "id": "oALMJ8tpnBs"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQAAsAAsBMJZwAAh/ZA+B2v0wAAP728D7J8Qsa+iFvKZaTqDYgqQjsNIyARE3ygnsFYffOQyAJcAAA",
+          "dominant": "#4c504e"
+        },
+        {
+          "n": 1,
+          "role": "gallery",
+          "color": "Фарфоровый",
+          "alt": "Google Pixel 9 Pro фарфорового цвета лежит на тёмном деревянном столе, видна горизонтальная панель камер",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/white-smartphone-with-google-logo-and-camera-array-O6Or-El4hdU",
+            "id": "O6Or-El4hdU"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAAsBMJaQAAbEcflAAAP4npcvZBymQMzoPzmXoJKi7FQK4MLF7wehj3j8KDdJf3X1kRFrzEDnhuc9NUlpcvJAgAA==",
+          "dominant": "#6c6f70"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "samsung-galaxy-s24",
+      "category": "mobile",
+      "kind": "Смартфон",
+      "name": "Samsung Galaxy S24",
+      "brand": "Samsung",
+      "price": 54990,
+      "oldPrice": 64990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Серый мрамор",
+          "hex": "#cdd1cb"
+        }
+      ],
+      "optionLabel": "Память",
+      "options": [
+        "128 ГБ",
+        "256 ГБ",
+        "512 ГБ"
+      ],
+      "description": "Небольшой и лёгкий флагман Samsung: 167 г и экран 6,2 дюйма с частотой 120 Гц. Тройная камера с трёхкратным зумом и функции Galaxy AI, например перевод звонков и поиск обведением. Удобно держать одной рукой.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "6,2″ Dynamic AMOLED 2X, 1–120 Гц"
+        },
+        {
+          "label": "Процессор",
+          "value": "Exynos 2400, 8 ГБ ОЗУ"
+        },
+        {
+          "label": "Камеры",
+          "value": "50 Мп + 12 Мп сверхширокоугольная + 10 Мп телефото 3×"
+        },
+        {
+          "label": "Батарея",
+          "value": "4000 мА·ч, 25 Вт"
+        },
+        {
+          "label": "Защита",
+          "value": "IP68, Gorilla Glass Victus 2"
+        }
+      ],
+      "popularity": 82,
+      "tags": [
+        "самсунг",
+        "галакси",
+        "galaxy s24",
+        "samsung s24",
+        "android",
+        "телефон",
+        "компактный",
+        "компактный смартфон",
+        "galaxy ai",
+        "лёгкий",
+        "для одной руки",
+        "в подарок",
+        "5g"
+      ],
+      "dimensions": {
+        "size": "14,7 × 7,06 × 0,76 см",
+        "weight": "167 г",
+        "compare": "легче стакана воды"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Серый мрамор",
+          "alt": "Samsung Galaxy S24 цвета «серый мрамор» стоит на деревянной подставке на тёплом бежевом фоне",
+          "focal": "45% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Dhruv vishwakarma",
+            "authorUrl": "https://unsplash.com/@dhruva15",
+            "sourceUrl": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-wooden-stand-eRZXC48gllU",
+            "id": "eRZXC48gllU"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAgCdASoQAAsAAsBMJYwCdAEDFJKbu1AAAPzuFf8pt0KsaOSRQ8tiuf8mr+PSgAAAAA==",
+          "dominant": "#a69d91"
+        },
+        {
+          "n": 2,
+          "role": "context",
+          "color": "Серый мрамор",
+          "alt": "Galaxy S24 стоит на каменном парапете рядом с приглушёнными цветами",
+          "focal": "40% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Dhruv vishwakarma",
+            "authorUrl": "https://unsplash.com/@dhruva15",
+            "sourceUrl": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-table-Eda49vVHnp0",
+            "id": "Eda49vVHnp0"
+          },
+          "width": 1600,
+          "height": 990,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAoAAsBMJaQAAvv3Pn9OgAD+9dWleF/f9/Iq6aUhUvt8YQrHBsLVX8gZBc9Xl4qfc9fkAAA=",
+          "dominant": "#646262"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "apple-watch-ultra-2",
+      "category": "mobile",
+      "kind": "Умные часы",
+      "name": "Apple Watch Ultra 2",
+      "brand": "Apple",
+      "price": 84990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Натуральный титан",
+          "hex": "#b8b1a5"
+        }
+      ],
+      "optionLabel": "Размер ремешка",
+      "options": [
+        "S",
+        "M",
+        "L"
+      ],
+      "description": "Самые выносливые часы Apple: титановый корпус 49 мм, сапфировое стекло и яркость экрана до 3000 нит. Двухчастотный GPS, сертификация для дайвинга до 40 м и до 36 часов работы. Подходят для гор, бега на длинные дистанции и плавания.",
+      "specs": [
+        {
+          "label": "Корпус",
+          "value": "49 мм, титан, сапфировое стекло"
+        },
+        {
+          "label": "Экран",
+          "value": "Always-On Retina LTPO2, до 3000 нит"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 36 часов, до 72 часов в режиме энергосбережения"
+        },
+        {
+          "label": "Защита",
+          "value": "WR100, EN13319 (дайвинг до 40 м), IP6X"
+        },
+        {
+          "label": "Навигация",
+          "value": "Двухчастотный GPS (L1 + L5)"
+        },
+        {
+          "label": "Процессор",
+          "value": "S9 SiP"
+        }
+      ],
+      "popularity": 88,
+      "tags": [
+        "эпл вотч",
+        "apple watch ultra",
+        "часы",
+        "умные часы",
+        "смарт часы",
+        "для бега",
+        "для спорта",
+        "для плавания",
+        "для дайвинга",
+        "для гор",
+        "gps",
+        "пульс",
+        "титан",
+        "спортивные часы",
+        "в подарок",
+        "эпл"
+      ],
+      "dimensions": {
+        "size": "4,9 × 4,4 × 1,44 см",
+        "weight": "61,6 г",
+        "compare": "примерно как куриное яйцо"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Натуральный титан",
+          "alt": "Apple Watch Ultra 2 в натуральном титане с тёмно-зелёным ремешком Alpine Loop на сером текстиле",
+          "focal": "52% 45%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/an-apple-watch-with-a-green-strap-gjh_MaV52rs",
+            "id": "gjh_MaV52rs"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAsAAsBMJZwAAp3P/uOHAAD+9JCb3PB5MeEnlsR+9isonzSiKqVh0PgAAA==",
+          "dominant": "#44423e"
+        },
+        {
+          "n": 2,
+          "role": "context",
+          "color": "Натуральный титан",
+          "alt": "Apple Watch Ultra в натуральном титане со светлым ремешком лежит на рабочем столе перед клавиатурой",
+          "focal": "50% 72%",
+          "tone": "mid",
+          "credit": {
+            "author": "Nat Weerawong",
+            "authorUrl": "https://unsplash.com/@nathadej",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-and-keyboard-on-a-desk-PopSYmHREZ4",
+            "id": "PopSYmHREZ4"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoQABQAPtFUo0uoJKMhsAgBABoJZgCdMoRwACHT6Vzq+3UuwAD+t+Nj1gMYR8BkKrEwkl5wynC4D95p2AjZZC3E3fcbrC7sDu57M/tOXICr2swOe4UR5d653c0zgsMH5lD/8QAA",
+          "dominant": "#8b6950"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "apple-watch-se-3",
+      "category": "mobile",
+      "kind": "Умные часы",
+      "name": "Apple Watch SE 3",
+      "brand": "Apple",
+      "price": 25990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Тёмная ночь",
+          "hex": "#25282d"
+        }
+      ],
+      "optionLabel": "Размер корпуса",
+      "options": [
+        "40 мм",
+        "44 мм"
+      ],
+      "description": "Самые доступные Apple Watch: алюминиевый корпус, постоянно включённый экран и процессор S10. Считают шаги, пульс и тренировки, оценивают сон, умеют распознать падение и вызвать помощь. Хороший выбор для первых умных часов.",
+      "specs": [
+        {
+          "label": "Корпус",
+          "value": "40 или 44 мм, алюминий"
+        },
+        {
+          "label": "Экран",
+          "value": "Always-On Retina LTPO"
+        },
+        {
+          "label": "Процессор",
+          "value": "S10 SiP"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 18 часов"
+        },
+        {
+          "label": "Защита",
+          "value": "Водонепроницаемость до 50 м"
+        }
+      ],
+      "popularity": 79,
+      "tags": [
+        "эпл вотч",
+        "apple watch se",
+        "часы",
+        "умные часы",
+        "смарт часы",
+        "фитнес",
+        "для тренировок",
+        "для спорта",
+        "для плавания",
+        "пульс",
+        "сон",
+        "для сна",
+        "недорогие",
+        "первые часы",
+        "в подарок",
+        "эпл"
+      ],
+      "dimensions": {
+        "size": "4,0 × 3,4 × 1,07 см (40 мм)",
+        "weight": "около 26 г (40 мм)",
+        "compare": "как столовая ложка сахара"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Тёмная ночь",
+          "alt": "Apple Watch с тёмным алюминиевым корпусом и чёрным спортивным ремешком на светло-сером фоне, на экране 13:48",
+          "focal": "50% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Klim Musalimov",
+            "authorUrl": "https://unsplash.com/@klim11",
+            "sourceUrl": "https://unsplash.com/photos/an-apple-watch-with-the-time-displayed-on-it-IGO10LkxP_g",
+            "id": "IGO10LkxP_g"
+          },
+          "width": 1600,
+          "height": 2400,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoQABgAPtFWpEuoJKOhsAgBABoJaQAAW+jHHdjJ/ZPtrVX2AAD+3qhhx8gpux9jmtmGU8ELaMSJ4bGwDfbg0iC35Es4ocuic8X5flsbKbiQlMmVN93vMAAA",
+          "dominant": "#a0a0a0"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Тёмная ночь",
+          "alt": "Apple Watch фронтально на светло-сером фоне, на экране крупные цифры 14:00",
+          "focal": "50% 58%",
+          "tone": "light",
+          "credit": {
+            "author": "Klim Musalimov",
+            "authorUrl": "https://unsplash.com/@klim11",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-sign-Eh9RtyZ4uNo",
+            "id": "Eh9RtyZ4uNo"
+          },
+          "width": 1600,
+          "height": 2400,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoQABgAPtFcpkyoJSOiMAgBABoJaQAAW+s7u1NQPaJ0YAD+wtZ3Qy8xZ4kVKSKXnTXFWwrfPUo0X3bb8HbNT2+1ukcF9KFaTWZwAAAA",
+          "dominant": "#a0a0a0"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Тёмная ночь",
+          "alt": "Тёмные Apple Watch с выключенным экраном лежат на чёрной поверхности, ремешок вытянут по диагонали",
+          "focal": "55% 40%",
+          "tone": "dark",
+          "credit": {
+            "author": "Cezar Sampaio",
+            "authorUrl": "https://unsplash.com/@cezarsmpio",
+            "sourceUrl": "https://unsplash.com/photos/silver-aluminum-case-apple-watch-with-white-sport-band-bFzhdm9zZp0",
+            "id": "bFzhdm9zZp0"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAsAAsBMJZwAAp01oQAA/vkYckfgrh0G9SRfaqcCAA==",
+          "dominant": "#202226"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "garmin-forerunner-55",
+      "category": "mobile",
+      "kind": "Спортивные часы",
+      "name": "Garmin Forerunner 55",
+      "brand": "Garmin",
+      "price": 19990,
+      "oldPrice": null,
+      "inStock": false,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#1e1e1e"
+        }
+      ],
+      "optionLabel": "Размер корпуса",
+      "options": [
+        "42 мм"
+      ],
+      "description": "Лёгкие беговые часы с GPS и экраном, который хорошо читается на солнце. Подсказывают темп на каждую тренировку, оценивают время восстановления и держат до двух недель без зарядки. Подходят тем, кто начинает бегать или готовится к первому полумарафону.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "1,04″ MIP, 208 × 208, читается на солнце"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 2 недель, до 20 часов с GPS"
+        },
+        {
+          "label": "Навигация",
+          "value": "GPS, ГЛОНАСС, Galileo"
+        },
+        {
+          "label": "Защита",
+          "value": "5 ATM"
+        },
+        {
+          "label": "Датчики",
+          "value": "Пульс на запястье, акселерометр"
+        }
+      ],
+      "popularity": 66,
+      "tags": [
+        "гармин",
+        "garmin",
+        "forerunner",
+        "часы",
+        "беговые часы",
+        "для бега",
+        "для спорта",
+        "спортивные часы",
+        "gps",
+        "gps часы",
+        "пульс",
+        "долгая автономность",
+        "для начинающих",
+        "лёгкие"
+      ],
+      "dimensions": {
+        "size": "4,2 × 4,2 × 1,16 см",
+        "weight": "37 г",
+        "compare": "легче куриного яйца"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные часы Garmin Forerunner на тёмной матовой поверхности, на экране 8:54",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Daniel Maquiling",
+            "authorUrl": "https://unsplash.com/@maquilingskiswifty",
+            "sourceUrl": "https://unsplash.com/photos/a-smart-watch-sitting-on-top-of-a-black-surface-vfAQkN3WbwU",
+            "id": "vfAQkN3WbwU"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAAAQAgCdASoQAAsAAsBMJaQAAueJVX+0KQQAAP70m9ajFycdu2+FA2AAAAA=",
+          "dominant": "#363636"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "fujifilm-x100vi",
+      "category": "photo",
+      "kind": "Компактная камера",
+      "name": "Fujifilm X100VI",
+      "brand": "Fujifilm",
+      "price": 229990,
+      "oldPrice": null,
+      "inStock": false,
+      "colors": [
+        {
+          "name": "Серебристый",
+          "hex": "#aeb0af"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Только камера",
+        "С адаптерным кольцом AR-X100 и блендой LH-X100"
+      ],
+      "description": "Компактная камера с несъёмным объективом 23 мм f/2 (35 мм в эквиваленте) и гибридным видоискателем. В ней 40-мегапиксельная матрица APS-C и встроенная стабилизация до 6 ступеней. Камера помещается в карман куртки, а снимки с плёночными симуляциями Fujifilm можно отправлять сразу, без обработки.",
+      "specs": [
+        {
+          "label": "Матрица",
+          "value": "APS-C X-Trans CMOS 5 HR, 40,2 Мп"
+        },
+        {
+          "label": "Объектив",
+          "value": "Fujinon 23 мм f/2 (35 мм в экв.)"
+        },
+        {
+          "label": "Стабилизация",
+          "value": "Встроенная, 5 осей, до 6 ступеней"
+        },
+        {
+          "label": "Видоискатель",
+          "value": "Гибридный: оптический и электронный 3,69 млн точек"
+        },
+        {
+          "label": "Видео",
+          "value": "6,2K 30p, 4K 60p, 10 бит"
+        },
+        {
+          "label": "Плёночные симуляции",
+          "value": "20, включая Reala Ace"
+        }
+      ],
+      "popularity": 96,
+      "tags": [
+        "фотоаппарат",
+        "камера",
+        "компактная камера",
+        "фуджифильм",
+        "фуджи",
+        "fuji x100",
+        "икс сто",
+        "для фото",
+        "для путешествий",
+        "для творчества",
+        "уличная фотография",
+        "плёночные симуляции",
+        "дальномерный стиль",
+        "в подарок фотографу",
+        "икс100"
+      ],
+      "dimensions": {
+        "size": "12,8 × 7,5 × 5,5 см",
+        "weight": "521 г",
+        "compare": "как толстая книга в мягкой обложке"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Серебристый",
+          "alt": "Серебристая камера Fujifilm X100VI с объективом 23 мм лежит под углом на тёмной поверхности",
+          "focal": "47% 52%",
+          "tone": "dark",
+          "credit": {
+            "author": "Kevin Canlas",
+            "authorUrl": "https://unsplash.com/@kvncnls",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-sitting-on-top-of-a-black-table-joSBugYIBcc",
+            "id": "joSBugYIBcc"
+          },
+          "width": 1600,
+          "height": 2400,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoQABgAPtFUpEuoJKOhsAgBABoJaQAAW/BBvMaVAQAA/vF9myh1T0VR/446z2jm5H60HsL6NGGiipX/Nya65/vGyy7y6GEPNSgAAA==",
+          "dominant": "#2e2f2d"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Серебристый",
+          "alt": "Чёрно-белый снимок камеры серии X100 с плетёным ремешком на текстильной поверхности",
+          "focal": "50% 45%",
+          "tone": "dark",
+          "credit": {
+            "author": "Leif Christoph Gottwald",
+            "authorUrl": "https://unsplash.com/@project2204",
+            "sourceUrl": "https://unsplash.com/photos/a-black-and-white-photo-of-a-camera-cGfomwRdQDM",
+            "id": "cGfomwRdQDM"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAsAAsBMJaQAAuo/GcrTgAD+7vPfsGwHfF92cso8b/8ArnlFEAQMmjf9ho/360nUBjGLKqkH6U9qh+n18PYAAAA=",
+          "dominant": "#323232"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "ricoh-gr-iiix",
+      "category": "photo",
+      "kind": "Компактная камера",
+      "name": "Ricoh GR IIIx",
+      "brand": "Ricoh",
+      "price": 124990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#282828"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Только камера",
+        "Камера и карта памяти 128 ГБ"
+      ],
+      "description": "Карманная камера с матрицей APS-C и объективом 26,1 мм f/2,8. В эквиваленте это 40 мм, близко к тому, как видит глаз. Весит 262 грамма, включается меньше чем за секунду, а трёхосевая стабилизация помогает снимать с рук в сумерках.",
+      "specs": [
+        {
+          "label": "Матрица",
+          "value": "APS-C CMOS, 24,2 Мп"
+        },
+        {
+          "label": "Объектив",
+          "value": "GR Lens 26,1 мм f/2,8 (40 мм в экв.)"
+        },
+        {
+          "label": "Стабилизация",
+          "value": "Сдвиг матрицы, 3 оси"
+        },
+        {
+          "label": "Экран",
+          "value": "3″, сенсорный"
+        },
+        {
+          "label": "Видео",
+          "value": "Full HD 60p"
+        },
+        {
+          "label": "Подключение",
+          "value": "Wi-Fi, Bluetooth, USB-C"
+        }
+      ],
+      "popularity": 88,
+      "tags": [
+        "фотоаппарат",
+        "камера",
+        "компактная камера",
+        "рико",
+        "ricoh gr 3x",
+        "gr iiix",
+        "для фото",
+        "уличная фотография",
+        "карманная камера",
+        "компактный",
+        "для путешествий",
+        "для творчества",
+        "40 мм",
+        "в подарок фотографу",
+        "gr3x"
+      ],
+      "dimensions": {
+        "size": "10,9 × 6,2 × 3,5 см",
+        "weight": "262 г",
+        "compare": "чуть больше колоды карт, помещается в карман джинсов"
+      },
+      "featuredRank": 2,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрная камера Ricoh GR IIIx с ремешком на запястье, вид спереди на тёмной фактурной поверхности",
+          "focal": "50% 48%",
+          "tone": "dark",
+          "credit": {
+            "author": "Li Yan",
+            "authorUrl": "https://unsplash.com/@yanli247",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-sitting-on-top-of-a-black-table-pGGtoc7n5AM",
+            "id": "pGGtoc7n5AM"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAsAAsBMJaQAAua9CorwAAD+3F4CSKtloBfhF69Pq1mMHXLAAA==",
+          "dominant": "#3e3e3e"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "fujifilm-instax-mini-evo",
+      "category": "photo",
+      "kind": "Камера моментальной печати",
+      "name": "Fujifilm instax mini Evo",
+      "brand": "Fujifilm",
+      "price": 21990,
+      "oldPrice": 24990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#0f1515"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Только камера",
+        "Камера и 20 кадров instax mini"
+      ],
+      "description": "Гибридная камера: снимок сначала появляется на экране, и вы печатаете только удачные кадры. Десять эффектов объектива и десять плёночных дают 100 сочетаний. Через Bluetooth камера печатает и фотографии со смартфона, на стандартной плёнке instax mini.",
+      "specs": [
+        {
+          "label": "Тип",
+          "value": "Цифровая камера со встроенным принтером"
+        },
+        {
+          "label": "Объектив",
+          "value": "28 мм f/2 (в экв.)"
+        },
+        {
+          "label": "Эффекты",
+          "value": "10 эффектов объектива × 10 плёночных = 100 сочетаний"
+        },
+        {
+          "label": "Размер снимка",
+          "value": "54 × 86 мм, плёнка instax mini"
+        },
+        {
+          "label": "Батарея",
+          "value": "Встроенная, около 100 отпечатков на заряде"
+        },
+        {
+          "label": "Подключение",
+          "value": "Bluetooth, печать со смартфона"
+        }
+      ],
+      "popularity": 91,
+      "tags": [
+        "инстакс",
+        "instax",
+        "моментальная печать",
+        "полароид",
+        "polaroid",
+        "фотоаппарат",
+        "камера",
+        "фотоаппарат с печатью",
+        "в подарок",
+        "подарок",
+        "для вечеринки",
+        "для творчества",
+        "ретро",
+        "фуджифильм",
+        "фуджи",
+        "печать с телефона",
+        "мгновенные фото",
+        "камера с печатью"
+      ],
+      "dimensions": {
+        "size": "12,4 × 9,3 × 3,6 см",
+        "weight": "285 г",
+        "compare": "как толстый ежедневник формата A6"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Камера instax mini Evo в серебристо-чёрном корпусе стоит анфас на светло-серой ткани",
+          "focal": "49% 53%",
+          "tone": "light",
+          "credit": {
+            "author": "Elianna Gill",
+            "authorUrl": "https://unsplash.com/@elianna_gill03",
+            "sourceUrl": "https://unsplash.com/photos/a-white-and-black-camera-sitting-on-top-of-a-table-iK5ibGZWA5M",
+            "id": "iK5ibGZWA5M"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoQABQAPtFUo0uoJKMhsAgBABoJaQDImCHqTSQzvg5e8EAA/q7b4LL6lEfL7YjCI1pJUztgit3apD72oiX9BmYWoOm01QAA",
+          "dominant": "#9b9995"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "instax mini Evo в руке над песком пляжа, видны объектив и рычажок печати",
+          "focal": "50% 72%",
+          "tone": "mid",
+          "credit": {
+            "author": "Arkeyytones",
+            "authorUrl": "https://unsplash.com/@arkeykii",
+            "sourceUrl": "https://unsplash.com/photos/hand-holding-a-camera-on-a-sandy-beach-I8IIxC5CsbU",
+            "id": "I8IIxC5CsbU"
+          },
+          "width": 1600,
+          "height": 2133,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBACdASoQABUAPtFWo0uoJKMhsAgBABoJZACdMoRwACBZY8pwl0V0+djwAPxSPSE8mbjcctedjW5WvQNvY2a1Vc2VelT1U/XIn97PPyqw+lg9uyuGn/8QgsjqzmIj5BTyk2gkI8B2TGihX7Qp/AAA",
+          "dominant": "#987c62"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "sony-alpha-7-iv",
+      "category": "photo",
+      "kind": "Беззеркальная камера",
+      "name": "Sony α7 IV",
+      "brand": "Sony",
+      "price": 194990,
+      "oldPrice": 214990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#121314"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Корпус",
+        "С объективом FE 28–70 мм"
+      ],
+      "description": "Полнокадровая беззеркальная камера для фото и видео. 33 мегапикселя, автофокус по глазам людей и животных, запись 4K 60p с 10-битным цветом. Подходит для свадеб, портретов, путешествий и роликов для YouTube. Байонет Sony E совместим с сотнями объективов.",
+      "specs": [
+        {
+          "label": "Матрица",
+          "value": "Полный кадр Exmor R, 33 Мп"
+        },
+        {
+          "label": "Процессор",
+          "value": "BIONZ XR"
+        },
+        {
+          "label": "Автофокус",
+          "value": "759 фазовых точек, распознавание глаз в реальном времени"
+        },
+        {
+          "label": "Стабилизация",
+          "value": "Встроенная, 5 осей, до 5,5 ступени"
+        },
+        {
+          "label": "Видео",
+          "value": "4K 60p, 10 бит 4:2:2"
+        },
+        {
+          "label": "Байонет",
+          "value": "Sony E"
+        }
+      ],
+      "popularity": 84,
+      "tags": [
+        "беззеркалка",
+        "полный кадр",
+        "сони",
+        "sony a7 4",
+        "a7iv",
+        "альфа 7",
+        "для фото",
+        "для видео",
+        "для свадебной съёмки",
+        "для творчества",
+        "системная камера",
+        "фотоаппарат",
+        "камера"
+      ],
+      "dimensions": {
+        "size": "13,1 × 9,6 × 8,0 см",
+        "weight": "658 г",
+        "compare": "размером с два кулака"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 2,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Камера Sony α7 IV с объективом FE 50 мм f/1,8 и блендой на приглушённом серо-зелёном фоне",
+          "focal": "50% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "Debashis RC Biswas",
+            "authorUrl": "https://unsplash.com/@rcsalbum",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-with-a-lens-attached-to-it-gUABF0lRtp8",
+            "id": "gUABF0lRtp8"
+          },
+          "width": 1600,
+          "height": 1600,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoQABAAAsBMJZwC7AEOza+OIS0AAP6iMbDq/tRjn1G8mYunjNoGGJDAtgB5/cyRUO8IlAAEAAA=",
+          "dominant": "#4a534a"
+        },
+        {
+          "n": 1,
+          "role": "gallery",
+          "color": "Чёрный",
+          "alt": "Камера Sony α7 IV с объективом FE 50 мм f/1,8 в контровом свете на чёрном фоне",
+          "focal": "50% 58%",
+          "tone": "dark",
+          "credit": {
+            "author": "Vignesh chandran",
+            "authorUrl": "https://unsplash.com/@veecee_photography",
+            "sourceUrl": "https://unsplash.com/photos/a-sony-camera-sitting-on-top-of-a-table-4XYGL6M4kjA",
+            "id": "4XYGL6M4kjA"
+          },
+          "width": 1600,
+          "height": 2400,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACQAwCdASoQABgAPtFipk0oJiOiMAgBABoJaQAAW+lpqr4wW2AAAP72hHyCBhvXhaZyvAu1jJkWsIAA",
+          "dominant": "#080a08"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "slug": "dji-osmo-action-5-pro",
+      "category": "photo",
+      "kind": "Экшн-камера",
+      "name": "DJI Osmo Action 5 Pro",
+      "brand": "DJI",
+      "price": 36990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#2d3236"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Standard Combo",
+        "Adventure Combo"
+      ],
+      "description": "Экшн-камера с крупной матрицей 1/1,3 дюйма. Снимает 4K до 120 кадров в секунду и вытягивает детали в тенях даже вечером. Без бокса выдерживает погружение на 20 метров. Сенсорные OLED-экраны на обеих сторонах удобны для съёмки себя, а один аккумулятор работает до 4 часов.",
+      "specs": [
+        {
+          "label": "Матрица",
+          "value": "1/1,3″, динамический диапазон 13,5 ступени"
+        },
+        {
+          "label": "Видео",
+          "value": "4K до 120 к/с"
+        },
+        {
+          "label": "Объектив",
+          "value": "Угол обзора 155°, f/2,8"
+        },
+        {
+          "label": "Защита от воды",
+          "value": "До 20 м без бокса"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 4 часов, аккумулятор 1950 мА·ч"
+        },
+        {
+          "label": "Память",
+          "value": "47 ГБ встроенной + microSD"
+        }
+      ],
+      "popularity": 79,
+      "tags": [
+        "экшн камера",
+        "action camera",
+        "камера",
+        "джи ай",
+        "dji",
+        "осмо экшн",
+        "для велосипеда",
+        "для дайвинга",
+        "для сноуборда",
+        "для спорта",
+        "для путешествий",
+        "видеоблог",
+        "водонепроницаемая",
+        "альтернатива gopro"
+      ],
+      "dimensions": {
+        "size": "7,0 × 4,4 × 3,3 см",
+        "weight": "146 г",
+        "compare": "чуть больше спичечного коробка, весит как смартфон без чехла"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Экшн-камера DJI Osmo Action 5 Pro под углом на приглушённой сине-серой поверхности",
+          "focal": "50% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "Puneet Kaul",
+            "authorUrl": "https://unsplash.com/@puneetkaul",
+            "sourceUrl": "https://unsplash.com/photos/black-action-camera-with-a-lens-and-screen-4mH6hkirn0c",
+            "id": "4mH6hkirn0c"
+          },
+          "width": 1600,
+          "height": 1069,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAsAAsBMJZQAAeRM6IwAAM4mzcEdpJ+JjUhXs4KrxCH0Hm+Bzrb0SE1jL/YUXaOWulmAAAA=",
+          "dominant": "#525d5d"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Чёрный",
+          "alt": "Osmo Action 5 Pro анфас: фронтальный экран и объектив с красным кольцом",
+          "focal": "52% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "Puneet Kaul",
+            "authorUrl": "https://unsplash.com/@puneetkaul",
+            "sourceUrl": "https://unsplash.com/photos/black-action-camera-with-red-lens-ring-on-dark-background-Wn1A7UdJRjg",
+            "id": "Wn1A7UdJRjg"
+          },
+          "width": 1600,
+          "height": 1068,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAsAAsBMJYwCdAENAzM0tQAA/pdYY+M8GUWqCHPc9vJxq5Jz65+SQqfnRdHl+OguZ+h15QVO/CAA",
+          "dominant": "#65717c"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "slug": "dji-mini-4k",
+      "category": "photo",
+      "kind": "Квадрокоптер",
+      "name": "DJI Mini 4K",
+      "brand": "DJI",
+      "price": 32990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Серый",
+          "hex": "#a3a6b2"
+        }
+      ],
+      "optionLabel": "Комплект",
+      "options": [
+        "Стандартный",
+        "Fly More Combo"
+      ],
+      "description": "Складной дрон легче 249 граммов для первых полётов и съёмки в путешествиях. Камера на трёхосевом подвесе пишет 4K 30p, а держать горизонт и стабилизировать картинку помогает электроника. Без подзарядки летает до 31 минуты и держит видеосвязь на расстоянии до 10 км.",
+      "specs": [
+        {
+          "label": "Взлётная масса",
+          "value": "Менее 249 г"
+        },
+        {
+          "label": "Камера",
+          "value": "1/2,3″, 12 Мп"
+        },
+        {
+          "label": "Видео",
+          "value": "4K 30p"
+        },
+        {
+          "label": "Подвес",
+          "value": "Механический, 3 оси"
+        },
+        {
+          "label": "Время полёта",
+          "value": "До 31 минуты"
+        },
+        {
+          "label": "Передача видео",
+          "value": "DJI O2, до 10 км"
+        }
+      ],
+      "popularity": 74,
+      "tags": [
+        "дрон",
+        "квадрокоптер",
+        "джи ай",
+        "dji",
+        "dji mini",
+        "мини дрон",
+        "для начинающих",
+        "для путешествий",
+        "для творчества",
+        "аэросъёмка",
+        "4к",
+        "складной"
+      ],
+      "dimensions": {
+        "size": "13,8 × 8,1 × 5,8 см в сложенном виде",
+        "weight": "249 г",
+        "compare": "сложенный — как бутылка воды 0,5 л на боку"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 2,
+          "role": "primary",
+          "color": "Серый",
+          "alt": "Серый квадрокоптер DJI в полёте над водой, винты размыты движением",
+          "focal": "50% 48%",
+          "tone": "mid",
+          "credit": {
+            "author": "Andrii Denysenko",
+            "authorUrl": "https://unsplash.com/@denisenkos",
+            "sourceUrl": "https://unsplash.com/photos/white-drone-on-white-surface--kDeZkybg6Y",
+            "id": "-kDeZkybg6Y"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAsAAsBMJZwAAewsCgIQAP6XackRJHQl0tbc6gWgqqEBhvFwAA==",
+          "dominant": "#838888"
+        },
+        {
+          "n": 1,
+          "role": "gallery",
+          "color": "Серый",
+          "alt": "Серый квадрокоптер DJI с раскрытыми лучами, вид сверху на чёрном фоне",
+          "focal": "50% 48%",
+          "tone": "dark",
+          "credit": {
+            "author": "Manny Moreno",
+            "authorUrl": "https://unsplash.com/@mannydream",
+            "sourceUrl": "https://unsplash.com/photos/white-and-gray-quadcopter-drone-QdY9ORobCKw",
+            "id": "QdY9ORobCKw"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoQABQAPtFUo0uoJKMhsAgBABoJaQAAW+wEApP2oAAA/vaO/TQBavKnf7fF/tN1sQ/gav8XZszrvEYh5fdKXQHpsAAAAA==",
+          "dominant": "#141415"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "slug": "keychron-k2",
+      "category": "desk",
+      "kind": "Механическая клавиатура",
+      "name": "Keychron K2 (Version 2)",
+      "brand": "Keychron",
+      "price": 9990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Графитовый",
+          "hex": "#27363d"
+        }
+      ],
+      "optionLabel": "Переключатели",
+      "options": [
+        "Gateron G Pro Red",
+        "Gateron G Pro Brown",
+        "Gateron G Pro Blue"
+      ],
+      "description": "Компактная беспроводная клавиатура формата 75%: стрелки и F-ряд на месте, а места на столе она занимает заметно меньше полноразмерной. Подключается по Bluetooth к трём устройствам или по кабелю USB-C и одинаково уверенно работает с Mac и Windows. Механические переключатели дают чёткий отклик, а батареи хватает на недели работы.",
+      "specs": [
+        {
+          "label": "Формат",
+          "value": "75%, 84 клавиши"
+        },
+        {
+          "label": "Подключение",
+          "value": "Bluetooth 5.1 (до 3 устройств), USB-C"
+        },
+        {
+          "label": "Батарея",
+          "value": "4000 мА·ч"
+        },
+        {
+          "label": "Переключатели",
+          "value": "Gateron G Pro, механические"
+        },
+        {
+          "label": "Совместимость",
+          "value": "macOS, Windows, iOS, Android"
+        }
+      ],
+      "popularity": 84,
+      "tags": [
+        "клавиатура",
+        "механическая клавиатура",
+        "механика",
+        "беспроводная клавиатура",
+        "кейкрон",
+        "keychron",
+        "для mac",
+        "для программиста",
+        "для программирования",
+        "75%",
+        "bluetooth",
+        "для работы",
+        "для офиса",
+        "в подарок"
+      ],
+      "dimensions": {
+        "size": "31,3 × 12,3 × 4 см",
+        "weight": "≈ 660 г",
+        "compare": "по длине как лист A4"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 4,
+          "role": "primary",
+          "color": "Графитовый",
+          "alt": "Клавиатура Keychron K2 с серыми клавишами и красной Esc на белом столе, вид сверху",
+          "focal": "46% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Martin Garrido",
+            "authorUrl": "https://unsplash.com/@martingarrido",
+            "sourceUrl": "https://unsplash.com/photos/black-computer-keyboard-on-white-table-cVUPic1cbd4",
+            "id": "cVUPic1cbd4"
+          },
+          "width": 1600,
+          "height": 1014,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAoAAsBMJZwAAsf497BAAP7wG0Ve7ftN/UpgEiRr4j3xxLCPieI/wX92hUoFHF0+6JYIbvZPbc7n0ASwQnFEnpZgAA==",
+          "dominant": "#a8adb0"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Графитовый",
+          "alt": "Крупный план угла Keychron K2: оранжевая Esc и серые модификаторы на деревянном столе",
+          "focal": "35% 60%",
+          "tone": "dark",
+          "credit": {
+            "author": "Amjith S",
+            "authorUrl": "https://unsplash.com/@amjiths",
+            "sourceUrl": "https://unsplash.com/photos/black-computer-keyboard-on-brown-wooden-table-MHsZ3TImGys",
+            "id": "MHsZ3TImGys"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAwAgCdASoQAAsAAsBMJagCdAELZN6AAKYdsAD+v6s1TyhddIQGRRj+PO4oaThlI7nrwFYkzNVgi6QWLTk+ArDZxAA=",
+          "dominant": "#423f30"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Графитовый",
+          "alt": "Keychron K2 и мышь на чёрном коврике рабочего стола рядом с блокнотом",
+          "focal": "50% 58%",
+          "tone": "mid",
+          "credit": {
+            "author": "Amjith S",
+            "authorUrl": "https://unsplash.com/@amjiths",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-keyboard-and-mouse-on-a-desk-8PHIJoVF5m4",
+            "id": "8PHIJoVF5m4"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAsAAsBMJYwCdAEKUFMcCAAA/vGF4I/5ls1cycyEhOnS5M/g8jwSqNVjHvUXib7RPTMSIidVETwAAAA=",
+          "dominant": "#36372e"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "slug": "logitech-mx-master-3s",
+      "category": "desk",
+      "kind": "Беспроводная мышь",
+      "name": "Logitech MX Master 3S",
+      "brand": "Logitech",
+      "price": 9990,
+      "oldPrice": 11990,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Графитовый",
+          "hex": "#24292d"
+        }
+      ],
+      "optionLabel": "Версия",
+      "options": [
+        "Стандартная",
+        "For Mac"
+      ],
+      "description": "Эргономичная мышь для долгой работы: корпус поддерживает ладонь, а боковое колесо прокручивает таблицы и таймлайны по горизонтали. Колесо MagSpeed пролистывает тысячу строк за секунду, клики почти беззвучные. Одной зарядки хватает примерно на 70 дней.",
+      "specs": [
+        {
+          "label": "Сенсор",
+          "value": "Darkfield, до 8000 DPI, работает на стекле"
+        },
+        {
+          "label": "Подключение",
+          "value": "Bluetooth, приёмник Logi Bolt; до 3 устройств"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 70 дней, минута зарядки — 3 часа работы"
+        },
+        {
+          "label": "Зарядка",
+          "value": "USB-C"
+        },
+        {
+          "label": "Кнопки",
+          "value": "7, тихие клики"
+        }
+      ],
+      "popularity": 91,
+      "tags": [
+        "мышь",
+        "беспроводная мышь",
+        "логитек",
+        "logitech",
+        "mx master",
+        "эргономичная мышь",
+        "для дизайнера",
+        "для работы",
+        "для офиса",
+        "тихая мышь",
+        "для mac",
+        "bluetooth",
+        "в подарок",
+        "мх",
+        "мышка",
+        "мышку",
+        "компьютерная мышь",
+        "мышь для компьютера"
+      ],
+      "dimensions": {
+        "size": "12,5 × 8,4 × 5,1 см",
+        "weight": "141 г",
+        "compare": "примерно как крупная груша"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Графитовый",
+          "alt": "Мышь Logitech MX Master 3S графитового цвета на тёмно-синем войлоке",
+          "focal": "47% 47%",
+          "tone": "dark",
+          "credit": {
+            "author": "Mahdi Gharib",
+            "authorUrl": "https://unsplash.com/@mahdiverse",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-mouse-on-a-black-surface-zVUQsh7EEV8",
+            "id": "zVUQsh7EEV8"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAABwAQCdASoQAAsAAsBMJZwCdAFAAAD+8KMRawvLC20RjQsv5HQH5AAA",
+          "dominant": "#2e353d"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Графитовый",
+          "alt": "Колесо MagSpeed и боковые кнопки MX Master 3S крупным планом на фоне коробки MX",
+          "focal": "60% 72%",
+          "tone": "dark",
+          "credit": {
+            "author": "Robert Torres",
+            "authorUrl": "https://unsplash.com/@roberttorres_19r",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-sitting-on-top-of-a-keyboard-MyHYfiRhgNI",
+            "id": "MyHYfiRhgNI"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoQABQAPtFUpEuoJKOhsAgBABoJZwAAVJe8xcUxG6T4HMAA/uz77eaLXdjSPzV+FENU0/e4dZEsHpvSZrs1IiC17SsxvQKzbg4AAA==",
+          "dominant": "#283232"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Графитовый",
+          "alt": "MX Master 3S в профиль на тёмном рабочем столе в приглушённом свете",
+          "focal": "40% 66%",
+          "tone": "dark",
+          "credit": {
+            "author": "Robert Torres",
+            "authorUrl": "https://unsplash.com/@roberttorres_19r",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-sitting-on-top-of-a-wooden-desk-JhPeYGhJKHo",
+            "id": "JhPeYGhJKHo"
+          },
+          "width": 1600,
+          "height": 2000,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAwCdASoQABQAPtFWpEuoJKOhsAgBABoJZwC+SB6RBM+fhDtXX+gAAP72k+Fq6Z5e6UXiWLQqiGk8Wip36qrSKFmdHZ+eAAA=",
+          "dominant": "#131a19"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "slug": "amazon-kindle-paperwhite",
+      "category": "desk",
+      "kind": "Электронная книга",
+      "name": "Amazon Kindle Paperwhite (2024)",
+      "brand": "Amazon",
+      "price": 18990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Чёрный",
+          "hex": "#1f2022"
+        }
+      ],
+      "optionLabel": "Память",
+      "options": [
+        "16 ГБ",
+        "32 ГБ"
+      ],
+      "description": "Ридер с экраном E Ink 7 дюймов: текст выглядит как напечатанный и не утомляет глаза даже вечером, когда подсветку можно сделать тёплой. Корпус защищён от воды по IPX8, так что книгу можно взять в ванну или на пляж. Одной зарядки через USB-C хватает на несколько недель чтения.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "7″, E Ink, 300 ppi, тёплая подсветка"
+        },
+        {
+          "label": "Защита",
+          "value": "IPX8, от погружения в воду"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 12 недель чтения"
+        },
+        {
+          "label": "Зарядка",
+          "value": "USB-C"
+        },
+        {
+          "label": "Память",
+          "value": "16 или 32 ГБ"
+        }
+      ],
+      "popularity": 78,
+      "tags": [
+        "электронная книга",
+        "читалка",
+        "ридер",
+        "киндл",
+        "kindle",
+        "paperwhite",
+        "e-ink",
+        "для чтения",
+        "книги",
+        "водонепроницаемая",
+        "для путешествий",
+        "в отпуск",
+        "в подарок",
+        "пейпервайт",
+        "пэйпервайт",
+        "e-book",
+        "ebook",
+        "е-бук",
+        "ебук",
+        "букридер",
+        "электронная читалка"
+      ],
+      "dimensions": {
+        "size": "17,7 × 12,8 × 0,8 см",
+        "weight": "211 г",
+        "compare": "легче тонкой книги в мягкой обложке"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Kindle Paperwhite с открытой страницей книги на светлой каменной столешнице, позади медная кружка",
+          "focal": "50% 70%",
+          "tone": "light",
+          "credit": {
+            "author": "Madalyn Cox",
+            "authorUrl": "https://unsplash.com/@madalyncox",
+            "sourceUrl": "https://unsplash.com/photos/a-tablet-sitting-on-a-table-next-to-a-coffee-mug-m_57oq_nwDc",
+            "id": "m_57oq_nwDc"
+          },
+          "width": 1600,
+          "height": 1945,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoQABMAPtFUo0uoJKMhsAgBABoJZQCdABulMV/zO+N8hbkAAP3+bk6crkq/KxYCvRgTRwu1Oy99vkCqLnoy/vYLCh4sSxlZURpFb4O86rDC/Rn3qPdU6cBAyMwAAA==",
+          "dominant": "#a89e94"
+        },
+        {
+          "n": 2,
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "Kindle Paperwhite рядом с чашкой капучино на деревянном столе, вид сверху",
+          "focal": "65% 45%",
+          "tone": "mid",
+          "credit": {
+            "author": "Adryanto Suryo",
+            "authorUrl": "https://unsplash.com/@adryantos",
+            "sourceUrl": "https://unsplash.com/photos/a-tablet-and-a-cup-of-coffee-Y-l8j8na0TQ",
+            "id": "Y-l8j8na0TQ"
+          },
+          "width": 1600,
+          "height": 2133,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQBACdASoQABUAPtFUo0uoJKMhsAgBABoJYgCdMoADR9bxbSMG657WYsjgAP5BLVO3aTmGzvtfQJCTCmVImVqk19OjdYUlcI+RBnEKgyqKNa7gbN+7GI5JSH9Kg/TLaD8M3KTltY/XIVwqMKTm4ddc+uQULO5F8sQAAA==",
+          "dominant": "#91816b"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "slug": "apple-ipad-air-11-m3",
+      "category": "desk",
+      "kind": "Планшет",
+      "name": "Apple iPad Air 11″ (M3)",
+      "brand": "Apple",
+      "price": 64990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Серый космос",
+          "hex": "#3a3d40"
+        }
+      ],
+      "optionLabel": "Память",
+      "options": [
+        "128 ГБ",
+        "256 ГБ",
+        "512 ГБ"
+      ],
+      "description": "Лёгкий планшет на чипе M3 для заметок, чтения документов и рисования с Apple Pencil Pro. С клавиатурой-обложкой он заменяет ноутбук в поездке: почта, текст и видеозвонки идут без задержек. Экран 11 дюймов достаточно большой для двух окон рядом.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "11″ Liquid Retina, 2360 × 1640"
+        },
+        {
+          "label": "Чип",
+          "value": "Apple M3"
+        },
+        {
+          "label": "Камера",
+          "value": "12 Мп основная и фронтальная"
+        },
+        {
+          "label": "Разблокировка",
+          "value": "Touch ID в верхней кнопке"
+        },
+        {
+          "label": "Разъём",
+          "value": "USB-C; Wi-Fi 6E"
+        },
+        {
+          "label": "Стилус",
+          "value": "Apple Pencil Pro, Apple Pencil (USB-C)"
+        }
+      ],
+      "popularity": 88,
+      "tags": [
+        "планшет",
+        "айпад",
+        "ipad",
+        "ipad air",
+        "apple",
+        "эпл",
+        "для учёбы",
+        "для заметок",
+        "для рисования",
+        "для творчества",
+        "apple pencil",
+        "для работы",
+        "эйр",
+        "эир"
+      ],
+      "dimensions": {
+        "size": "24,8 × 17,9 × 0,6 см",
+        "weight": "460 г",
+        "compare": "тоньше карандаша, размером с тетрадь"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Серый космос",
+          "alt": "iPad Air с синей заставкой на клавиатуре-обложке стоит на серой каменной столешнице",
+          "focal": "49% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-tablet-computer-with-keyboard-xSUZWZkjklc",
+            "id": "xSUZWZkjklc"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAsAAsBMJYwCdADDoB33uAD+98ckrNciUOsOPP4mIhjo7fFMaloRiBSiHiDPYeKKx7sLZRpV5djAAAA=",
+          "dominant": "#404d52"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Серый космос",
+          "alt": "iPad Air с открытым холстом для рисования и Apple Pencil на тёмной столешнице, вид сверху",
+          "focal": "45% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-tablet-computer-on-gray-textile-doTjbfxrmRw",
+            "id": "doTjbfxrmRw"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAsAAsBMJaQAAupC9n+xeAD+5obZLLvv93hDZTN3tUS5UrUiD/pvsyjSQAHPhjzSdPB7ARwAAA==",
+          "dominant": "#706c72"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Серый космос",
+          "alt": "Силуэт iPad Air на клавиатуре-подставке в профиль на светло-сером фоне",
+          "focal": "38% 68%",
+          "tone": "light",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-and-silver-laptop-computer-6WsSffgqIyU",
+            "id": "6WsSffgqIyU"
+          },
+          "width": 1600,
+          "height": 1004,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAoAAsBMJZwCdAEOlj3sAAD+8lkCq91uSW2yjgR5Qpr62J5AAA==",
+          "dominant": "#b3bcc1"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "slug": "apple-macbook-air-13-m4",
+      "category": "desk",
+      "kind": "Ноутбук",
+      "name": "Apple MacBook Air 13″ (M4)",
+      "brand": "Apple",
+      "price": 104990,
+      "oldPrice": null,
+      "inStock": true,
+      "colors": [
+        {
+          "name": "Сияющая звезда",
+          "hex": "#c9c4bd"
+        }
+      ],
+      "optionLabel": "Конфигурация",
+      "options": [
+        "16 ГБ / 256 ГБ",
+        "16 ГБ / 512 ГБ",
+        "24 ГБ / 512 ГБ"
+      ],
+      "description": "Тонкий ноутбук без вентилятора: работает в полной тишине и не греется на коленях. Чипа M4 и 16 ГБ памяти хватает на браузер с десятками вкладок, документы, фото и созвоны одновременно. Батарея держит до 18 часов, то есть полный рабочий день без зарядки.",
+      "specs": [
+        {
+          "label": "Экран",
+          "value": "13,6″ Liquid Retina, 2560 × 1664"
+        },
+        {
+          "label": "Чип",
+          "value": "Apple M4, 10 ядер CPU"
+        },
+        {
+          "label": "Память",
+          "value": "от 16 ГБ, SSD от 256 ГБ"
+        },
+        {
+          "label": "Работа от батареи",
+          "value": "до 18 часов видео"
+        },
+        {
+          "label": "Разъёмы",
+          "value": "2 × Thunderbolt 4, MagSafe 3, 3,5 мм"
+        },
+        {
+          "label": "Камера",
+          "value": "12 Мп Center Stage"
+        }
+      ],
+      "popularity": 95,
+      "tags": [
+        "ноутбук",
+        "макбук",
+        "macbook",
+        "macbook air",
+        "apple",
+        "эпл",
+        "для учёбы",
+        "для работы",
+        "для офиса",
+        "для программирования",
+        "лёгкий ноутбук",
+        "бесшумный",
+        "m4",
+        "в подарок",
+        "эйр",
+        "эир"
+      ],
+      "dimensions": {
+        "size": "30,4 × 21,5 × 1,1 см",
+        "weight": "1,24 кг",
+        "compare": "чуть тяжелее литровой бутылки воды"
+      },
+      "featuredRank": 3,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Сияющая звезда",
+          "alt": "MacBook Air цвета «сияющая звезда» с приоткрытой крышкой, вид сзади, на светлой глянцевой поверхности на тёмном фоне",
+          "focal": "50% 42%",
+          "tone": "mid",
+          "credit": {
+            "author": "Triyansh Gill",
+            "authorUrl": "https://unsplash.com/@triyansh",
+            "sourceUrl": "https://unsplash.com/photos/a-white-apple-laptop-sitting-on-top-of-a-table-lvhKVIHdMOM",
+            "id": "lvhKVIHdMOM"
+          },
+          "width": 1600,
+          "height": 2465,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACQAwCdASoQABkAPtFUo0uoJKMhsAgBABoJZwAAW9agiFjzC/mmAP72hGXyCu0/0xbl0sMaS/glhMWYCIn4YgSGvGH0mCROj3q42x8IHU3viYFffoW6BtvFwAA=",
+          "dominant": "#8d8e8e"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Сияющая звезда",
+          "alt": "Открытый MacBook Air на деревянном столе у окна рядом с холодным кофе",
+          "focal": "40% 62%",
+          "tone": "light",
+          "credit": {
+            "author": "Taan Huyn",
+            "authorUrl": "https://unsplash.com/@taanhuyn",
+            "sourceUrl": "https://unsplash.com/photos/a-laptop-on-a-table-X9kU8Q3RQxM",
+            "id": "X9kU8Q3RQxM"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAAsBMJQBWACFsKWw/vI8AAP72Gmmg38GQoi673wE0KnlQd7gHGDbtd2+Flwnn+FTZzZVTAIbNWo1ZSkbbvIOUAAAA",
+          "dominant": "#bab2ac"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "slug": "apple-mac-mini-m4",
+      "category": "desk",
+      "kind": "Компьютер",
+      "name": "Apple Mac mini (M4)",
+      "brand": "Apple",
+      "price": 69990,
+      "oldPrice": null,
+      "inStock": false,
+      "colors": [
+        {
+          "name": "Серебристый",
+          "hex": "#dfe4e2"
+        }
+      ],
+      "optionLabel": "Конфигурация",
+      "options": [
+        "16 ГБ / 256 ГБ",
+        "16 ГБ / 512 ГБ",
+        "24 ГБ / 512 ГБ"
+      ],
+      "description": "Настольный компьютер размером с ладонь: подключите монитор, клавиатуру и мышь, и получится полноценное рабочее место. Чип M4 спокойно справляется с офисной работой, фото и монтажом коротких роликов, оставаясь почти бесшумным. Два порта USB-C спереди удобны для флешек и зарядки телефона.",
+      "specs": [
+        {
+          "label": "Чип",
+          "value": "Apple M4, 10 ядер CPU и 10 ядер GPU"
+        },
+        {
+          "label": "Память",
+          "value": "от 16 ГБ, SSD от 256 ГБ"
+        },
+        {
+          "label": "Разъёмы сзади",
+          "value": "3 × Thunderbolt 4, HDMI, Gigabit Ethernet"
+        },
+        {
+          "label": "Разъёмы спереди",
+          "value": "2 × USB-C, 3,5 мм"
+        },
+        {
+          "label": "Мониторы",
+          "value": "до трёх одновременно"
+        }
+      ],
+      "popularity": 80,
+      "tags": [
+        "компьютер",
+        "неттоп",
+        "мак мини",
+        "mac mini",
+        "apple",
+        "эпл",
+        "m4",
+        "для работы",
+        "для офиса",
+        "для дома",
+        "компактный пк",
+        "для монтажа"
+      ],
+      "dimensions": {
+        "size": "12,7 × 12,7 × 5 см",
+        "weight": "670 г",
+        "compare": "размером с ладонь, как толстая квадратная книга"
+      },
+      "featuredRank": null,
+      "images": [
+        {
+          "n": 1,
+          "role": "primary",
+          "color": "Серебристый",
+          "alt": "Серебристый Mac mini на чёрной поверхности стола, рядом край клавиатуры",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Amanz",
+            "authorUrl": "https://unsplash.com/@amanz",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-an-apple-mouse-and-keyboard-oiWNsvv_oAI",
+            "id": "oiWNsvv_oAI"
+          },
+          "width": 1600,
+          "height": 899,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAAsBMJZQAAsWNodw7MoAA/ub5PM8de/x1rWQS6230DuhiZI6byaD/ZioUeUe52saEwFtiZJgivPS14NlFJ9rdq028XAA=",
+          "dominant": "#45534e"
+        },
+        {
+          "n": 2,
+          "role": "gallery",
+          "color": "Серебристый",
+          "alt": "Нижняя панель Mac mini с надписью и вентиляционным кольцом крупным планом",
+          "focal": "40% 65%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-smart-device-on-a-table-wOMyMzNpIZU",
+            "id": "wOMyMzNpIZU"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsAAsBMJZQCdAD5KI4P6+AA/vb0KKUgp9NW3MI65Pw+fL+XaHpvHlnlc+s1vn1XApvl34VZh3HF5zaLP3TPtoAAAA==",
+          "dominant": "#4c5050"
+        },
+        {
+          "n": 3,
+          "role": "context",
+          "color": "Серебристый",
+          "alt": "Рабочее место сверху: Mac mini, клавиатура, трекпад и мышь на тёмном коврике под монитором",
+          "focal": "62% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-desktop-computer-with-a-keyboard-and-mouse-1J1zA1qTuDs",
+            "id": "1J1zA1qTuDs"
+          },
+          "width": 1600,
+          "height": 1067,
+          "widths": [
+            160,
+            320,
+            480,
+            800,
+            1200,
+            1600
+          ],
+          "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAsAAsBMJaQAAn2XKTWSIAAA/vbcYO+3Ewr5XlTrnlyL92SIxUr3lrNGzUtdKjSewAuhu/0uRS5Xeme76qVaf/DDEIFFZAAAAA==",
+          "dominant": "#4d4f4e"
+        }
+      ]
+    }
+  ]
+}

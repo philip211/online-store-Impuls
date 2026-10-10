@@ -1,0 +1,58 @@
+/* Matches the other product-page H2s and stays under the 52px H1. */
+.section {
+  --section-title: clamp(28px, 2.8vw, 40px);
+}
+
+.layout {
+  display: grid;
+  gap: 40px;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 360px;
+}
+
+/* Static counts read better in proportional figures; tabular is kept for live prices. */
+.summary ul li {
+  font-variant-numeric: normal;
+}
+
+.avg {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.avgNum {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* Chips are 40px tall; pad the row so every target clears 44px. */
+.sort > button {
+  min-height: var(--target);
+}
+
+@media (min-width: 1000px) {
+  .layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 72px;
+  }
+  .summary {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+    align-self: start;
+  }
+}

@@ -1,0 +1,63 @@
+/*
+ * One H2 size on the product page, below the 52px H1. The home page keeps the
+ * larger editorial size, so the token is narrowed here rather than globally.
+ */
+.section {
+  --section-title: clamp(28px, 2.8vw, 40px);
+}
+
+.crumb {
+  padding-top: 16px;
+  display: flex;
+}
+
+.trail {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-weight: 600;
+
+  & li {
+    display: inline-flex;
+    align-items: center;
+  }
+  & li + li::before {
+    content: '/';
+    margin: 0 10px;
+    color: var(--line);
+    font-weight: 400;
+  }
+  & li[aria-current] {
+    color: var(--ink);
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: var(--target);
+  min-height: var(--target);
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+/* On phones the trail collapses to a single "back to catalogue" link. */
+.trailExtra {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .trailExtra {
+    display: inline-flex !important;
+  }
+}

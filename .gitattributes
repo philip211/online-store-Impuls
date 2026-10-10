@@ -1,0 +1,7 @@
+# Line endings are normalised to LF in the repository (Prettier, Docker, shell scripts).
+* text=auto eol=lf
+*.webp binary
+*.avif binary
+*.jpg binary
+*.png binary
+*.woff2 binary

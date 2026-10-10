@@ -1,0 +1,221 @@
+.done {
+  max-width: 760px;
+  padding-block: var(--space-7) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  animation: scr var(--dur-enter) var(--ease-out) both;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.tick {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+
+  & dt {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  & dd {
+    margin: 4px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.blockTitle {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Status timeline: vertical on phones, horizontal from tablet. */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: var(--space-3);
+  color: var(--muted);
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 11.5px;
+    top: 28px;
+    bottom: calc(-1 * var(--space-4) + 4px);
+    width: 1px;
+    background: var(--line);
+  }
+}
+
+.dot {
+  grid-row: span 2;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+}
+
+.stepDone {
+  color: var(--ink);
+
+  & .dot {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+  }
+}
+
+.stepTitle {
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.stepNote {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.next {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  line-height: 1.5;
+
+  & li::marker {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+
+  & li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--space-3);
+    font-size: 15px;
+  }
+  & a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+    transition: text-decoration-color var(--dur-fast) var(--ease-standard);
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: var(--target);
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.actions {
+  padding-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-2);
+
+    &:not(:last-child)::after {
+      left: 32px;
+      right: 4px;
+      top: 11.5px;
+      bottom: auto;
+      width: auto;
+      height: 1px;
+    }
+  }
+
+  .dot {
+    grid-row: auto;
+  }
+
+  .stepTitle {
+    line-height: 1.3;
+  }
+}

@@ -1,0 +1,56 @@
+.fav {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: var(--ink);
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    opacity var(--dur-base) var(--ease-standard);
+
+  & svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.floating {
+  width: var(--target);
+  height: var(--target);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+
+  &:hover {
+    background: var(--s1);
+  }
+}
+
+.square {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+
+  &:hover {
+    border-color: var(--ink);
+  }
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.on svg {
+  animation: pop var(--dur-slow) var(--ease-out);
+}
+
+/* Pointer devices: show on card hover unless saved. Touch: always visible. */
+@media (hover: hover) {
+  .floating:not(.on) {
+    opacity: 0;
+  }
+  :global(article):hover .floating,
+  :global(article):focus-within .floating {
+    opacity: 1;
+  }
+}

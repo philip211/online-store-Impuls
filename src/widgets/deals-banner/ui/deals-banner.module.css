@@ -1,0 +1,181 @@
+.section {
+  padding-bottom: var(--sec-pad);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: var(--section-title);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: clamp(16px, 1.3vw, 18px);
+  max-width: 40ch;
+  margin-bottom: var(--space-3);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+/*
+ * thumb | name | price, with the 30-day reference under the old price.
+ * Line numbers, not named areas: CSS-module hashing would rename area names.
+ */
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--line);
+
+  &:hover .thumb img {
+    transform: scale(1.04);
+  }
+  &:hover .itemName {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+}
+
+/* A 4:5 crop like every other photo on the page, large enough to read as a picture. */
+/* Two classes: outranks the frame's own `width: 100%`. */
+.item .thumb {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  width: 80px;
+  border-radius: var(--radius-lg);
+}
+
+/* Placeholder for a product without photos: keeps the row's rhythm. */
+.blank {
+  aspect-ratio: 4 / 5;
+  background: var(--s2);
+}
+
+.itemMain {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemName {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+  text-align: right;
+
+  & b {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+.was {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.reference {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  justify-self: end;
+  text-align: right;
+  text-wrap: balance;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+    align-items: start;
+  }
+  .copy {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+  }
+  .item .thumb {
+    width: 96px;
+  }
+
+  .item {
+    column-gap: var(--space-5);
+    padding: 20px 0;
+  }
+}
+
+/*
+ * Phones: the price column would leave the name 50–130px, so it moves under the name.
+ * thumb | name (2 lines max) / price · old · badge / 30-day reference.
+ */
+@media (max-width: 559px) {
+  .item {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--space-2);
+  }
+  .item .thumb {
+    grid-row: 1 / span 3;
+  }
+  .itemName {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+  .itemMain > :last-child {
+    overflow-wrap: anywhere;
+  }
+  .itemPrice {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: var(--space-3);
+    text-align: left;
+  }
+  .reference {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: start;
+    text-align: left;
+  }
+}

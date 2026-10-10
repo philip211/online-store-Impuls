@@ -1,0 +1,94 @@
+/*
+ * A quiet floating note: surface + hairline + the one overlay shadow.
+ * Centring uses `translate`, so the entry/exit `transform` never fights it.
+ */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  translate: -50% 0;
+  z-index: 40;
+  background: var(--s2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-overlay);
+  padding: 0 var(--space-2) 0 var(--space-4);
+  min-height: 52px;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toast var(--dur-slow) var(--ease-out);
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  view-transition-name: toast;
+
+  & > svg {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    color: var(--muted);
+  }
+}
+
+:root[data-theme='light'] .toast {
+  background: var(--s1);
+}
+
+.leaving {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+/* Two lines before clipping: on a phone a single line cut the message mid-word. */
+.msg {
+  padding-block: var(--space-2);
+  padding-right: 4px;
+  min-width: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.35;
+}
+
+/* The action is a text link: the lime stays reserved for the page's primary button. */
+.action {
+  flex: none;
+  min-height: var(--target);
+  padding: 0 var(--space-3);
+  color: var(--ink);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: currentColor;
+  border-radius: var(--radius-sm);
+  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    text-decoration-color: transparent;
+  }
+  &:focus-visible {
+    outline-color: var(--ink);
+    outline-offset: -2px;
+  }
+}
+
+/* Desktop: anchored to the content's left edge, clear of the purchase column on the right. */
+@media (min-width: 768px) {
+  .toast {
+    left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+    translate: none;
+    bottom: 32px;
+  }
+}

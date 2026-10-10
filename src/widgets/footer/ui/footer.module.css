@@ -1,0 +1,171 @@
+.ftr {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+}
+
+/* Newsletter band */
+.cta {
+  display: grid;
+  gap: 28px;
+  align-items: end;
+  padding-block: 64px 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.ctaTitle {
+  font-size: clamp(28px, 3.6vw, 48px);
+  max-width: 18ch;
+}
+
+/* Columns */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 24px;
+  padding-block: 56px;
+}
+
+.brand {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: var(--target);
+  /* Full 44px target without changing the wordmark's position in the column. */
+  margin-block: -10px;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  color: var(--muted);
+  max-width: 34ch;
+  font-size: 15px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+
+  & a {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: var(--target);
+    font-weight: 500;
+    /* Underline sits under the text, not at the bottom of the 44px target. */
+    text-decoration: underline 1px transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color var(--dur-base) var(--ease-standard);
+  }
+  & a:hover {
+    text-decoration-color: currentColor;
+  }
+  & span {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+}
+
+.colTitle {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.links a,
+.links button {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  /* Short labels stay flush left; the hit area extends invisibly to the right. */
+  min-width: var(--target);
+  font-size: 15px;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+/* Bottom row */
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 24px 32px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pay {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.legal {
+  font-size: 14px;
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  font-size: 14px;
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+@media (min-width: 768px) {
+  .cta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+    gap: 64px;
+    padding-block: 96px 80px;
+  }
+  .cols {
+    grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    padding-block: 72px;
+  }
+  .brand {
+    grid-column: auto;
+  }
+}

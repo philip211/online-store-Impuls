@@ -1,0 +1,155 @@
+/* Status: a dot and a word. Colour marks only the end states; the rest stays ink. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+}
+
+.done::before {
+  background: var(--ok);
+}
+
+.stopped {
+  color: var(--muted);
+
+  &::before {
+    background: var(--err);
+  }
+}
+
+.waiting::before {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+
+/* Timeline: hairline rail, filled dots for reached steps. */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 20px;
+    color: var(--muted);
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 5.5px;
+      top: 22px;
+      bottom: 2px;
+      width: 1px;
+      background: var(--line);
+    }
+  }
+}
+
+.reached {
+  color: var(--ink);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--muted);
+  background: var(--bg);
+
+  .reached & {
+    border-color: var(--ink);
+    background: var(--ink);
+  }
+}
+
+.stepLabel {
+  font-weight: 500;
+}
+
+.stepMeta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Lines: name and variant on the left, sum on the right, hairlines between. */
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+
+  & li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 16px;
+    padding-block: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.lineName {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+
+  &:is(a):hover {
+    opacity: 0.7;
+  }
+}
+
+.lineMeta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.lineSum {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.totals {
+  margin: 0;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  & dt {
+    color: var(--muted);
+  }
+
+  & dd {
+    margin: 0;
+  }
+
+  & > div:last-child {
+    padding-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+
+    & dt {
+      color: var(--ink);
+    }
+  }
+}

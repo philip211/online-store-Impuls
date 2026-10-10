@@ -1,0 +1,344 @@
+/* Trigger */
+.trigger {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  min-width: 240px;
+  padding: 0 8px 0 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--s1);
+  color: var(--muted);
+  font-size: 14px;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    border-color: var(--muted);
+    color: var(--ink);
+  }
+}
+
+.triggerText {
+  flex: 1;
+  text-align: left;
+}
+
+.triggerKeys {
+  display: inline-flex;
+  gap: 4px;
+}
+
+@media (min-width: 1024px) {
+  .trigger {
+    display: inline-flex;
+  }
+  .triggerIcon {
+    display: none !important;
+  }
+}
+
+/* Panel */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  max-height: inherit;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px 0 20px;
+  min-height: 64px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+/* The hairline darkens with the input's own focus (not :focus-within: the close button lives here). */
+.field:has(.input:focus-visible) {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 64px;
+  border: 0;
+  background: none;
+  font-size: 18px;
+  color: var(--ink);
+  outline: none;
+
+  &::placeholder {
+    color: var(--muted);
+    opacity: 1;
+  }
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-weight: 600;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+    background: var(--s1);
+  }
+}
+
+.closeIcon {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .closeText {
+    display: none;
+  }
+  .closeIcon {
+    display: block;
+  }
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 8px 16px;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+
+/* Results for the new text are on their way: the current view waits, dimmed. */
+.stale {
+  opacity: 0.55;
+}
+
+.chipsBlock {
+  padding-bottom: 4px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.chip {
+  min-height: var(--target);
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    border-color: var(--ink);
+    background: var(--s1);
+  }
+}
+
+.group {
+  padding: 18px 12px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 6px 44px 6px 8px;
+  transition: background-color var(--dur-fast) var(--ease-standard);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  scroll-margin: 8px;
+}
+
+.opt:has(.forget) {
+  padding-right: 88px;
+}
+
+.optActive {
+  background: var(--s1);
+}
+
+/* "Did you mean": arrives quietly above the results. */
+.optFix {
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+.fixText {
+  color: var(--muted);
+
+  & strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.thumb,
+.iconCell {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--tile-bg);
+  padding: 7px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.iconCell {
+  background: var(--s1);
+}
+
+/* A photo fills its cell edge to edge; the padding was for icons and vector renders. */
+.thumb {
+  padding: 0;
+  overflow: hidden;
+  background: var(--s2);
+}
+
+.optMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.optName {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mark {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+}
+
+.enter {
+  position: absolute;
+  right: 14px;
+  color: var(--muted);
+}
+
+.forget {
+  position: absolute;
+  right: 36px;
+  width: var(--target);
+  height: var(--target);
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+    background: var(--s2);
+  }
+}
+
+.empty {
+  padding: 32px 8px 8px;
+
+  & > p {
+    padding: 0 8px;
+  }
+}
+
+.emptyTitle {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.foot {
+  display: none;
+  gap: 20px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+
+  & span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  .foot {
+    display: flex;
+  }
+}
+
+.optMain > :last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The suggested spelling is the point of this row: wrap rather than cut it off. */
+.optMain > .fixText {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Keyboard affordances are noise on touch screens. */
+@media (hover: none) {
+  .enter {
+    display: none;
+  }
+  .opt {
+    padding-right: 8px;
+  }
+  .opt:has(.forget) {
+    padding-right: 56px;
+  }
+  .forget {
+    right: 4px;
+  }
+}

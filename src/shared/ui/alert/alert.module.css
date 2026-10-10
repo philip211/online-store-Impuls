@@ -1,0 +1,17 @@
+.alert {
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+  animation: fade var(--dur-slow) var(--ease-out);
+}
+
+.error {
+  background: color-mix(in srgb, var(--err) 10%, transparent);
+  color: var(--err);
+}
+
+.success {
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  color: var(--ok);
+}

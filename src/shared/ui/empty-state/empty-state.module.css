@@ -1,0 +1,65 @@
+/*
+ * Empty, error and 404 states: typography and a single hairline, no filled box.
+ * Left-aligned like every other content block in the store.
+ */
+.empty {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+  padding: var(--space-7) 0 var(--space-8);
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+
+.main {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.title {
+  max-width: 20ch;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.page .title {
+  font-size: var(--page-title);
+  letter-spacing: -0.035em;
+}
+
+.section .title {
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 44ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.art {
+  width: min(280px, 60%);
+  opacity: 0.4;
+}
+
+@media (min-width: 960px) {
+  .withArt {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .withArt .art {
+    width: 280px;
+    justify-self: end;
+  }
+}

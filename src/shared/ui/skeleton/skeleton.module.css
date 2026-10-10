@@ -1,0 +1,21 @@
+.sk {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(100deg, var(--s1) 30%, var(--s2) 50%, var(--s1) 70%);
+  background-size: 300% 100%;
+  /* A loading state, not content: slow and low-contrast, removed under reduced motion. */
+  animation: shim 1.6s linear infinite;
+}
+
+.line {
+  height: 16px;
+}
+
+.short {
+  height: 16px;
+  width: 50%;
+}
+
+.tile {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+}

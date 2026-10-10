@@ -1,0 +1,432 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: 56px;
+}
+
+.formTitle {
+  font-size: clamp(24px, 2.4vw, 30px);
+  margin-bottom: var(--space-2);
+}
+
+.fieldsTwo {
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Revealed optional fields: a short fade, no movement beyond 8px. */
+.reveal {
+  animation: scr var(--dur-slow) var(--ease-out) both;
+}
+
+/* Text field (mirrors the shared field, plus hint and success mark). */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  & label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  & input,
+  & textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 16px;
+    border-radius: var(--radius-lg);
+    /* The border is the field's only affordance: --line-strong keeps it at 3:1. */
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    font-size: 16px;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+
+    &::placeholder {
+      color: var(--muted);
+    }
+    &:hover {
+      border-color: color-mix(in srgb, var(--ink) 60%, var(--line-strong));
+    }
+    &:focus {
+      outline: none;
+      border-color: var(--ink);
+    }
+  }
+
+  & textarea {
+    padding: 14px 16px;
+    line-height: 1.5;
+    resize: vertical;
+  }
+}
+
+.control {
+  position: relative;
+
+  & input {
+    padding-right: 44px;
+  }
+}
+
+.mark {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--ok);
+  pointer-events: none;
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+.bad :is(input, textarea),
+.bad :is(input, textarea):hover {
+  border-color: var(--err);
+}
+
+.ok input {
+  border-color: color-mix(in srgb, var(--ok) 45%, var(--line));
+}
+
+.error {
+  color: var(--err);
+  font-size: 14px;
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+.hint,
+.counter {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.counter {
+  align-self: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+.optional {
+  font-weight: 400;
+}
+
+/* "+ Квартира, подъезд…" — a quiet text control, full target height. */
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  min-height: var(--target);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+/* Groups */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.optTitle {
+  display: block;
+}
+
+.optSub {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Payment: its own surface so the security note reads as part of the choice. */
+.pay {
+  margin: 0;
+  min-width: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--s1);
+
+  & .legend {
+    float: left;
+    width: 100%;
+    margin-bottom: var(--space-3);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+}
+
+.secure {
+  clear: both;
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+  font-size: 14px;
+  color: var(--muted);
+
+  & svg {
+    flex: none;
+    color: var(--ink);
+  }
+}
+
+.payOptions {
+  display: grid;
+  gap: 10px;
+}
+
+/* Summary */
+.sum {
+  padding: 28px;
+  border-radius: var(--radius-2xl);
+  background: var(--s1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+
+.sumTitle {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.items {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+}
+
+.itemThumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--s2);
+  overflow: hidden;
+}
+
+.itemName {
+  font-weight: 500;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.itemMeta {
+  display: block;
+  color: var(--muted);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.itemPrice {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+
+  & > :last-child {
+    white-space: nowrap;
+  }
+}
+
+.rowSub {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.total {
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+  padding-top: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.alert {
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--err) 10%, transparent);
+  color: var(--err);
+  font-size: 14px;
+  animation: fade var(--dur-slow) var(--ease-out);
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  color: var(--muted);
+
+  & svg {
+    flex: none;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sumBtn {
+  display: none !important;
+}
+
+/* Mobile total + submit: bleeds to the screen edges, content stays on the page gutter. */
+.bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 15;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 12px var(--gutter);
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.bar > :first-child {
+  min-width: 0;
+}
+
+/* Focused fields scroll clear of the sticky bar, not underneath it (WCAG 2.4.11). */
+@media (max-width: 767.98px) {
+  :global(html):has(.bar) {
+    /* 77px = the bar: 12 + 52px button + 12 + 1px rule. */
+    scroll-padding-bottom: calc(77px + env(safe-area-inset-bottom) + var(--space-4));
+  }
+}
+
+.barTotal {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.barBtn {
+  flex: none;
+  padding: 0 24px !important;
+}
+
+/* Free shipping meter */
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0 6px;
+}
+
+.meterText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+
+  & svg {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+  & b {
+    color: var(--ink);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.track {
+  position: relative;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform-origin: left;
+  transition: transform var(--dur-image) var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .fieldsTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .payOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sum {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+  }
+  .sumBtn {
+    display: inline-flex !important;
+    margin-top: 6px;
+  }
+  .bar {
+    display: none;
+  }
+}

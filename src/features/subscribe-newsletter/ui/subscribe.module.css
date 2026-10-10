@@ -1,0 +1,111 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Editorial underline field with a quiet round submit. */
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--dur-fast) var(--ease-standard);
+
+  /* Focus doubles the underline instead of boxing an editorial field. */
+  &:focus-within {
+    border-color: var(--ink);
+    box-shadow: 0 1px 0 var(--ink);
+  }
+
+  & input {
+    flex: 1;
+    min-width: 0;
+    height: 56px;
+    border: 0;
+    background: none;
+    outline: none;
+    font-size: 17px;
+
+    &::placeholder {
+      color: var(--muted);
+    }
+  }
+
+  & button {
+    flex: none;
+    width: var(--target);
+    height: var(--target);
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: var(--bg);
+    display: grid;
+    place-items: center;
+    transition: opacity var(--dur-fast) var(--ease-standard);
+
+    & svg {
+      width: 18px;
+      height: 18px;
+    }
+    &:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+    &:disabled {
+      cursor: progress;
+    }
+  }
+}
+
+.bad {
+  border-color: var(--err);
+}
+
+.error {
+  color: var(--err);
+  font-size: 14px;
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+.note {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 15px;
+  animation: scr var(--dur-enter) var(--ease-out);
+
+  & b {
+    font-weight: 600;
+  }
+}
+
+.doneIcon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

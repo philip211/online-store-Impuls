@@ -1,0 +1,27 @@
+.root {
+  position: relative;
+  width: var(--target);
+  height: var(--target);
+  flex: none;
+  border-radius: var(--radius-pill);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    background: var(--s2);
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.6;
+  }
+}

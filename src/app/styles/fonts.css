@@ -1,0 +1,28 @@
+/*
+ * Metric-matched stand-in for Onest while the web font loads (font-display: swap), so the
+ * swap does not reflow the page. Arial scaled to Onest's advance widths; ascent and descent
+ * are Onest's (0.970 / 0.305 em, no line gap), divided by size-adjust because the overrides
+ * scale with it. Measured in the browser on a mixed Cyrillic/Latin sample: Onest runs 3.6%
+ * (400) to 4.8% (500) wider than Arial, and 0.2% (600) to 1.3% (700) wider than Arial Bold.
+ */
+@font-face {
+  font-family: 'Onest Fallback';
+  font-style: normal;
+  font-weight: 100 500;
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 104%;
+  ascent-override: 93.3%;
+  descent-override: 29.3%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Onest Fallback';
+  font-style: normal;
+  font-weight: 600 900;
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  size-adjust: 100.4%;
+  ascent-override: 96.6%;
+  descent-override: 30.4%;
+  line-gap-override: 0%;
+}

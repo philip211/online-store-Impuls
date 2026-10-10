@@ -1,0 +1,44 @@
+/* Service promises: open columns separated by hairlines, no boxes. */
+.trust {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) 20px;
+  list-style: none;
+  margin: 0;
+  padding: var(--space-7) 0 0;
+  border-top: 1px solid var(--line);
+
+  & li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  & svg {
+    width: 22px;
+    height: 22px;
+    margin-bottom: var(--space-2);
+    color: var(--ink);
+  }
+  & b {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  & span {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 30ch;
+  }
+}
+
+/* Tablets keep 2×2 (≈340px columns); four columns only once each gets ≈200px. */
+@media (min-width: 768px) {
+  .trust {
+    gap: var(--space-7);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trust {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

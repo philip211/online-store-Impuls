@@ -1,0 +1,8 @@
+.spin {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+  border-right-color: transparent;
+  animation: rot 0.7s linear infinite;
+}

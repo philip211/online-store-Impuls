@@ -1,0 +1,54 @@
+# Локальное окружение. Для разработки: `npm run db:up` (Postgres + Mailpit), API запускается
+# на хосте через `npm run start:dev`. Полный стек с API в контейнере: `docker compose --profile app up`.
+name: impulse
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: impulse
+      POSTGRES_PASSWORD: impulse
+      POSTGRES_DB: impulse
+    ports:
+      - '${POSTGRES_PORT:-5440}:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U impulse -d impulse']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  # Перехватывает всю исходящую почту в dev. Веб-интерфейс: http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - '${MAILPIT_SMTP_PORT:-1025}:1025'
+      - '${MAILPIT_UI_PORT:-8025}:8025'
+    restart: unless-stopped
+
+  api:
+    profiles: [app]
+    build: .
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://impulse:impulse@postgres:5432/impulse
+      SMTP_HOST: mailpit
+      # No proxy in front of the container here; set to 1 behind nginx or a load balancer.
+      TRUST_PROXY: 0
+      SMTP_PORT: 1025
+    ports:
+      - '${PORT:-3000}:3000'
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  uploads:

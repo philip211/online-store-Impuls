@@ -1,0 +1,106 @@
+.box {
+  display: grid;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+
+  /* Focused from a #pd-restock-email link: land below the sticky header, lead in view. */
+  & input {
+    scroll-margin-top: calc(var(--header-h) + 96px);
+  }
+}
+
+.lead {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 48ch;
+
+  & b {
+    color: var(--ink);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+}
+
+.error {
+  font-size: 14px;
+  color: var(--err);
+}
+
+.done {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  animation: scr var(--dur-enter) var(--ease-out);
+}
+
+.doneText {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.5;
+
+  & b {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+}
+
+.doneIcon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+
+  & svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.link {
+  justify-self: start;
+  min-height: var(--target);
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  padding-left: 36px;
+}
+
+/* Leaves the edit without touching the saved request. */
+.cancel {
+  justify-self: center;
+  min-height: var(--target);
+  max-width: 100%;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+  }
+}

@@ -1,0 +1,63 @@
+.band {
+  padding-bottom: var(--sec-pad);
+}
+
+.inner {
+  display: grid;
+  gap: 24px;
+}
+
+.copy,
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.copy {
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.kicker {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.title {
+  max-width: 18ch;
+  font-size: clamp(32px, 4.4vw, 60px);
+}
+
+.lead {
+  max-width: 40ch;
+  font-size: clamp(16px, 1.3vw, 18px);
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 80px;
+    align-items: end;
+    position: relative;
+    padding-top: 48px;
+  }
+
+  /* The rule spans the content box, flush with the text column like every other content rule. */
+  .inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    inset-inline: var(--gutter);
+    border-top: 1px solid var(--line);
+  }
+
+  .copy {
+    padding-top: 0;
+    border-top: 0;
+  }
+}

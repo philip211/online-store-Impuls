@@ -1,0 +1,478 @@
+// Схема БД магазина «Импульс».
+// Деньги хранятся целыми рублями (Int): в каталоге нет копеек, а целые числа исключают ошибки округления.
+// После изменения схемы: `npm run db:migrate -- --name <что-изменилось>`.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+  // Explicit: in a Docker build the generator runs before tsconfig.json is copied and would guess.
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/* ───────────── Пользователи и сессии ───────────── */
+
+enum Role {
+  CUSTOMER
+  MANAGER
+  ADMIN
+}
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  /// Всегда в нижнем регистре: уникальность без учёта регистра.
+  email        String   @unique
+  passwordHash String
+  name         String
+  /// Только цифры, 11 знаков, начинается с 7.
+  phone        String?
+  role         Role     @default(CUSTOMER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions      Session[]
+  orders        Order[]
+  reviews       Review[]
+  reviewVotes   ReviewVote[]
+  wishlistItems WishlistItem[]
+  cartItems     CartItem[]
+  auditLogs     AuditLog[]
+}
+
+/// Refresh-сессия. Токен хранится только в виде SHA-256, поэтому утечка БД не даёт войти.
+/// Все токены одной цепочки ротации делят `familyId`: повторное использование старого токена
+/// отзывает всю цепочку (признак кражи).
+model Session {
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @db.Uuid
+  familyId     String    @db.Uuid
+  tokenHash    String    @unique
+  expiresAt    DateTime
+  revokedAt    DateTime?
+  replacedById String?   @db.Uuid
+  userAgent    String?
+  ip           String?
+  createdAt    DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([familyId])
+}
+
+/* ───────────── Каталог ───────────── */
+
+model Category {
+  /// Человекочитаемый код: sound, mobile, photo, desk.
+  id             String   @id
+  name           String
+  sortOrder      Int      @default(0)
+  /// Товар, чьё основное фото представляет раздел на главной.
+  coverProductId Int?
+  updatedAt      DateTime @updatedAt
+
+  products Product[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  categoryId  String
+  kind        String
+  name        String
+  brand       String
+  price       Int
+  oldPrice    Int?
+  /// Остаток на складе. «В наличии» = stock > 0.
+  stock       Int      @default(0)
+  /// [{ name, hex }], минимум один цвет.
+  colors      Json
+  optionLabel String
+  options     String[]
+  description String
+  /// [{ label, value }]
+  specs       Json
+  popularity  Int      @default(0)
+  tags        String[]
+  /// { size, weight, compare }
+  dimensions  Json
+  /// Позиция в блоке «Выбор недели»; null — товар не в подборке.
+  featuredRank Int?
+  /// Снятый с продажи товар не виден на витрине, но остаётся в старых заказах.
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category      Category              @relation(fields: [categoryId], references: [id])
+  images        ProductImage[]
+  reviews       Review[]
+  orderItems    OrderItem[]
+  wishlistItems WishlistItem[]
+  cartItems     CartItem[]
+  restock       RestockSubscription[]
+
+  @@index([categoryId])
+  @@index([isActive, popularity])
+}
+
+enum ImageRole {
+  primary
+  gallery
+  context
+}
+
+enum ImageTone {
+  light
+  mid
+  dark
+}
+
+/// Метаданные фото. Фото из медиа-конвейера витрины лежат в /media/<slug>/<n>-<width>.<ext>;
+/// загруженные в админке — в UPLOADS_DIR/<path><width>.<ext> (тогда заполнен `path`).
+model ProductImage {
+  id          Int       @id @default(autoincrement())
+  productId   Int
+  /// Номер фото внутри папки товара.
+  n           Int
+  role        ImageRole
+  color       String
+  alt         String
+  focal       String
+  tone        ImageTone
+  /// { author, authorUrl, sourceUrl, id } для стоковых фото; null — собственная съёмка.
+  credit      Json?
+  /// Префикс файлов загруженного фото: products/<uuid>/. null — фото из медиа-конвейера.
+  path        String?
+  width       Int
+  height      Int
+  widths      Int[]
+  placeholder String
+  dominant    String
+  sortOrder   Int       @default(0)
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, n])
+}
+
+/* ───────────── Отзывы ───────────── */
+
+enum ReviewStatus {
+  PENDING
+  PUBLISHED
+  REJECTED
+}
+
+model Review {
+  id          String       @id @default(uuid()) @db.Uuid
+  productId   Int
+  userId      String?      @db.Uuid
+  author      String
+  rating      Int
+  text        String
+  status      ReviewStatus @default(PENDING)
+  /// Автор покупал этот товар: есть доставленный заказ.
+  verified    Boolean      @default(false)
+  helpful     Int          @default(0)
+  createdAt   DateTime     @default(now())
+  publishedAt DateTime?
+
+  product Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user    User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+  votes   ReviewVote[]
+
+  /// Один отзыв на товар от аккаунта; отзывы из сида (userId = null) не ограничены.
+  @@unique([userId, productId])
+  @@index([productId, status])
+  @@index([status, createdAt])
+}
+
+/// Голос «Полезно»: один на пользователя и отзыв.
+model ReviewVote {
+  reviewId  String   @db.Uuid
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now())
+
+  review Review @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([reviewId, userId])
+}
+
+/* ───────────── Заказы и оплата ───────────── */
+
+enum ShippingMethod {
+  courier
+  pickup
+}
+
+enum PaymentMethod {
+  card
+  cash
+}
+
+enum OrderStatus {
+  /// Создан, ждём онлайн-оплату. Товар зарезервирован до `paymentExpiresAt`.
+  PENDING_PAYMENT
+  /// Принят в работу: оплачен картой или выбрана оплата при получении.
+  CONFIRMED
+  ASSEMBLED
+  SHIPPED
+  OUT_FOR_DELIVERY
+  READY_FOR_PICKUP
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id               String         @id @default(uuid()) @db.Uuid
+  /// IM-123456: формат, который принимают трекинг и возвраты.
+  number           String         @unique
+  userId           String?        @db.Uuid
+  status           OrderStatus
+  customerName     String
+  phone            String
+  email            String?
+  address          String
+  addressExtra     String         @default("")
+  shippingMethod   ShippingMethod
+  paymentMethod    PaymentMethod
+  gift             Boolean        @default(false)
+  giftMessage      String         @default("")
+  noReceipt        Boolean        @default(false)
+  subtotal         Int
+  shippingCost     Int
+  total            Int
+  deliveryFrom     DateTime
+  deliveryTo       DateTime
+  paymentExpiresAt DateTime?
+  /// Заголовок Idempotency-Key: повтор запроса возвращает тот же заказ.
+  idempotencyKey   String?        @unique
+  /// SHA-256 тела запроса: тот же ключ с другим телом — ошибка клиента.
+  requestHash      String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  user     User?              @relation(fields: [userId], references: [id], onDelete: SetNull)
+  items    OrderItem[]
+  events   OrderStatusEvent[]
+  payments Payment[]
+  returns  ReturnRequest[]
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@index([status, paymentExpiresAt])
+}
+
+/// Снимок позиции на момент заказа: цена и названия не меняются вместе с каталогом.
+model OrderItem {
+  id          Int     @id @default(autoincrement())
+  orderId     String  @db.Uuid
+  productId   Int
+  productName String
+  slug        String
+  kind        String
+  colorName   String
+  option      String
+  unitPrice   Int
+  qty         Int
+  lineTotal   Int
+  /// Фото выбранного цвета: `<slug>/<n>`.
+  imageId     String?
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model OrderStatusEvent {
+  id        Int         @id @default(autoincrement())
+  orderId   String      @db.Uuid
+  status    OrderStatus
+  comment   String?
+  /// Кто сменил статус: id сотрудника; null — система или покупатель.
+  actorId   String?     @db.Uuid
+  createdAt DateTime    @default(now())
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId, createdAt])
+}
+
+enum PaymentProvider {
+  yookassa
+  mock
+}
+
+enum PaymentStatus {
+  PENDING
+  WAITING_FOR_CAPTURE
+  SUCCEEDED
+  CANCELED
+  /// Деньги нужно вернуть (заказ отменён после оплаты); фоновая задача повторяет, пока не выйдет.
+  REFUND_PENDING
+  REFUNDED
+}
+
+model Payment {
+  id                String          @id @default(uuid()) @db.Uuid
+  orderId           String          @db.Uuid
+  provider          PaymentProvider
+  providerPaymentId String          @unique
+  status            PaymentStatus   @default(PENDING)
+  amount            Int
+  confirmationUrl   String?
+  /// Ключ идемпотентности, с которым платёж создан у провайдера.
+  idempotenceKey    String          @unique
+  cancellationReason String?
+  paidAt            DateTime?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+}
+
+/* ───────────── Возвраты ───────────── */
+
+enum ReturnReason {
+  none
+  fit
+  changed
+  wrong
+  defect
+}
+
+enum ReturnStatus {
+  REQUESTED
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+model ReturnRequest {
+  id        String       @id @default(uuid()) @db.Uuid
+  /// RT-3456-0710: последние цифры заказа и дата.
+  ref       String       @unique
+  orderId   String       @db.Uuid
+  reason    ReturnReason
+  status    ReturnStatus @default(REQUESTED)
+  comment   String?
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([status, createdAt])
+}
+
+/* ───────────── Подписки ───────────── */
+
+enum SubscriptionStatus {
+  PENDING
+  CONFIRMED
+  UNSUBSCRIBED
+}
+
+/// Рассылка с двойным подтверждением (double opt-in).
+model NewsletterSubscription {
+  id             String             @id @default(uuid()) @db.Uuid
+  email          String             @unique
+  status         SubscriptionStatus @default(PENDING)
+  /// Один токен на подписку: подтверждение и отписка.
+  token          String             @unique
+  confirmedAt    DateTime?
+  unsubscribedAt DateTime?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+}
+
+/// «Сообщить о поступлении». Письмо уходит, когда остаток становится больше нуля.
+model RestockSubscription {
+  id         Int       @id @default(autoincrement())
+  productId  Int
+  email      String
+  notifiedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, email])
+  @@index([productId, notifiedAt])
+}
+
+/* ───────────── Аккаунт покупателя ───────────── */
+
+model WishlistItem {
+  userId    String   @db.Uuid
+  productId Int
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([userId, productId])
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  userId    String   @db.Uuid
+  productId Int
+  colorName String
+  option    String
+  qty       Int
+  updatedAt DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId, colorName, option])
+}
+
+/* ───────────── Инфраструктура ───────────── */
+
+enum OutboxStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+/// Transactional outbox: письмо записывается в той же транзакции, что и событие, а воркер
+/// отправляет его с повторами. Так письмо не теряется при сбое почты и не уходит при откате.
+model OutboxMessage {
+  id            String       @id @default(uuid()) @db.Uuid
+  type          String
+  payload       Json
+  status        OutboxStatus @default(PENDING)
+  attempts      Int          @default(0)
+  nextAttemptAt DateTime     @default(now())
+  lastError     String?
+  createdAt     DateTime     @default(now())
+  processedAt   DateTime?
+
+  @@index([status, nextAttemptAt])
+}
+
+/// Журнал действий сотрудников в админке.
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  actorId   String?  @db.Uuid
+  action    String
+  entity    String
+  entityId  String
+  data      Json?
+  createdAt DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+}

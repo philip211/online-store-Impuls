@@ -1,0 +1,946 @@
+{
+  "$comment": "Photo manifest: the single source of truth for catalogue imagery. Edit here, then run `npm run media`. Files live in media/originals/<slug>/<n>.jpg; every photo is used under the Unsplash License.",
+  "products": [
+    {
+      "slug": "sony-wh-1000xm5",
+      "name": "Sony WH-1000XM5",
+      "images": [
+        {
+          "file": "media/originals/sony-wh-1000xm5/2.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные Sony WH-1000XM5 рядом с очками и часами на светло-сером фоне, вид сверху",
+          "focal": "40% 42%",
+          "tone": "light",
+          "credit": {
+            "author": "Kofi Nartey",
+            "authorUrl": "https://unsplash.com/@kofinartey",
+            "sourceUrl": "https://unsplash.com/photos/black-headphones-glasses-and-smartwatch-on-gray-background-RXiq_O1Jc10",
+            "id": "RXiq_O1Jc10"
+          },
+          "grade": {
+            "brightness": 0.88
+          }
+        },
+        {
+          "file": "media/originals/sony-wh-1000xm5/3.jpg",
+          "role": "gallery",
+          "color": "Платиновый серебристый",
+          "alt": "Крупный план серебристых Sony WH-1000XM5 на деревянной подставке в тёплом свете",
+          "focal": "62% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "JJ ROCHA",
+            "authorUrl": "https://unsplash.com/@that_person",
+            "sourceUrl": "https://unsplash.com/photos/close-up-of-beige-sony-headphones-on-a-wooden-stand-VqJKiiExW9I",
+            "id": "VqJKiiExW9I"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-airpods-max",
+      "name": "Apple AirPods Max",
+      "images": [
+        {
+          "file": "media/originals/apple-airpods-max/1.jpg",
+          "role": "primary",
+          "color": "Тёмная ночь",
+          "alt": "Тёмные наушники AirPods Max лежат на светло-сером столе, вид сверху",
+          "focal": "72% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Sam Grozyan",
+            "authorUrl": "https://unsplash.com/@ijeunes",
+            "sourceUrl": "https://unsplash.com/photos/black-wireless-headphones-on-white-desk-P7KF3cTRKcE",
+            "id": "P7KF3cTRKcE"
+          }
+        },
+        {
+          "file": "media/originals/apple-airpods-max/2.jpg",
+          "role": "gallery",
+          "color": "Тёмная ночь",
+          "alt": "Алюминиевые чашки AirPods Max с сетчатыми амбушюрами крупным планом",
+          "focal": "45% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Sam Grozyan",
+            "authorUrl": "https://unsplash.com/@ijeunes",
+            "sourceUrl": "https://unsplash.com/photos/black-headphones-on-white-table-uNC9-RgzjTA",
+            "id": "uNC9-RgzjTA"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "marshall-major-iv",
+      "name": "Marshall Major IV",
+      "images": [
+        {
+          "file": "media/originals/marshall-major-iv/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные наушники Marshall Major IV стоят на тёмной колонке, тёплый бежевый фон",
+          "focal": "50% 45%",
+          "tone": "mid",
+          "credit": {
+            "author": "Fujiphilm",
+            "authorUrl": "https://unsplash.com/@fujiphilm",
+            "sourceUrl": "https://unsplash.com/photos/a-pair-of-headphones-sitting-on-top-of-a-wooden-table-TXV0Jij4zR8",
+            "id": "TXV0Jij4zR8"
+          },
+          "grade": {
+            "saturation": 0.85
+          }
+        },
+        {
+          "file": "media/originals/marshall-major-iv/2.jpg",
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "Marshall Major IV на столе с фотокнигой, мягкий дневной свет",
+          "focal": "55% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Fujiphilm",
+            "authorUrl": "https://unsplash.com/@fujiphilm",
+            "sourceUrl": "https://unsplash.com/photos/a-black-and-silver-telephone-FWOeGZ5OGiY",
+            "id": "FWOeGZ5OGiY"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bang-olufsen-beosound-a1-2nd-gen",
+      "name": "Bang & Olufsen Beosound A1 2nd Gen",
+      "images": [
+        {
+          "file": "media/originals/bang-olufsen-beosound-a1-2nd-gen/1.jpg",
+          "role": "primary",
+          "color": "Зелёный",
+          "alt": "Зелёная колонка Beosound A1 с кожаным ремешком на тёплом песочном фоне",
+          "focal": "50% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ryan Waring",
+            "authorUrl": "https://unsplash.com/@ryanwaring",
+            "sourceUrl": "https://unsplash.com/photos/round-black-speaker-BMest61rcqs",
+            "id": "BMest61rcqs"
+          },
+          "grade": {
+            "saturation": 0.5,
+            "wb": [
+              0.86,
+              1,
+              1.24
+            ]
+          }
+        },
+        {
+          "file": "media/originals/bang-olufsen-beosound-a1-2nd-gen/2.jpg",
+          "role": "gallery",
+          "color": "Зелёный",
+          "alt": "Beosound A1 лежит на границе светлой и тёмной поверхности, вид сверху",
+          "focal": "45% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ryan Waring",
+            "authorUrl": "https://unsplash.com/@ryanwaring",
+            "sourceUrl": "https://unsplash.com/photos/black-portable-speaker-eeEsmrTVH7Q",
+            "id": "eeEsmrTVH7Q"
+          }
+        },
+        {
+          "file": "media/originals/bang-olufsen-beosound-a1-2nd-gen/4.jpg",
+          "role": "context",
+          "color": "Серый туман",
+          "alt": "Колонка Beosound A1 цвета «Серый туман» с кожаным ремешком, вид целиком на сером фоне",
+          "focal": "52% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "I'M ZION",
+            "authorUrl": "https://unsplash.com/@ziontech",
+            "sourceUrl": "https://unsplash.com/photos/a-round-object-with-a-wire-attached-to-it-qMuaoRV5Om4",
+            "id": "qMuaoRV5Om4"
+          }
+        },
+        {
+          "file": "media/originals/bang-olufsen-beosound-a1-2nd-gen/3.jpg",
+          "role": "gallery",
+          "color": "Серый туман",
+          "alt": "Перфорированный алюминиевый корпус и кожаный ремешок Beosound A1 крупным планом",
+          "focal": "40% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "WELLSTUDIO",
+            "authorUrl": "https://unsplash.com/@wellstudio",
+            "sourceUrl": "https://unsplash.com/photos/a-bluetooth-speaker-sitting-on-top-of-a-wooden-table-qEln8dcm1jo",
+            "id": "qEln8dcm1jo"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-airpods-pro-2",
+      "name": "Apple AirPods Pro 2",
+      "images": [
+        {
+          "file": "media/originals/apple-airpods-pro-2/1.jpg",
+          "role": "primary",
+          "color": "Белый",
+          "alt": "Белые AirPods Pro и зарядный кейс на светлом деревянном столе",
+          "focal": "50% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Andres Jasso",
+            "authorUrl": "https://unsplash.com/@andresjasso",
+            "sourceUrl": "https://unsplash.com/photos/white-apple-airpods-on-brown-wooden-table-6hQB-U2nWG8",
+            "id": "6hQB-U2nWG8"
+          }
+        },
+        {
+          "file": "media/originals/apple-airpods-pro-2/2.jpg",
+          "role": "gallery",
+          "color": "Белый",
+          "alt": "Два наушника AirPods Pro на чёрной коже крупным планом",
+          "focal": "45% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Miguel Angel Avila",
+            "authorUrl": "https://unsplash.com/@miketopus",
+            "sourceUrl": "https://unsplash.com/photos/white-earbuds-on-black-textile-3p5cPfbpVTc",
+            "id": "3p5cPfbpVTc"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bang-olufsen-beolit-20",
+      "name": "Bang & Olufsen Beolit 20",
+      "images": [
+        {
+          "file": "media/originals/bang-olufsen-beolit-20/1.jpg",
+          "role": "primary",
+          "color": "Серый туман",
+          "alt": "Колонка Beolit 20 цвета серый туман с кожаной ручкой на светлой полке у окна",
+          "focal": "100% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Lasse Jensen",
+            "authorUrl": "https://unsplash.com/@maybejensen",
+            "sourceUrl": "https://unsplash.com/photos/white-and-black-portable-speaker-on-brown-wooden-table-s27u-G8pnUE",
+            "id": "s27u-G8pnUE"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-iphone-16-pro",
+      "name": "Apple iPhone 16 Pro",
+      "images": [
+        {
+          "file": "media/originals/apple-iphone-16-pro/1.jpg",
+          "role": "primary",
+          "color": "Натуральный титан",
+          "alt": "iPhone 16 Pro в цвете «натуральный титан» лежит задней панелью вверх на сером войлоке",
+          "focal": "50% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "appshunter.io",
+            "authorUrl": "https://unsplash.com/@appshunter",
+            "sourceUrl": "https://unsplash.com/photos/the-back-of-a-silver-iphone-11-JkWymCWipxA",
+            "id": "JkWymCWipxA"
+          }
+        },
+        {
+          "file": "media/originals/apple-iphone-16-pro/2.jpg",
+          "role": "gallery",
+          "color": "Натуральный титан",
+          "alt": "iPhone 16 Pro под углом на сером войлоке: блок из трёх камер и титановая рамка",
+          "focal": "50% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "appshunter.io",
+            "authorUrl": "https://unsplash.com/@appshunter",
+            "sourceUrl": "https://unsplash.com/photos/a-silver-iphone-sitting-on-top-of-a-table-N5qbfch8PrU",
+            "id": "N5qbfch8PrU"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "google-pixel-9-pro",
+      "name": "Google Pixel 9 Pro",
+      "images": [
+        {
+          "file": "media/originals/google-pixel-9-pro/2.jpg",
+          "role": "primary",
+          "color": "Серо-зелёный",
+          "alt": "Крупный план панели камер Pixel 9 Pro серо-зелёного цвета на тёмной поверхности",
+          "focal": "55% 40%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-cell-phone-on-a-table-oALMJ8tpnBs",
+            "id": "oALMJ8tpnBs"
+          }
+        },
+        {
+          "file": "media/originals/google-pixel-9-pro/1.jpg",
+          "role": "gallery",
+          "color": "Фарфоровый",
+          "alt": "Google Pixel 9 Pro фарфорового цвета лежит на тёмном деревянном столе, видна горизонтальная панель камер",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/white-smartphone-with-google-logo-and-camera-array-O6Or-El4hdU",
+            "id": "O6Or-El4hdU"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "samsung-galaxy-s24",
+      "name": "Samsung Galaxy S24",
+      "images": [
+        {
+          "file": "media/originals/samsung-galaxy-s24/1.jpg",
+          "role": "primary",
+          "color": "Серый мрамор",
+          "alt": "Samsung Galaxy S24 цвета «серый мрамор» стоит на деревянной подставке на тёплом бежевом фоне",
+          "focal": "45% 50%",
+          "tone": "light",
+          "credit": {
+            "author": "Dhruv vishwakarma",
+            "authorUrl": "https://unsplash.com/@dhruva15",
+            "sourceUrl": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-wooden-stand-eRZXC48gllU",
+            "id": "eRZXC48gllU"
+          },
+          "grade": {
+            "saturation": 0.7,
+            "brightness": 0.92
+          }
+        },
+        {
+          "file": "media/originals/samsung-galaxy-s24/2.jpg",
+          "role": "context",
+          "color": "Серый мрамор",
+          "alt": "Galaxy S24 стоит на каменном парапете рядом с приглушёнными цветами",
+          "focal": "40% 55%",
+          "tone": "mid",
+          "credit": {
+            "author": "Dhruv vishwakarma",
+            "authorUrl": "https://unsplash.com/@dhruva15",
+            "sourceUrl": "https://unsplash.com/photos/a-white-cell-phone-sitting-on-top-of-a-table-Eda49vVHnp0",
+            "id": "Eda49vVHnp0"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-watch-ultra-2",
+      "name": "Apple Watch Ultra 2",
+      "images": [
+        {
+          "file": "media/originals/apple-watch-ultra-2/1.jpg",
+          "role": "primary",
+          "color": "Натуральный титан",
+          "alt": "Apple Watch Ultra 2 в натуральном титане с тёмно-зелёным ремешком Alpine Loop на сером текстиле",
+          "focal": "52% 45%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/an-apple-watch-with-a-green-strap-gjh_MaV52rs",
+            "id": "gjh_MaV52rs"
+          }
+        },
+        {
+          "file": "media/originals/apple-watch-ultra-2/2.jpg",
+          "role": "context",
+          "color": "Натуральный титан",
+          "alt": "Apple Watch Ultra в натуральном титане со светлым ремешком лежит на рабочем столе перед клавиатурой",
+          "focal": "50% 72%",
+          "tone": "mid",
+          "credit": {
+            "author": "Nat Weerawong",
+            "authorUrl": "https://unsplash.com/@nathadej",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-and-keyboard-on-a-desk-PopSYmHREZ4",
+            "id": "PopSYmHREZ4"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-watch-se-3",
+      "name": "Apple Watch SE 3",
+      "images": [
+        {
+          "file": "media/originals/apple-watch-se-3/1.jpg",
+          "role": "primary",
+          "color": "Тёмная ночь",
+          "alt": "Apple Watch с тёмным алюминиевым корпусом и чёрным спортивным ремешком на светло-сером фоне, на экране 13:48",
+          "focal": "50% 55%",
+          "tone": "light",
+          "credit": {
+            "author": "Klim Musalimov",
+            "authorUrl": "https://unsplash.com/@klim11",
+            "sourceUrl": "https://unsplash.com/photos/an-apple-watch-with-the-time-displayed-on-it-IGO10LkxP_g",
+            "id": "IGO10LkxP_g"
+          }
+        },
+        {
+          "file": "media/originals/apple-watch-se-3/2.jpg",
+          "role": "gallery",
+          "color": "Тёмная ночь",
+          "alt": "Apple Watch фронтально на светло-сером фоне, на экране крупные цифры 14:00",
+          "focal": "50% 58%",
+          "tone": "light",
+          "credit": {
+            "author": "Klim Musalimov",
+            "authorUrl": "https://unsplash.com/@klim11",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-sign-Eh9RtyZ4uNo",
+            "id": "Eh9RtyZ4uNo"
+          }
+        },
+        {
+          "file": "media/originals/apple-watch-se-3/3.jpg",
+          "role": "context",
+          "color": "Тёмная ночь",
+          "alt": "Тёмные Apple Watch с выключенным экраном лежат на чёрной поверхности, ремешок вытянут по диагонали",
+          "focal": "55% 40%",
+          "tone": "dark",
+          "credit": {
+            "author": "Cezar Sampaio",
+            "authorUrl": "https://unsplash.com/@cezarsmpio",
+            "sourceUrl": "https://unsplash.com/photos/silver-aluminum-case-apple-watch-with-white-sport-band-bFzhdm9zZp0",
+            "id": "bFzhdm9zZp0"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "garmin-forerunner-55",
+      "name": "Garmin Forerunner 55",
+      "images": [
+        {
+          "file": "media/originals/garmin-forerunner-55/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрные часы Garmin Forerunner на тёмной матовой поверхности, на экране 8:54",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Daniel Maquiling",
+            "authorUrl": "https://unsplash.com/@maquilingskiswifty",
+            "sourceUrl": "https://unsplash.com/photos/a-smart-watch-sitting-on-top-of-a-black-surface-vfAQkN3WbwU",
+            "id": "vfAQkN3WbwU"
+          },
+          "grade": {
+            "linear": [
+              1.5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fujifilm-x100vi",
+      "name": "Fujifilm X100VI",
+      "images": [
+        {
+          "file": "media/originals/fujifilm-x100vi/1.jpg",
+          "role": "primary",
+          "color": "Серебристый",
+          "alt": "Серебристая камера Fujifilm X100VI с объективом 23 мм лежит под углом на тёмной поверхности",
+          "focal": "47% 52%",
+          "tone": "dark",
+          "credit": {
+            "author": "Kevin Canlas",
+            "authorUrl": "https://unsplash.com/@kvncnls",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-sitting-on-top-of-a-black-table-joSBugYIBcc",
+            "id": "joSBugYIBcc"
+          },
+          "grade": {
+            "linear": [
+              1.5,
+              8
+            ]
+          }
+        },
+        {
+          "file": "media/originals/fujifilm-x100vi/2.jpg",
+          "role": "gallery",
+          "color": "Серебристый",
+          "alt": "Чёрно-белый снимок камеры серии X100 с плетёным ремешком на текстильной поверхности",
+          "focal": "50% 45%",
+          "tone": "dark",
+          "credit": {
+            "author": "Leif Christoph Gottwald",
+            "authorUrl": "https://unsplash.com/@project2204",
+            "sourceUrl": "https://unsplash.com/photos/a-black-and-white-photo-of-a-camera-cGfomwRdQDM",
+            "id": "cGfomwRdQDM"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ricoh-gr-iiix",
+      "name": "Ricoh GR IIIx",
+      "images": [
+        {
+          "file": "media/originals/ricoh-gr-iiix/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Чёрная камера Ricoh GR IIIx с ремешком на запястье, вид спереди на тёмной фактурной поверхности",
+          "focal": "50% 48%",
+          "tone": "dark",
+          "credit": {
+            "author": "Li Yan",
+            "authorUrl": "https://unsplash.com/@yanli247",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-sitting-on-top-of-a-black-table-pGGtoc7n5AM",
+            "id": "pGGtoc7n5AM"
+          },
+          "grade": {
+            "linear": [
+              1.5,
+              8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fujifilm-instax-mini-evo",
+      "name": "Fujifilm instax mini Evo",
+      "images": [
+        {
+          "file": "media/originals/fujifilm-instax-mini-evo/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Камера instax mini Evo в серебристо-чёрном корпусе стоит анфас на светло-серой ткани",
+          "focal": "49% 53%",
+          "tone": "light",
+          "credit": {
+            "author": "Elianna Gill",
+            "authorUrl": "https://unsplash.com/@elianna_gill03",
+            "sourceUrl": "https://unsplash.com/photos/a-white-and-black-camera-sitting-on-top-of-a-table-iK5ibGZWA5M",
+            "id": "iK5ibGZWA5M"
+          }
+        },
+        {
+          "file": "media/originals/fujifilm-instax-mini-evo/3.jpg",
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "instax mini Evo в руке над песком пляжа, видны объектив и рычажок печати",
+          "focal": "50% 72%",
+          "tone": "mid",
+          "grade": {
+            "saturation": 0.75
+          },
+          "credit": {
+            "author": "Arkeyytones",
+            "authorUrl": "https://unsplash.com/@arkeykii",
+            "sourceUrl": "https://unsplash.com/photos/hand-holding-a-camera-on-a-sandy-beach-I8IIxC5CsbU",
+            "id": "I8IIxC5CsbU"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "sony-alpha-7-iv",
+      "name": "Sony α7 IV",
+      "images": [
+        {
+          "file": "media/originals/sony-alpha-7-iv/2.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Камера Sony α7 IV с объективом FE 50 мм f/1,8 и блендой на приглушённом серо-зелёном фоне",
+          "focal": "50% 52%",
+          "tone": "mid",
+          "grade": {
+            "saturation": 0.3,
+            "brightness": 1.35
+          },
+          "credit": {
+            "author": "Debashis RC Biswas",
+            "authorUrl": "https://unsplash.com/@rcsalbum",
+            "sourceUrl": "https://unsplash.com/photos/a-camera-with-a-lens-attached-to-it-gUABF0lRtp8",
+            "id": "gUABF0lRtp8"
+          }
+        },
+        {
+          "file": "media/originals/sony-alpha-7-iv/1.jpg",
+          "role": "gallery",
+          "color": "Чёрный",
+          "alt": "Камера Sony α7 IV с объективом FE 50 мм f/1,8 в контровом свете на чёрном фоне",
+          "focal": "50% 58%",
+          "tone": "dark",
+          "credit": {
+            "author": "Vignesh chandran",
+            "authorUrl": "https://unsplash.com/@veecee_photography",
+            "sourceUrl": "https://unsplash.com/photos/a-sony-camera-sitting-on-top-of-a-table-4XYGL6M4kjA",
+            "id": "4XYGL6M4kjA"
+          },
+          "grade": {
+            "linear": [
+              2.5,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "dji-osmo-action-5-pro",
+      "name": "DJI Osmo Action 5 Pro",
+      "images": [
+        {
+          "file": "media/originals/dji-osmo-action-5-pro/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Экшн-камера DJI Osmo Action 5 Pro под углом на приглушённой сине-серой поверхности",
+          "focal": "50% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "Puneet Kaul",
+            "authorUrl": "https://unsplash.com/@puneetkaul",
+            "sourceUrl": "https://unsplash.com/photos/black-action-camera-with-a-lens-and-screen-4mH6hkirn0c",
+            "id": "4mH6hkirn0c"
+          },
+          "grade": {
+            "saturation": 0.75,
+            "wb": [
+              1.06,
+              1,
+              0.88
+            ]
+          }
+        },
+        {
+          "file": "media/originals/dji-osmo-action-5-pro/2.jpg",
+          "role": "gallery",
+          "color": "Чёрный",
+          "alt": "Osmo Action 5 Pro анфас: фронтальный экран и объектив с красным кольцом",
+          "focal": "52% 50%",
+          "tone": "mid",
+          "credit": {
+            "author": "Puneet Kaul",
+            "authorUrl": "https://unsplash.com/@puneetkaul",
+            "sourceUrl": "https://unsplash.com/photos/black-action-camera-with-red-lens-ring-on-dark-background-Wn1A7UdJRjg",
+            "id": "Wn1A7UdJRjg"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "dji-mini-4k",
+      "name": "DJI Mini 4K",
+      "images": [
+        {
+          "file": "media/originals/dji-mini-4k/2.jpg",
+          "role": "primary",
+          "color": "Серый",
+          "alt": "Серый квадрокоптер DJI в полёте над водой, винты размыты движением",
+          "focal": "50% 48%",
+          "tone": "mid",
+          "credit": {
+            "author": "Andrii Denysenko",
+            "authorUrl": "https://unsplash.com/@denisenkos",
+            "sourceUrl": "https://unsplash.com/photos/white-drone-on-white-surface--kDeZkybg6Y",
+            "id": "-kDeZkybg6Y"
+          }
+        },
+        {
+          "file": "media/originals/dji-mini-4k/1.jpg",
+          "role": "gallery",
+          "color": "Серый",
+          "alt": "Серый квадрокоптер DJI с раскрытыми лучами, вид сверху на чёрном фоне",
+          "focal": "50% 48%",
+          "tone": "dark",
+          "credit": {
+            "author": "Manny Moreno",
+            "authorUrl": "https://unsplash.com/@mannydream",
+            "sourceUrl": "https://unsplash.com/photos/white-and-gray-quadcopter-drone-QdY9ORobCKw",
+            "id": "QdY9ORobCKw"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "keychron-k2",
+      "name": "Keychron K2 (Version 2)",
+      "images": [
+        {
+          "file": "media/originals/keychron-k2/4.jpg",
+          "role": "primary",
+          "color": "Графитовый",
+          "alt": "Клавиатура Keychron K2 с серыми клавишами и красной Esc на белом столе, вид сверху",
+          "focal": "46% 50%",
+          "tone": "light",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 2130,
+            "height": 1350
+          },
+          "credit": {
+            "author": "Martin Garrido",
+            "authorUrl": "https://unsplash.com/@martingarrido",
+            "sourceUrl": "https://unsplash.com/photos/black-computer-keyboard-on-white-table-cVUPic1cbd4",
+            "id": "cVUPic1cbd4"
+          }
+        },
+        {
+          "file": "media/originals/keychron-k2/2.jpg",
+          "role": "gallery",
+          "color": "Графитовый",
+          "alt": "Крупный план угла Keychron K2: оранжевая Esc и серые модификаторы на деревянном столе",
+          "focal": "35% 60%",
+          "tone": "dark",
+          "credit": {
+            "author": "Amjith S",
+            "authorUrl": "https://unsplash.com/@amjiths",
+            "sourceUrl": "https://unsplash.com/photos/black-computer-keyboard-on-brown-wooden-table-MHsZ3TImGys",
+            "id": "MHsZ3TImGys"
+          }
+        },
+        {
+          "file": "media/originals/keychron-k2/3.jpg",
+          "role": "context",
+          "color": "Графитовый",
+          "alt": "Keychron K2 и мышь на чёрном коврике рабочего стола рядом с блокнотом",
+          "focal": "50% 58%",
+          "tone": "mid",
+          "credit": {
+            "author": "Amjith S",
+            "authorUrl": "https://unsplash.com/@amjiths",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-keyboard-and-mouse-on-a-desk-8PHIJoVF5m4",
+            "id": "8PHIJoVF5m4"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "logitech-mx-master-3s",
+      "name": "Logitech MX Master 3S",
+      "images": [
+        {
+          "file": "media/originals/logitech-mx-master-3s/1.jpg",
+          "role": "primary",
+          "color": "Графитовый",
+          "alt": "Мышь Logitech MX Master 3S графитового цвета на тёмно-синем войлоке",
+          "focal": "47% 47%",
+          "tone": "dark",
+          "credit": {
+            "author": "Mahdi Gharib",
+            "authorUrl": "https://unsplash.com/@mahdiverse",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-mouse-on-a-black-surface-zVUQsh7EEV8",
+            "id": "zVUQsh7EEV8"
+          },
+          "grade": {
+            "linear": [
+              1.5,
+              8
+            ]
+          }
+        },
+        {
+          "file": "media/originals/logitech-mx-master-3s/2.jpg",
+          "role": "gallery",
+          "color": "Графитовый",
+          "alt": "Колесо MagSpeed и боковые кнопки MX Master 3S крупным планом на фоне коробки MX",
+          "focal": "60% 72%",
+          "tone": "dark",
+          "credit": {
+            "author": "Robert Torres",
+            "authorUrl": "https://unsplash.com/@roberttorres_19r",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-sitting-on-top-of-a-keyboard-MyHYfiRhgNI",
+            "id": "MyHYfiRhgNI"
+          }
+        },
+        {
+          "file": "media/originals/logitech-mx-master-3s/3.jpg",
+          "role": "context",
+          "color": "Графитовый",
+          "alt": "MX Master 3S в профиль на тёмном рабочем столе в приглушённом свете",
+          "focal": "40% 66%",
+          "tone": "dark",
+          "credit": {
+            "author": "Robert Torres",
+            "authorUrl": "https://unsplash.com/@roberttorres_19r",
+            "sourceUrl": "https://unsplash.com/photos/a-computer-mouse-sitting-on-top-of-a-wooden-desk-JhPeYGhJKHo",
+            "id": "JhPeYGhJKHo"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "amazon-kindle-paperwhite",
+      "name": "Amazon Kindle Paperwhite (2024)",
+      "images": [
+        {
+          "file": "media/originals/amazon-kindle-paperwhite/1.jpg",
+          "role": "primary",
+          "color": "Чёрный",
+          "alt": "Kindle Paperwhite с открытой страницей книги на светлой каменной столешнице, позади медная кружка",
+          "focal": "50% 70%",
+          "tone": "light",
+          "credit": {
+            "author": "Madalyn Cox",
+            "authorUrl": "https://unsplash.com/@madalyncox",
+            "sourceUrl": "https://unsplash.com/photos/a-tablet-sitting-on-a-table-next-to-a-coffee-mug-m_57oq_nwDc",
+            "id": "m_57oq_nwDc"
+          }
+        },
+        {
+          "file": "media/originals/amazon-kindle-paperwhite/2.jpg",
+          "role": "context",
+          "color": "Чёрный",
+          "alt": "Kindle Paperwhite рядом с чашкой капучино на деревянном столе, вид сверху",
+          "focal": "65% 45%",
+          "tone": "mid",
+          "credit": {
+            "author": "Adryanto Suryo",
+            "authorUrl": "https://unsplash.com/@adryantos",
+            "sourceUrl": "https://unsplash.com/photos/a-tablet-and-a-cup-of-coffee-Y-l8j8na0TQ",
+            "id": "Y-l8j8na0TQ"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-ipad-air-11-m3",
+      "name": "Apple iPad Air 11\" (M3)",
+      "images": [
+        {
+          "file": "media/originals/apple-ipad-air-11-m3/1.jpg",
+          "role": "primary",
+          "color": "Серый космос",
+          "alt": "iPad Air с синей заставкой на клавиатуре-обложке стоит на серой каменной столешнице",
+          "focal": "49% 52%",
+          "tone": "mid",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-tablet-computer-with-keyboard-xSUZWZkjklc",
+            "id": "xSUZWZkjklc"
+          }
+        },
+        {
+          "file": "media/originals/apple-ipad-air-11-m3/2.jpg",
+          "role": "gallery",
+          "color": "Серый космос",
+          "alt": "iPad Air с открытым холстом для рисования и Apple Pencil на тёмной столешнице, вид сверху",
+          "focal": "45% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-tablet-computer-on-gray-textile-doTjbfxrmRw",
+            "id": "doTjbfxrmRw"
+          }
+        },
+        {
+          "file": "media/originals/apple-ipad-air-11-m3/3.jpg",
+          "role": "context",
+          "color": "Серый космос",
+          "alt": "Силуэт iPad Air на клавиатуре-подставке в профиль на светло-сером фоне",
+          "focal": "38% 68%",
+          "tone": "light",
+          "credit": {
+            "author": "Ernest Ojeh",
+            "authorUrl": "https://unsplash.com/@namzo",
+            "sourceUrl": "https://unsplash.com/photos/black-and-silver-laptop-computer-6WsSffgqIyU",
+            "id": "6WsSffgqIyU"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-macbook-air-13-m4",
+      "name": "Apple MacBook Air 13\" (M4)",
+      "images": [
+        {
+          "file": "media/originals/apple-macbook-air-13-m4/1.jpg",
+          "role": "primary",
+          "color": "Сияющая звезда",
+          "alt": "MacBook Air цвета «сияющая звезда» с приоткрытой крышкой, вид сзади, на светлой глянцевой поверхности на тёмном фоне",
+          "focal": "50% 42%",
+          "tone": "mid",
+          "credit": {
+            "author": "Triyansh Gill",
+            "authorUrl": "https://unsplash.com/@triyansh",
+            "sourceUrl": "https://unsplash.com/photos/a-white-apple-laptop-sitting-on-top-of-a-table-lvhKVIHdMOM",
+            "id": "lvhKVIHdMOM"
+          }
+        },
+        {
+          "file": "media/originals/apple-macbook-air-13-m4/2.jpg",
+          "role": "gallery",
+          "color": "Сияющая звезда",
+          "alt": "Открытый MacBook Air на деревянном столе у окна рядом с холодным кофе",
+          "focal": "40% 62%",
+          "tone": "light",
+          "credit": {
+            "author": "Taan Huyn",
+            "authorUrl": "https://unsplash.com/@taanhuyn",
+            "sourceUrl": "https://unsplash.com/photos/a-laptop-on-a-table-X9kU8Q3RQxM",
+            "id": "X9kU8Q3RQxM"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-mac-mini-m4",
+      "name": "Apple Mac mini (M4)",
+      "images": [
+        {
+          "file": "media/originals/apple-mac-mini-m4/1.jpg",
+          "role": "primary",
+          "color": "Серебристый",
+          "alt": "Серебристый Mac mini на чёрной поверхности стола, рядом край клавиатуры",
+          "focal": "50% 50%",
+          "tone": "dark",
+          "credit": {
+            "author": "Amanz",
+            "authorUrl": "https://unsplash.com/@amanz",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-an-apple-mouse-and-keyboard-oiWNsvv_oAI",
+            "id": "oiWNsvv_oAI"
+          }
+        },
+        {
+          "file": "media/originals/apple-mac-mini-m4/2.jpg",
+          "role": "gallery",
+          "color": "Серебристый",
+          "alt": "Нижняя панель Mac mini с надписью и вентиляционным кольцом крупным планом",
+          "focal": "40% 65%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-close-up-of-a-smart-device-on-a-table-wOMyMzNpIZU",
+            "id": "wOMyMzNpIZU"
+          }
+        },
+        {
+          "file": "media/originals/apple-mac-mini-m4/3.jpg",
+          "role": "context",
+          "color": "Серебристый",
+          "alt": "Рабочее место сверху: Mac mini, клавиатура, трекпад и мышь на тёмном коврике под монитором",
+          "focal": "62% 55%",
+          "tone": "dark",
+          "credit": {
+            "author": "Samuel Angor",
+            "authorUrl": "https://unsplash.com/@sammysays___",
+            "sourceUrl": "https://unsplash.com/photos/a-desktop-computer-with-a-keyboard-and-mouse-1J1zA1qTuDs",
+            "id": "1J1zA1qTuDs"
+          }
+        }
+      ]
+    }
+  ]
+}

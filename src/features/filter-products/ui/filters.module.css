@@ -1,0 +1,282 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.groupTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+/* Sidebar variant: a hairline list, the active row marked by a 2px ink tick. */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: var(--target);
+  padding: 0 0 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  text-align: start;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: var(--ink);
+    opacity: 0;
+    transition: opacity var(--dur-fast) var(--ease-standard);
+  }
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  &[aria-pressed='true'] {
+    color: var(--ink);
+    font-weight: 600;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      color: var(--muted);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  & .count {
+    text-align: end;
+  }
+}
+
+/* The stock checkbox joins the same hairline rhythm in the sidebar. */
+.panel:has(.list) .stock {
+  min-height: var(--target);
+  padding-left: 14px;
+  border-block: 1px solid var(--line);
+  font-size: 14px;
+
+  & > span {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  & .count {
+    text-align: end;
+  }
+}
+
+/* Chip at full target size, with its count set quieter than the label. */
+.panel .facet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--target);
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: var(--line);
+    }
+  }
+}
+
+.count {
+  min-width: 2ch;
+  font-size: 14px;
+  /* Small inline count: proportional figures, so "12" never reads as "1 2". */
+  font-variant-numeric: proportional-nums;
+  text-align: start;
+  opacity: 0.6;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+
+/* Counts for the previous filters stay visible but read as pending. */
+.stale .count {
+  opacity: 0.3;
+}
+
+.stock {
+  & > span {
+    display: inline-flex;
+    gap: 8px;
+  }
+
+  &:has(:disabled) {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.reset {
+  align-self: flex-start;
+  min-height: var(--target);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+}
+
+/* Active filter pills */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--target);
+  padding: 0 12px 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  animation: fade var(--dur-base) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-standard);
+
+  & svg {
+    color: var(--muted);
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+
+  &:hover {
+    border-color: var(--ink);
+
+    & svg {
+      color: var(--ink);
+    }
+  }
+}
+
+/* Sort */
+.sortLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sortCaption {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.selectWrap {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.select {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: var(--target);
+  min-height: var(--target);
+  padding: 0 44px 0 20px;
+  border-radius: var(--radius-pill);
+  /* A form control's boundary needs 3:1, so it takes the strong hairline, not --line. */
+  border: 1px solid var(--line-strong, var(--line));
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--ink) 45%, var(--line-strong, var(--line)));
+  }
+
+  & option {
+    background: var(--bg);
+    color: var(--ink);
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -50%;
+  rotate: -90deg;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+@media (max-width: 479px) {
+  .sortCaption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}

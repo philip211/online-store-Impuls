@@ -1,0 +1,930 @@
+<title>Документация Импульса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky table of contents on the left, one reading column, screenshots in desktop + phone pairs. */
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --sunk: #ecebe6;
+  --line: #dedcd4;
+  --ink: #141414;
+  --muted: #64625c;
+  --accent: #b8ef2a;
+  --accent-ink: #141414;
+  --ok: #2f6b48;
+  --warn: #8a5a00;
+  --err: #b3261e;
+  --code-bg: #efeee9;
+  --font-body: 'Onest', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --radius: 12px;
+  --toc-w: 248px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d0d0e; --surface: #161617; --sunk: #1d1d1f; --line: #2c2c2e; --ink: #f2f2ee;
+    --muted: #9a9994; --accent: #c6ff3d; --accent-ink: #0d0d0e; --ok: #8fd1a6; --warn: #f0c36a;
+    --err: #ff8a7a; --code-bg: #1b1b1d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0e; --surface: #161617; --sunk: #1d1d1f; --line: #2c2c2e; --ink: #f2f2ee;
+  --muted: #9a9994; --accent: #c6ff3d; --accent-ink: #0d0d0e; --ok: #8fd1a6; --warn: #f0c36a;
+  --err: #ff8a7a; --code-bg: #1b1b1d; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--muted); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 24px; }
+
+/* Masthead */
+.mast { padding-block: 56px 40px; border-bottom: 1px solid var(--line); }
+.mast-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-weight: 700; letter-spacing: .28em; text-transform: uppercase; font-size: 14px; }
+.meta { font-size: 14px; color: var(--muted); }
+.mast h1 {
+  margin: 28px 0 12px;
+  font-size: clamp(36px, 5.4vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  font-weight: 600;
+  text-wrap: balance;
+  max-width: 16ch;
+}
+.lede { font-size: clamp(17px, 1.5vw, 19px); color: var(--muted); max-width: 62ch; margin: 0; }
+.facts {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0;
+  margin: 36px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line);
+}
+.facts li { padding: 16px 16px 4px 0; }
+.facts b { display: block; font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+.facts span { font-size: 14px; color: var(--muted); }
+
+/* Body grid */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 96px; }
+@media (min-width: 1040px) { .layout { grid-template-columns: var(--toc-w) minmax(0, 1fr); gap: 56px; } }
+
+.toc { font-size: 14px; }
+.toc details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 16px; }
+.toc summary { cursor: pointer; font-weight: 600; min-height: 32px; display: flex; align-items: center; }
+.toc ol { list-style: none; margin: 8px 0 0; padding: 0; }
+.toc ol ol { margin: 2px 0 6px 12px; }
+.toc a { display: block; padding: 5px 0 5px 12px; border-left: 1px solid var(--line); color: var(--muted); text-decoration: none; }
+.toc a:hover, .toc a.on { color: var(--ink); border-left-color: var(--ink); }
+.toc .part { margin-top: 10px; font-weight: 600; color: var(--ink); }
+@media (min-width: 1040px) {
+  .toc { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; }
+  .toc details { border: 0; background: none; padding: 0; }
+  .toc summary { display: none; }
+}
+
+/* Content */
+.doc { min-width: 0; max-width: 820px; }
+.doc section { padding-block: 8px 24px; }
+.part-head { margin: 56px 0 8px; padding-top: 32px; border-top: 1px solid var(--ink); }
+.part-head:first-child { margin-top: 0; }
+.part-label { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.doc h2 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.1; letter-spacing: -.03em; font-weight: 600; margin: 8px 0 16px; text-wrap: balance; }
+.doc h3 { font-size: 22px; letter-spacing: -.02em; font-weight: 600; margin: 40px 0 8px; text-wrap: balance; }
+.doc h4 { font-size: 16px; font-weight: 600; margin: 24px 0 4px; }
+.doc p, .doc li { max-width: 68ch; }
+.doc ul, .doc ol { padding-left: 22px; }
+.doc li { margin: 4px 0; }
+.doc li::marker { color: var(--muted); }
+.muted { color: var(--muted); }
+
+code, kbd, pre { font-family: var(--font-mono); font-size: .88em; }
+code { background: var(--code-bg); padding: .1em .35em; border-radius: 5px; overflow-wrap: anywhere; }
+kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 0 .4em; background: var(--surface); }
+pre.code {
+  background: var(--code-bg); border-radius: var(--radius); padding: 16px 18px; overflow-x: auto;
+  line-height: 1.55; margin: 12px 0 20px;
+}
+pre.code code { background: none; padding: 0; }
+pre.code .c { color: var(--muted); }
+
+/* Callouts carry a role word, not decoration */
+.note {
+  border-left: 3px solid var(--line); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 16px; margin: 16px 0; max-width: 68ch;
+}
+.note b:first-child { display: block; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; }
+.note.important { border-left-color: var(--accent); }
+.note.warn { border-left-color: var(--warn); }
+.note.warn b:first-child { color: var(--warn); }
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin: 12px 0 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-size: 13px; font-weight: 500; color: var(--muted); background: var(--sunk); white-space: nowrap; }
+tbody tr:last-child td { border-bottom: 0; }
+td code { white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+
+/* Status dots, as in the admin panel */
+.st { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-weight: 500; }
+.st::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+.st.wait::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink); }
+.st.done::before { background: var(--ok); }
+.st.stop { color: var(--muted); }
+.st.stop::before { background: var(--err); }
+
+/* Steps: a real sequence, so numbered */
+.steps { list-style: none; padding: 0; counter-reset: s; margin: 16px 0 24px; }
+.steps > li { counter-increment: s; position: relative; padding-left: 44px; margin: 0 0 16px; }
+.steps > li::before {
+  content: counter(s); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 14px;
+  display: grid; place-items: center; font-variant-numeric: tabular-nums;
+}
+
+/* Screenshots */
+.shots { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 20px 0 28px; align-items: start; }
+.shots.pair { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .shots.pair { grid-template-columns: minmax(0, 3.2fr) minmax(0, 1fr); } }
+.shots.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .shots.phones { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+figure { margin: 0; min-width: 0; }
+figure button {
+  display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; background: var(--sunk); cursor: zoom-in;
+}
+figure img { display: block; width: 100%; height: auto; }
+figure.phone button { border-radius: 22px; }
+figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+figcaption b { color: var(--ink); font-weight: 500; }
+
+dialog.zoom { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+dialog.zoom::backdrop { background: rgba(10, 10, 10, .82); }
+dialog.zoom img { display: block; max-width: 96vw; max-height: 88vh; width: auto; height: auto; border-radius: 10px; }
+dialog.zoom p { color: #f2f2ee; font-size: 14px; margin: 10px 0 0; text-align: center; }
+dialog.zoom form { position: fixed; top: 12px; right: 12px; margin: 0; }
+dialog.zoom button {
+  min-width: 44px; min-height: 44px; border-radius: 22px; border: 0; background: #f2f2ee; color: #141414;
+  font: 600 14px var(--font-body); padding: 0 16px; cursor: pointer;
+}
+
+/* Diagrams */
+pre.mermaid { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin: 16px 0 24px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+@media (min-width: 720px) { .two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 16px 18px; min-width: 0; }
+.card h4 { margin-top: 0; }
+.card p { margin: 4px 0 0; font-size: 15px; }
+
+.foot { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size: 14px; color: var(--muted); }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <span class="brand">Импульс</span>
+      <span class="meta">Версия 1.0 · октябрь 2026 · автор <a href="https://github.com/philip211" target="_blank" rel="noreferrer">philip211</a></span>
+    </div>
+    <h1>Документация магазина Импульс</h1>
+    <p class="lede">Всё о магазине электроники «Импульс» в одном месте. Как устроены витрина и личный кабинет. Как команда работает с заказами, товарами, отзывами и возвратами. Как запустить проект, развернуть его в продакшене и поддерживать дальше.</p>
+    <ul class="facts">
+      <li><b>React 19 · NestJS 12</b><span>витрина и API на TypeScript</span></li>
+      <li><b>PostgreSQL 17</b><span>Prisma 7, 3 миграции</span></li>
+      <li><b>414 тестов</b><span>299 фронтенд, 81 юнит и 34 e2e API</span></li>
+      <li><b>ЮKassa</b><span>оплата картой, чеки 54-ФЗ</span></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Содержание">
+    <details open>
+      <summary>Содержание</summary>
+      <ol>
+        <li class="part">Знакомство</li>
+        <li><a href="#overview">Что это за проект</a></li>
+        <li><a href="#quickstart">Быстрый старт</a></li>
+        <li><a href="#accounts">Учётные записи</a></li>
+        <li class="part">Витрина и кабинет</li>
+        <li><a href="#storefront">Главная, каталог, поиск</a></li>
+        <li><a href="#product">Карточка товара и отзывы</a></li>
+        <li><a href="#checkout">Корзина и оформление</a></li>
+        <li><a href="#payment">Оплата</a></li>
+        <li><a href="#service">Статус заказа и возврат</a></li>
+        <li><a href="#account">Вход и личный кабинет</a></li>
+        <li><a href="#mobile">Мобильная версия</a></li>
+        <li class="part">Управление магазином</li>
+        <li><a href="#roles">Роли и доступ</a></li>
+        <li><a href="#dashboard">Сводка</a></li>
+        <li><a href="#orders">Заказы</a></li>
+        <li><a href="#products">Товары и остатки</a></li>
+        <li><a href="#add-product">Добавление товара</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#returns">Возвраты</a></li>
+        <li><a href="#users">Пользователи и журнал</a></li>
+        <li><a href="#admin-mobile">Управление с телефона</a></li>
+        <li class="part">Для разработчиков</li>
+        <li><a href="#repo">Структура репозитория</a></li>
+        <li><a href="#frontend">Фронтенд</a></li>
+        <li><a href="#backend">Бэкенд</a></li>
+        <li><a href="#data">Модель данных</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#auth">Авторизация</a></li>
+        <li><a href="#reliability">Надёжность заказов и оплаты</a></li>
+        <li><a href="#jobs">Фоновые задачи и письма</a></li>
+        <li><a href="#tests">Тесты и качество</a></li>
+        <li class="part">Продакшен и поддержка</li>
+        <li><a href="#env">Переменные окружения</a></li>
+        <li><a href="#deploy">Развёртывание</a></li>
+        <li><a href="#launch">Чек-лист запуска</a></li>
+        <li><a href="#ops">Эксплуатация</a></li>
+        <li><a href="#troubleshooting">Решение проблем</a></li>
+        <li><a href="#reference">Справочник</a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <main class="doc">
+
+    <!-- ───────────────────────── Знакомство ───────────────────────── -->
+    <div class="part-head" id="overview">
+      <span class="part-label">Знакомство</span>
+      <h2>Что это за проект</h2>
+    </div>
+    <section>
+      <p>«Импульс» — интернет-магазин электроники: наушники и колонки, смартфоны и часы, камеры, техника для работы и чтения. В каталоге 24 товара в четырёх разделах, цены от 9 990 до 229 990 ₽. Проект состоит из трёх частей, которые работают как одно целое.</p>
+      <div class="two">
+        <div class="card"><h4>Витрина</h4><p>Сайт для покупателей: каталог с фильтрами, умный поиск, карточки товаров, корзина, оформление с оплатой картой или при получении, статус заказа и возврат.</p></div>
+        <div class="card"><h4>Личный кабинет</h4><p>Регистрация и вход, история заказов с таймлайном доставки, профиль. Корзина и избранное синхронизируются между устройствами.</p></div>
+        <div class="card"><h4>Управление</h4><p>Раздел для команды магазина: заказы и их статусы, товары и остатки с загрузкой фото, модерация отзывов, возвраты, пользователи и роли, журнал действий.</p></div>
+        <div class="card"><h4>API</h4><p>Сервер на NestJS и PostgreSQL. Отвечает за цены, остатки, оплату через ЮKassa, письма и права доступа. Витрина и управление работают только через него.</p></div>
+      </div>
+      <pre class="mermaid">
+flowchart LR
+  B["Браузер<br/>витрина · кабинет · управление"] -->|/api, cookie сессии| A["API · NestJS"]
+  A --> D[("PostgreSQL")]
+  A -->|письма через outbox| M["SMTP<br/>в разработке Mailpit"]
+  A <-->|платежи и вебхуки| Y["ЮKassa"]
+  A --> U["Папка uploads<br/>фото из управления"]
+      </pre>
+    </section>
+
+    <section id="quickstart">
+      <h3>Быстрый старт</h3>
+      <p>Для запуска нужны Node.js 24+ и Docker Desktop. Команды выполняются из корня проекта.</p>
+      <ol class="steps">
+        <li><b>Поднимите базу и почтовый перехватчик.</b>
+          <pre class="code"><code>cd server
+cp .env.example .env        <span class="c"># затем впишите длинный случайный JWT_ACCESS_SECRET</span>
+npm install
+npm run db:up               <span class="c"># PostgreSQL на :5440, Mailpit на :8025</span>
+npm run db:deploy           <span class="c"># применить миграции</span>
+npm run db:seed             <span class="c"># каталог, отзывы, первый администратор</span></code></pre></li>
+        <li><b>Запустите API.</b>
+          <pre class="code"><code>npm run start:dev           <span class="c"># http://localhost:3000/api/v1</span></code></pre></li>
+        <li><b>Запустите витрину</b> во втором терминале, из корня проекта.
+          <pre class="code"><code>npm install
+npm run dev                 <span class="c"># http://localhost:5173, /api проксируется на :3000</span></code></pre></li>
+      </ol>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Адрес</th><th>Что там</th></tr></thead>
+        <tbody>
+          <tr><td><code>http://localhost:5173</code></td><td>Витрина, кабинет и управление</td></tr>
+          <tr><td><code>http://localhost:3000/api/docs</code></td><td>Swagger: интерактивное описание всех эндпоинтов API</td></tr>
+          <tr><td><code>http://localhost:8025</code></td><td>Mailpit: все письма магазина в разработке</td></tr>
+          <tr><td><code>localhost:5440</code></td><td>PostgreSQL (пользователь и пароль <code>impulse</code>)</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="accounts">
+      <h3>Учётные записи</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Кто</th><th>Почта</th><th>Пароль</th><th>Откуда</th></tr></thead>
+        <tbody>
+          <tr><td>Администратор</td><td><code>admin@impulse.store</code></td><td><code>Admin12345!</code></td><td>Создаётся сидом из <code>SEED_ADMIN_EMAIL</code> и <code>SEED_ADMIN_PASSWORD</code></td></tr>
+          <tr><td>Демо-покупатель Анна Смирнова</td><td><code>anna@demo.impulse.store</code></td><td><code>Demo12345</code></td><td>Есть только в текущей базе разработки: четыре заказа в разных статусах, отзыв и заявка на возврат для скриншотов</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note warn"><b>Перед запуском</b>Пароль администратора из сида предназначен только для разработки. В продакшене задайте свой в <code>SEED_ADMIN_PASSWORD</code> до первого сида или смените его сразу после входа: Кабинет → Профиль и пароль.</div>
+    </section>
+
+    <!-- ───────────────────────── Витрина ───────────────────────── -->
+    <div class="part-head" id="storefront">
+      <span class="part-label">Витрина и кабинет</span>
+      <h2>Главная, каталог и поиск</h2>
+    </div>
+    <section>
+      <p>Сайт выдержан в сдержанной премиальной стилистике. По умолчанию тёмная тема, переключатель солнца в шапке включает светлую. Страницы сменяются плавно, без перезагрузки.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-home.webp" alt="Главная страница: крупное фото наушников Sony и предложение недели" loading="lazy" width="1440" height="900"></button><figcaption><b>Главная.</b> Герой-товар недели, разделы каталога, подборка, скидки, подборщик техники.</figcaption></figure></div>
+      <h4>Каталог</h4>
+      <ul>
+        <li>Фильтры слева: раздел, потолок цены и «Только в наличии». Рядом с каждым вариантом показано, сколько товаров останется; варианты без товаров выключаются, а не прячутся.</li>
+        <li>Все фильтры хранятся в адресе страницы, например <code>/catalog?cat=sound&amp;max=20000&amp;stock=1</code>. Такой ссылкой можно поделиться, а фильтры переживают перезагрузку.</li>
+        <li>Сортировка: популярные, дешевле, дороже.</li>
+      </ul>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-catalog.webp" alt="Каталог, раздел Звук, с фильтрами слева" loading="lazy" width="1440" height="900"></button><figcaption><b>Каталог.</b> Раздел «Звук», счётчики у каждого фильтра.</figcaption></figure></div>
+      <h4>Поиск</h4>
+      <p>Открывается по <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> на Mac), клавишей <kbd>/</kbd> или кнопкой в шапке. Поиск понимает:</p>
+      <ul>
+        <li>опечатки и неверную раскладку: «ыщтн» найдёт Sony;</li>
+        <li>транслит и цвета: «чёрные наушники»;</li>
+        <li>цену и наличие словами: «до 30 000», «в наличии»;</li>
+        <li>сценарии из тегов товара: «для бега», «в подарок»;</li>
+        <li>вопросы про сервис: «возврат» открывает раздел помощи.</li>
+      </ul>
+      <p>Если запрос исправлен, поиск предложит «Возможно, вы имели в виду».</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-search.webp" alt="Окно поиска с запросом «наушники до 30 000» и двумя результатами" loading="lazy" width="1440" height="900"></button><figcaption><b>Поиск.</b> «Наушники до 30 000» — фраза о цене превращается в фильтр.</figcaption></figure></div>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-finder.webp" alt="Подборщик техники, первый вопрос" loading="lazy" width="1440" height="900"></button><figcaption><b>Подбор техники.</b> Три вопроса и объяснение, почему товар подходит. Ответы хранятся в адресе, подборку можно отправить.</figcaption></figure></div>
+    </section>
+
+    <section id="product">
+      <h3>Карточка товара и отзывы</h3>
+      <ul>
+        <li>Галерея листается стрелками и свайпом. При выборе цвета показывается фото именно этого цвета.</li>
+        <li>У кнопки покупки есть дата доставки (а не «1–2 дня»), итог с доставкой и условие возврата за 30 дней.</li>
+        <li>Если товара нет, вместо кнопки «В корзину» появляется подписка «Сообщить о поступлении». Письмо придёт, как только остаток станет больше нуля.</li>
+        <li>Габариты «в масштабе» и характеристики идут единым словарём, его же читает подборщик.</li>
+      </ul>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-product.webp" alt="Карточка Sony WH-1000XM5 с ценой со скидкой, выбором цвета и кнопкой В корзину" loading="lazy" width="1440" height="900"></button><figcaption><b>Карточка товара.</b> Скидка, цвета, комплект, срок доставки.</figcaption></figure></div>
+      <p><b>Отзывы.</b> Публикуются только отзывы покупателей с доставленным заказом этого товара, каждый проходит модерацию. Чтобы написать отзыв, нужно войти в аккаунт. Для гостя форма показывает приглашение войти.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-reviews.webp" alt="Блок отзывов: распределение оценок, сортировка и карточки отзывов" loading="lazy" width="1440" height="900"></button><figcaption><b>Отзывы.</b> Распределение оценок, сортировка, отметка «Проверенная покупка».</figcaption></figure></div>
+    </section>
+
+    <section id="checkout">
+      <h3>Корзина и оформление</h3>
+      <p>Корзина хранится в браузере и не теряется при перезагрузке. Если покупатель вошёл в аккаунт, она синхронизируется с ним. Удаление товара можно отменить в подсказке внизу, шкала показывает, сколько осталось до бесплатной доставки от 20 000 ₽.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-cart.webp" alt="Страница корзины с формой оформления и итогом справа" loading="lazy" width="1440" height="1500"></button><figcaption><b>Корзина и оформление на одной странице.</b> Ошибки показываются у полей сразу, а не после отправки.</figcaption></figure></div>
+      <h4>Что важно знать об оформлении</h4>
+      <ul>
+        <li><b>Цену считает сервер.</b> Если цена изменилась, пока товар лежал в корзине, заказ не оформится по старой. Корзина сама обновит цены, покупатель увидит сообщение и подтвердит заказ ещё раз. То же с товаром, который закончился (останется доступное количество) или снят с продажи (уберётся).</li>
+        <li><b>Двойной клик не создаёт два заказа.</b> Каждая попытка оформления несёт ключ идемпотентности. Повтор того же заказа, например после пропавшей связи, вернёт уже созданный.</li>
+        <li><b>Резерв товара.</b> Товар списывается с остатка в момент оформления. Последнюю единицу нельзя продать двоим.</li>
+        <li><b>Доставка.</b> Курьером 390 ₽, бесплатно от 20 000 ₽. Самовывоз бесплатно. Дата доставки рассчитывается по московскому времени: после 16:00 срок сдвигается на день.</li>
+        <li><b>Вошедшему покупателю</b> имя и телефон подставляются сами.</li>
+      </ul>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-order-success.webp" alt="Страница Заказ принят" loading="lazy" width="1440" height="900"></button><figcaption><b>Заказ принят.</b> Номер, срок, сумма, способ оплаты и следующие шаги.</figcaption></figure></div>
+    </section>
+
+    <section id="payment">
+      <h3>Оплата</h3>
+      <div class="two">
+        <div class="card"><h4>При получении</h4><p>Заказ сразу получает статус «Оформлен», покупателю уходит письмо с подтверждением.</p></div>
+        <div class="card"><h4>Картой онлайн</h4><p>Покупатель переходит на страницу ЮKassa и возвращается на «Заказ принят». Страница сама уточняет у сервера, прошла ли оплата. Резерв держится 30 минут, затем неоплаченный заказ отменяется, а товар возвращается на склад.</p></div>
+      </div>
+      <div class="note"><b>В разработке</b>Вместо ЮKassa работает тестовая страница оплаты прямо в API с кнопками «Оплатить» и «Отменить». Деньги не списываются. В продакшене тестовый режим запрещён: API с ним не запустится.</div>
+    </section>
+
+    <section id="service">
+      <h3>Статус заказа и возврат</h3>
+      <p>В разделе «Помощь» покупатель узнаёт, где заказ, по номеру и телефону, без входа в аккаунт. Ответ для несуществующего номера и для неверного телефона одинаковый, поэтому чужой заказ так не найти.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-tracking.webp" alt="Раздел помощи Статус заказа с найденным заказом и таймлайном доставки" loading="lazy" width="1440" height="1400"></button><figcaption><b>Где мой заказ.</b> Пройденные шаги с датами и ожидаемая дата получения.</figcaption></figure></div>
+      <p><b>Возврат</b> оформляется там же в два шага: номер заказа, телефон и причина (необязательно), затем подтверждение. Вернуть можно полученный заказ в течение 30 дней. Покупатель получает номер заявки вида <code>RT-4892-1010-32</code>, менеджер видит её в разделе «Возвраты».</p>
+    </section>
+
+    <section id="account">
+      <h3>Вход и личный кабинет</h3>
+      <p>Регистрация занимает одну форму: имя, почта, пароль и, по желанию, телефон. Пароль — от 8 символов, с буквой и цифрой. Покупать можно и без аккаунта.</p>
+      <div class="shots pair">
+        <figure><button type="button" data-zoom><img src="screenshots/d-login.webp" alt="Страница входа на десктопе" loading="lazy" width="1440" height="900"></button><figcaption><b>Вход</b> на десктопе.</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-login.webp" alt="Страница входа на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>На телефоне.</figcaption></figure>
+      </div>
+      <p>В кабинете три раздела: заказы, профиль и пароль, а для сотрудников ещё ссылка «Управление магазином».</p>
+      <ul>
+        <li><b>Заказы:</b> все заказы аккаунта со статусом и суммой, новые сверху.</li>
+        <li><b>Карточка заказа:</b> таймлайн доставки с датами, состав, сумма, адрес. Для неоплаченного заказа — кнопка «Оплатить».</li>
+        <li><b>Профиль:</b> имя и телефон. При смене пароля выход происходит на всех устройствах.</li>
+      </ul>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-account-orders.webp" alt="Кабинет, список заказов Анны Смирновой в разных статусах" loading="lazy" width="1440" height="900"></button><figcaption><b>Мои заказы.</b> Статус обозначен точкой: зелёная — получен, красная — отменён, кольцо — ждёт оплаты.</figcaption></figure></div>
+      <div class="shots pair">
+        <figure><button type="button" data-zoom><img src="screenshots/d-account-order.webp" alt="Карточка заказа в кабинете с таймлайном доставки" loading="lazy" width="1440" height="1700"></button><figcaption><b>Заказ в кабинете:</b> где он сейчас, состав и получение.</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-account-order.webp" alt="Карточка заказа на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Тот же заказ на телефоне.</figcaption></figure>
+      </div>
+      <div class="note"><b>Синхронизация</b>После входа корзина и избранное гостя объединяются с аккаунтом: у совпадающих позиций берётся большее количество. Дальше изменения сохраняются на сервере и видны на всех устройствах. После выхода, в том числе по истечении сессии или после смены пароля, данные аккаунта стираются с устройства, на сервере они остаются.</div>
+    </section>
+
+    <section id="mobile">
+      <h3>Мобильная версия</h3>
+      <p>Все страницы рассчитаны на экран от 320 px. Кнопки и поля не меньше 44 px, текст в полях 16 px, чтобы iPhone не увеличивал страницу. Меню открывается шторкой справа, фильтры каталога — шторкой снизу.</p>
+      <div class="shots phones">
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-home.webp" alt="Главная на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Главная</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-menu.webp" alt="Мобильное меню" loading="lazy" width="780" height="1688"></button><figcaption>Меню</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-catalog.webp" alt="Каталог на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Каталог</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-product.webp" alt="Карточка товара на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Товар</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-cart.webp" alt="Корзина на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Корзина</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-account-orders.webp" alt="Заказы в кабинете на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Мои заказы</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-login.webp" alt="Вход на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Вход</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-account-order.webp" alt="Заказ на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Заказ</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Управление ───────────────────────── -->
+    <div class="part-head" id="roles">
+      <span class="part-label">Управление магазином</span>
+      <h2>Роли и доступ</h2>
+    </div>
+    <section>
+      <p>Управление открывается по адресу <code>/admin</code> или из кабинета: «Управление магазином». Покупатель на этом адресе видит обычную страницу 404. Права проверяет сервер на каждом запросе, поэтому снятая роль перестаёт действовать сразу.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Раздел</th><th>Покупатель</th><th>Менеджер</th><th>Администратор</th></tr></thead>
+        <tbody>
+          <tr><td>Витрина, кабинет</td><td>да</td><td>да</td><td>да</td></tr>
+          <tr><td>Сводка, заказы, товары, отзывы, возвраты</td><td>—</td><td>да</td><td>да</td></tr>
+          <tr><td>Пользователи и роли, журнал действий</td><td>—</td><td>—</td><td>да</td></tr>
+        </tbody>
+      </table></div>
+      <p>Каждое действие сотрудника записывается в журнал: кто, когда и что изменил.</p>
+    </section>
+
+    <section id="dashboard">
+      <h3>Сводка</h3>
+      <p>Первый экран управления: выручка за 30 дней (без отменённых и неоплаченных), заказы за сегодня, средний чек, отзывы на модерации, открытые возвраты, заказы по статусам и товары, которых осталось три штуки и меньше. Счётчики у пунктов «Отзывы» и «Возвраты» в меню показывают, сколько работы ждёт.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-dashboard.webp" alt="Сводка: выручка за 30 дней, показатели, заказы по статусам, заканчивающиеся товары" loading="lazy" width="1440" height="1150"></button><figcaption><b>Сводка.</b> Названия заканчивающихся товаров ведут в их карточки.</figcaption></figure></div>
+    </section>
+
+    <section id="orders">
+      <h3>Заказы</h3>
+      <p>Список ищет по номеру, имени, почте и последним цифрам телефона и фильтруется по статусу. Фильтры хранятся в адресе, ссылку на выборку можно отправить коллеге.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-orders.webp" alt="Список заказов с поиском и фильтром статуса" loading="lazy" width="1440" height="900"></button><figcaption><b>Заказы.</b> Покупатель, статус, способ получения и оплаты, сумма.</figcaption></figure></div>
+      <h4>Работа с заказом</h4>
+      <p>В карточке заказа справа есть панель «Следующий шаг». На ней только те кнопки, которые допустимы для текущего статуса, перепрыгнуть через этап нельзя. Комментарий попадает в историю заказа. Покупатель с почтой получает письмо о каждом шаге.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-order.webp" alt="Карточка заказа в управлении: состав, покупатель, оплата, история и панель следующего шага" loading="lazy" width="1440" height="1800"></button><figcaption><b>Карточка заказа.</b> Звонок покупателю — по нажатию на телефон.</figcaption></figure></div>
+      <pre class="mermaid">
+stateDiagram-v2
+  direction LR
+  [*] --> PENDING_PAYMENT: картой
+  [*] --> CONFIRMED: при получении
+  PENDING_PAYMENT --> CONFIRMED: оплата прошла
+  PENDING_PAYMENT --> CANCELLED: не оплачен за 30 минут
+  CONFIRMED --> ASSEMBLED
+  ASSEMBLED --> SHIPPED
+  SHIPPED --> OUT_FOR_DELIVERY: курьер
+  SHIPPED --> READY_FOR_PICKUP: самовывоз
+  OUT_FOR_DELIVERY --> DELIVERED
+  READY_FOR_PICKUP --> DELIVERED
+  CONFIRMED --> CANCELLED
+  ASSEMBLED --> CANCELLED
+  SHIPPED --> CANCELLED
+  OUT_FOR_DELIVERY --> CANCELLED
+  READY_FOR_PICKUP --> CANCELLED
+      </pre>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Статус</th><th>Что значит</th><th>Кнопка менеджера</th></tr></thead>
+        <tbody>
+          <tr><td><span class="st wait">Ждёт оплаты</span></td><td>Картой, ещё не оплачен. Товар в резерве 30 минут.</td><td>— (подтверждается оплатой)</td></tr>
+          <tr><td><span class="st">Оформлен</span></td><td>Оплачен или выбрана оплата при получении</td><td>«Собран»</td></tr>
+          <tr><td><span class="st">Собран</span></td><td>Упакован на складе</td><td>«Передать в доставку»</td></tr>
+          <tr><td><span class="st">Передан в доставку</span></td><td>У службы доставки</td><td>«Передать курьеру» или «Привезли в пункт выдачи»</td></tr>
+          <tr><td><span class="st">У курьера / В пункте выдачи</span></td><td>Последний этап</td><td>«Получен покупателем»</td></tr>
+          <tr><td><span class="st done">Получен</span></td><td>Финал. Начинается отсчёт 30 дней на возврат, открывается возможность отзыва.</td><td>—</td></tr>
+          <tr><td><span class="st stop">Отменён</span></td><td>Финал. Товар вернулся на склад.</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note important"><b>Отмена оплаченного заказа</b>Кнопка «Отменить заказ» сначала просит подтверждения. Товар возвращается на склад, а деньги за картой — покупателю автоматически. Если платёжный сервис в этот момент недоступен, возврат помечается «ждёт возврата» и повторяется каждые 5 минут, пока не пройдёт. Повторно деньги не вернутся: у каждого возврата свой ключ.</div>
+    </section>
+
+    <section id="products">
+      <h3>Товары и остатки</h3>
+      <p>Список показывает все товары, включая снятые с продажи. Есть поиск по названию, бренду и адресу, фильтр по разделу и быстрые фильтры: «Заканчиваются», «Нет в наличии», «Сняты с продажи».</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-products.webp" alt="Список товаров с фото, разделом, ценой и полем остатка" loading="lazy" width="1440" height="900"></button><figcaption><b>Товары.</b> Остаток правится прямо в таблице.</figcaption></figure></div>
+      <h4>Как поменять остаток</h4>
+      <ol class="steps">
+        <li>Нажмите на число в колонке «Остаток, шт.».</li>
+        <li>Введите новое значение и нажмите <kbd>Enter</kbd> или кликните мимо поля. <kbd>Esc</kbd> отменяет правку.</li>
+        <li>Подсказка внизу подтвердит сохранение. Если остаток был нулевым, подписчикам «Сообщить о поступлении» сразу уйдут письма.</li>
+      </ol>
+      <div class="note"><b>Почему остаток не меняется в карточке товара</b>Пока менеджер редактирует карточку, товар могут купить. Если бы форма сохраняла остаток, она записала бы старое число поверх продаж. Поэтому остаток меняется только в таблице, и сервер при этом блокирует строку товара.</div>
+      <h4>Редактирование товара</h4>
+      <p>Клик по названию открывает редактор: основное, цена, цвета и варианты, фото, характеристики, габариты, теги и показ на витрине. Справа видно, есть ли несохранённые правки. Изменения появятся на витрине в течение минуты.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-product-edit.webp" alt="Редактор товара Sony WH-1000XM5" loading="lazy" width="1440" height="1500"></button><figcaption><b>Редактор товара.</b> Если что-то заполнено неверно, панель справа называет число ошибок, а поля подсвечены.</figcaption></figure></div>
+      <p><b>Снять с продажи</b> можно галочкой «Продаётся» в разделе «Поиск и показ». Товар исчезнет с витрины, из корзин и избранного, но останется в истории заказов. Удалять товары нельзя намеренно: на них ссылаются прошлые заказы.</p>
+    </section>
+
+    <section id="add-product">
+      <h3>Добавление товара</h3>
+      <p>«Товары» → кнопка «Добавить товар» справа от заголовка.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-product-new.webp" alt="Пустая форма нового товара" loading="lazy" width="1440" height="900"></button><figcaption><b>Новый товар.</b> Адрес на сайте заполняется сам из названия; его можно поправить вручную.</figcaption></figure></div>
+      <ol class="steps">
+        <li><b>Основное.</b> Название, бренд, тип товара («Наушники»), раздел и описание: чем хорош, кому подойдёт, что в коробке. Адрес на сайте подставится автоматически, например «Nothing Ear (3)» → <code>nothing-ear-3</code>.</li>
+        <li><b>Цена и наличие.</b> Цена в рублях. «До скидки» заполняйте, только если есть скидка: она должна быть выше цены. Остаток в штуках, 0 — нет в наличии.</li>
+        <li><b>Цвета и варианты.</b> Хотя бы один цвет с оттенком. «Название выбора» — «Комплект», «Память», «Размер»; варианты пишутся по одному в строке, например «128 ГБ» и «256 ГБ».</li>
+        <li><b>Фото.</b> Загрузите одно или несколько фото сразу. На каждом кадре укажите цвет и короткое описание для незрячих. Отметьте «Фото для карточки» — оно будет в каталоге. Порядок в галерее меняется стрелками.</li>
+        <li><b>Характеристики.</b> Пишите названия так же, как у других товаров: «Работа от батареи», «Экран», «Вес». Подборщик техники читает их по названиям.</li>
+        <li><b>Габариты, теги, показ.</b> Размер, вес и понятное сравнение («как спичечный коробок»). Теги — сценарии и синонимы через запятую: «для бега», «в подарок». Популярность от 0 до 1000 задаёт порядок в каталоге.</li>
+        <li><b>Сохраните</b> кнопкой «Добавить товар» справа. Если отмечено «Продаётся», товар сразу появится на витрине.</li>
+      </ol>
+      <div class="shots pair">
+        <figure><button type="button" data-zoom><img src="screenshots/d-admin-product-photos.webp" alt="Блок фото в редакторе товара: карточки с выбором цвета, описанием и фото для карточки" loading="lazy" width="1440" height="900"></button><figcaption><b>Фото товара.</b> Фото карточки обведено. Цвет кадра, тип «Деталь» или «В жизни», описание.</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-admin-product-photos.webp" alt="Блок фото на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Фото можно загрузить и с телефона.</figcaption></figure>
+      </div>
+      <h4>Требования к фото</h4>
+      <ul>
+        <li>JPEG, PNG, WebP или AVIF до 15 МБ. Минимум 320 × 320 px, лучше от 1600 px по ширине.</li>
+        <li>Фото для карточки — на светлом спокойном фоне, товар целиком. Остальные — детали и товар в жизни.</li>
+        <li>Сервер сам пережимает фото в AVIF и WebP шести размеров (160–1600 px), делает размытое превью и определяет средний цвет. Новые карточки в сетке не отличаются от старых. Оригинал не хранится.</li>
+        <li>Если переименовать или удалить цвет, фото этого цвета переходят на новое название или на первый оставшийся цвет.</li>
+      </ul>
+    </section>
+
+    <section id="reviews">
+      <h3>Отзывы</h3>
+      <p>Раздел открывается на очереди «На модерации». Для каждого отзыва есть товар, оценка, автор, дата и отметка «покупка подтверждена». Решение — кнопки «Опубликовать» или «Отклонить». Опубликованный отзыв можно снять, отклонённый — опубликовать позже.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-reviews.webp" alt="Очередь отзывов на модерации" loading="lazy" width="1440" height="900"></button><figcaption><b>Модерация.</b> Опубликованный отзыв появляется на витрине в течение минуты.</figcaption></figure></div>
+      <div class="note"><b>Политика</b>Публикуйте и критичные отзывы: стена пятёрок выглядит фальшиво и скрывает реальные минусы. Отклоняйте оскорбления, рекламу и отзывы не о товаре.</div>
+    </section>
+
+    <section id="returns">
+      <h3>Возвраты</h3>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-returns.webp" alt="Список заявок на возврат с действиями" loading="lazy" width="1440" height="900"></button><figcaption><b>Возвраты.</b> Номер заявки, заказ, причина, статус и следующее действие.</figcaption></figure></div>
+      <ol class="steps">
+        <li><b>Новая.</b> Покупатель оформил заявку на сайте. Позвоните ему и договоритесь, как передать товар. Затем нажмите «Одобрить» или «Отклонить».</li>
+        <li><b>Одобрена.</b> Ждём товар. Когда он пришёл и проверен, верните деньги в личном кабинете платёжного сервиса (для оплаты при получении — тем же способом, что и оплата).</li>
+        <li><b>Завершена.</b> Нажмите «Товар получен, деньги вернули». Заявка закрыта.</li>
+      </ol>
+      <div class="note warn"><b>Деньги по заявке возвращаются вручную</b>Автоматически деньги уходят только при отмене оплаченного заказа. Возврат по заявке бывает частичным, поэтому сумму определяет менеджер.</div>
+    </section>
+
+    <section id="users">
+      <h3>Пользователи и журнал</h3>
+      <p>Только для администраторов. В «Пользователях» есть поиск по имени, почте и телефону и фильтр по роли. Чтобы сменить роль, выберите её в списке и нажмите «Сменить». Пользователю придётся войти заново. Снять роль с последнего администратора система не даст, свою роль поменять нельзя.</p>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-users.webp" alt="Список пользователей с выбором роли" loading="lazy" width="1440" height="900"></button><figcaption><b>Пользователи.</b> Чтобы дать сотруднику доступ, пусть он зарегистрируется на сайте, затем назначьте ему роль «Менеджер».</figcaption></figure></div>
+      <div class="shots"><figure><button type="button" data-zoom><img src="screenshots/d-admin-audit.webp" alt="Журнал действий сотрудников" loading="lazy" width="1440" height="900"></button><figcaption><b>Журнал.</b> Смены статусов, правки товаров и остатков, модерация, роли.</figcaption></figure></div>
+    </section>
+
+    <section id="admin-mobile">
+      <h3>Управление с телефона</h3>
+      <p>Всё управление работает на телефоне. Разделы переносятся на две строки, широкие таблицы прокручиваются вбок внутри себя, кнопки статусов стоят под карточкой заказа.</p>
+      <div class="shots phones">
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-admin-dashboard.webp" alt="Сводка на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Сводка</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-admin-orders.webp" alt="Заказы на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Заказы</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-admin-order.webp" alt="Карточка заказа на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Заказ</figcaption></figure>
+        <figure class="phone"><button type="button" data-zoom><img src="screenshots/m-admin-product-photos.webp" alt="Фото товара на телефоне" loading="lazy" width="780" height="1688"></button><figcaption>Фото товара</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Разработчикам ───────────────────────── -->
+    <div class="part-head" id="repo">
+      <span class="part-label">Для разработчиков</span>
+      <h2>Структура репозитория</h2>
+    </div>
+    <section>
+      <pre class="code"><code>ONLINE STOR/
+├── src/                 <span class="c"># витрина, кабинет, управление (React, Feature-Sliced Design)</span>
+├── public/media/        <span class="c"># фото каталога из медиа-конвейера (AVIF/WebP)</span>
+├── media/               <span class="c"># оригиналы фото и манифест для npm run media</span>
+├── scripts/             <span class="c"># build-media.mjs — сборка фото каталога</span>
+├── server/              <span class="c"># API на NestJS</span>
+│   ├── src/             <span class="c"># модули, общая инфраструктура, конфиг</span>
+│   ├── prisma/          <span class="c"># схема, миграции, сид и его данные</span>
+│   ├── test/            <span class="c"># e2e-тесты против PostgreSQL</span>
+│   ├── docker-compose.yml, Dockerfile
+│   └── README.md        <span class="c"># подробности API</span>
+└── docs/                <span class="c"># эта документация и скриншоты</span></code></pre>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Команда</th><th>Где</th><th>Что делает</th></tr></thead>
+        <tbody>
+          <tr><td><code>npm run dev</code></td><td>корень</td><td>Витрина с горячей перезагрузкой</td></tr>
+          <tr><td><code>npm run build</code></td><td>корень</td><td>Проверка типов и сборка витрины в <code>dist/</code></td></tr>
+          <tr><td><code>npm test</code> · <code>npm run lint</code> · <code>npm run lint:fsd</code></td><td>корень</td><td>Тесты, ESLint, правила FSD (Steiger)</td></tr>
+          <tr><td><code>npm run media</code></td><td>корень</td><td>Пересобрать фото каталога из <code>media/originals</code></td></tr>
+          <tr><td><code>npm run start:dev</code></td><td>server</td><td>API с перезапуском при изменениях</td></tr>
+          <tr><td><code>npm run db:up</code> / <code>db:down</code></td><td>server</td><td>PostgreSQL и Mailpit в Docker</td></tr>
+          <tr><td><code>npm run db:migrate</code></td><td>server</td><td>Новая миграция после правки схемы</td></tr>
+          <tr><td><code>npm run db:deploy</code> · <code>db:seed</code> · <code>db:studio</code></td><td>server</td><td>Применить миграции, заполнить каталог, Prisma Studio</td></tr>
+          <tr><td><code>npm test</code> · <code>npm run test:e2e</code></td><td>server</td><td>Юнит-тесты, e2e на базе <code>impulse_test</code></td></tr>
+          <tr><td><code>npm run build</code> · <code>start:prod</code></td><td>server</td><td>Сборка и запуск собранного API</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="frontend">
+      <h3>Фронтенд</h3>
+      <p>Vite 8, React 19, TypeScript strict, React Router 8 (data router, ленивые маршруты), TanStack Query 5, Zustand 5, React Hook Form и Zod 4, CSS Modules на дизайн-токенах. Код организован по <a href="https://feature-sliced.design" target="_blank" rel="noreferrer">Feature-Sliced Design</a>.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Слой</th><th>Что внутри</th></tr></thead>
+        <tbody>
+          <tr><td><code>app</code></td><td>Точка входа, провайдеры, роутер и защита маршрутов (<code>guards.tsx</code>), глобальные стили и токены</td></tr>
+          <tr><td><code>pages</code></td><td>home, catalog, product, cart, order-success, help, favorites, finder, login, account, admin, not-found</td></tr>
+          <tr><td><code>widgets</code></td><td>header, footer, hero, product-grid, product-details, product-reviews, cart-checkout и др.</td></tr>
+          <tr><td><code>features</code></td><td>checkout, auth, sync-account, write-review, search-products, filter-products, notify-restock и др.</td></tr>
+          <tr><td><code>entities</code></td><td>product, cart, review, wishlist, session, order</td></tr>
+          <tr><td><code>shared</code></td><td>UI-кит (Button, TextField, Select, Alert, Dialog…), HTTP-клиент, утилиты, конфиг</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Слой импортирует только нижележащие слои и только через публичный API слайса (<code>index.ts</code>). Это проверяют ESLint и Steiger. Фикстуры для тестов — через <code>testing.ts</code>.</li>
+        <li>Все запросы идут через <code>shared/api/http.ts</code>. Ошибки API превращаются в <code>ApiError</code> с полем <code>code</code>. Access-токен подставляется автоматически, после 401 сессия один раз продлевается и запрос повторяется.</li>
+        <li>Управление и кабинет — отдельные чанки (около 38 КБ). Витрина их не загружает. Стартовый JS ≈ 60 КБ (20 КБ gzip) плюс общие чанки React, Router и Query.</li>
+        <li>После обновления сайта открытая вкладка один раз перезагружается сама, если не нашла файл ленивого маршрута.</li>
+      </ul>
+    </section>
+
+    <section id="backend">
+      <h3>Бэкенд</h3>
+      <p>NestJS 12, Prisma 7 (драйвер-адаптер <code>pg</code>), PostgreSQL 17, class-validator, Swagger, pino. Модуль = контроллер (HTTP и DTO) + сервис (бизнес-логика и транзакции) + <code>domain/</code> (чистые функции без Nest и БД, покрыты юнит-тестами).</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Модуль</th><th>Ответственность</th></tr></thead>
+        <tbody>
+          <tr><td><code>catalog</code></td><td>Каталог, поиск, фасеты. Активный каталог держится в памяти и ищется тем же алгоритмом, что на фронте.</td></tr>
+          <tr><td><code>orders</code></td><td>Оформление, жизненный цикл заказа (<code>OrderLifecycleService</code>), оплата (<code>payments/</code>: ЮKassa и тестовый шлюз)</td></tr>
+          <tr><td><code>auth</code>, <code>account</code></td><td>Регистрация, вход, сессии; профиль, мои заказы, корзина и избранное аккаунта</td></tr>
+          <tr><td><code>reviews</code>, <code>returns</code>, <code>subscriptions</code></td><td>Отзывы покупателей; заявки на возврат; рассылка (double opt-in) и «Сообщить о поступлении»</td></tr>
+          <tr><td><code>admin</code></td><td>API управления, включая загрузку фото (<code>media.service.ts</code>, sharp)</td></tr>
+          <tr><td><code>notifications</code>, <code>audit</code>, <code>health</code></td><td>Письма через transactional outbox; журнал действий; проверки живости</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="data">
+      <h3>Модель данных</h3>
+      <p>Деньги хранятся целыми рублями: в каталоге нет копеек, целые числа не дают ошибок округления. Позиция заказа хранит снимок названия и цены — прошлые заказы не меняются вместе с каталогом. Полная схема — <code>server/prisma/schema.prisma</code>.</p>
+      <pre class="mermaid">
+erDiagram
+  User ||--o{ Session : "сессии"
+  User ||--o{ Order : "заказы"
+  User ||--o{ Review : "отзывы"
+  User ||--o{ CartItem : "корзина"
+  User ||--o{ WishlistItem : "избранное"
+  Category ||--o{ Product : ""
+  Product ||--o{ ProductImage : "фото"
+  Product ||--o{ OrderItem : ""
+  Product ||--o{ RestockSubscription : ""
+  Order ||--|{ OrderItem : "позиции"
+  Order ||--o{ OrderStatusEvent : "история"
+  Order ||--o{ Payment : "платежи"
+  Order ||--o{ ReturnRequest : "возвраты"
+      </pre>
+      <p class="muted">Ещё есть <code>NewsletterSubscription</code>, <code>OutboxMessage</code> (очередь писем), <code>AuditLog</code> (журнал), <code>ReviewVote</code> (голоса «Полезно»).</p>
+    </section>
+
+    <section id="api">
+      <h3>API</h3>
+      <p>Базовый путь <code>/api/v1</code>. Полное интерактивное описание — Swagger на <code>/api/docs</code> (в продакшене выключен по умолчанию). Проверки живости — <code>/api/health</code> и <code>/api/health/ready</code>.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Группа</th><th>Эндпоинты</th><th>Доступ</th></tr></thead>
+        <tbody>
+          <tr><td>Каталог</td><td><code>GET /products</code> (q, category, maxPrice, inStock, sort), <code>/products/search</code>, <code>/facets</code>, <code>/featured</code>, <code>/deals</code>, <code>/lookup</code>, <code>/products/:slug</code>, <code>/:slug/similar</code>, <code>GET /categories</code></td><td>все</td></tr>
+          <tr><td>Заказы</td><td><code>POST /orders</code> (заголовок <code>Idempotency-Key</code>), <code>POST /orders/track</code>, <code>GET /orders/:number</code> (<code>X-Order-Key</code>), <code>POST /orders/:number/payment</code></td><td>все</td></tr>
+          <tr><td>Оплата</td><td><code>POST /payments/webhooks/yookassa</code></td><td>IP ЮKassa</td></tr>
+          <tr><td>Сервис</td><td><code>POST /returns</code>, <code>POST /newsletter</code>, <code>POST /restock-subscriptions</code>, <code>GET /reviews</code></td><td>все</td></tr>
+          <tr><td>Авторизация</td><td><code>POST /auth/register</code>, <code>/login</code>, <code>/refresh</code>, <code>/logout</code></td><td>все</td></tr>
+          <tr><td>Кабинет</td><td><code>GET/PATCH /me</code>, <code>POST /me/password</code>, <code>/me/orders</code>, <code>/me/wishlist</code>, <code>GET/PUT /me/cart</code>, <code>POST /reviews</code></td><td>вошедший</td></tr>
+          <tr><td>Управление</td><td><code>/admin/stats</code>, <code>/admin/orders</code>, <code>/admin/products</code> (+ <code>/stock</code>), <code>POST /admin/media</code>, <code>/admin/categories</code>, <code>/admin/reviews</code>, <code>/admin/returns</code></td><td>менеджер</td></tr>
+          <tr><td>Люди</td><td><code>/admin/users</code>, <code>/admin/users/:id/role</code>, <code>/admin/audit-log</code></td><td>администратор</td></tr>
+        </tbody>
+      </table></div>
+      <h4>Ошибки</h4>
+      <p>Любая ошибка возвращается как RFC 9457 <code>application/problem+json</code> с машинным <code>code</code>, человеческим <code>detail</code> и <code>requestId</code> для поиска в логах. У ошибок валидации есть <code>errors: [{ field, message }]</code>. Неизвестные поля в запросе отклоняются.</p>
+      <pre class="code"><code>HTTP/1.1 409 Conflict
+Content-Type: application/problem+json
+
+{
+  "type": "https://impulse.store/problems/price-changed",
+  "status": 409,
+  "code": "PRICE_CHANGED",
+  "detail": "Цены изменились. Проверьте корзину и подтвердите заказ ещё раз",
+  "lines": [{ "productId": 1, "colorName": "Чёрный", "option": "Наушники с чехлом", "price": 32990 }],
+  "requestId": "6f1c…"
+}</code></pre>
+    </section>
+
+    <section id="auth">
+      <h3>Авторизация</h3>
+      <ul>
+        <li>Пароли хэшируются argon2id. Ответ при неизвестной почте такой же и по тексту, и по времени, как при неверном пароле.</li>
+        <li>Access-токен — JWT на 15 минут, хранится только в памяти страницы. Refresh-токен — случайная строка в httpOnly-cookie (<code>SameSite=Strict</code>, путь <code>/api/v1/auth</code>), в базе только её SHA-256.</li>
+        <li>Refresh ротируется при каждом использовании. Старый токен принимается ещё 30 секунд — так обновляются параллельные вкладки. Позже это признак кражи: отзывается вся цепочка сессий. После выхода, смены пароля или роли старый токен не работает даже в эти 30 секунд.</li>
+        <li><code>POST /auth/refresh</code> без cookie отвечает 204: это гость, а не ошибка. Витрина спрашивает при каждом запуске, а без сети повторяет попытку, когда связь вернётся.</li>
+        <li>Роль сотрудника сверяется с базой на каждом запросе к управлению.</li>
+      </ul>
+    </section>
+
+    <section id="reliability">
+      <h3>Надёжность заказов и оплаты</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Риск</th><th>Как закрыт</th></tr></thead>
+        <tbody>
+          <tr><td>Двойной заказ</td><td><code>Idempotency-Key</code>: тот же ключ и тело возвращают уже созданный заказ, тот же ключ с другим телом — <code>422 IDEMPOTENCY_KEY_REUSED</code></td></tr>
+          <tr><td>Продажа больше остатка</td><td>Условный <code>UPDATE … WHERE stock &gt;= qty</code> в транзакции с созданием заказа; строки товаров блокируются в порядке id, без дедлоков с отменами</td></tr>
+          <tr><td>Подмена цены на клиенте</td><td>Цены, доставку и итог считает сервер; цифры клиента только сверяются (<code>PRICE_CHANGED</code>)</td></tr>
+          <tr><td>Поддельный вебхук</td><td>Проверка IP ЮKassa и повторное чтение платежа через API ЮKassa перед любыми изменениями</td></tr>
+          <tr><td>Гонки статусов</td><td>Все переходы — через <code>OrderLifecycleService</code> под блокировкой строки заказа; побочные эффекты в той же транзакции</td></tr>
+          <tr><td>Потерянный возврат денег</td><td>Статус <code>REFUND_PENDING</code> пишется в транзакции отмены; задача повторяет возврат каждые 5 минут с прежним ключом идемпотентности</td></tr>
+          <tr><td>Вечный резерв</td><td>Неоплаченные заказы отменяются через 30 минут; если ЮKassa не отвечает — через 30 минут сверх срока; опоздавшая оплата возвращается сама</td></tr>
+        </tbody>
+      </table></div>
+      <pre class="mermaid">
+sequenceDiagram
+  participant B as Покупатель
+  participant F as Витрина
+  participant A as API
+  participant Y as ЮKassa
+  B->>F: «Оформить заказ», картой
+  F->>A: POST /orders (Idempotency-Key)
+  A->>A: цены, резерв остатка, заказ «Ждёт оплаты»
+  A->>Y: создать платёж
+  A-->>F: заказ + ссылка на оплату
+  F->>Y: переход на страницу оплаты
+  Y-->>A: вебхук payment.succeeded
+  A->>Y: перечитать платёж
+  A->>A: заказ «Оформлен», письмо в outbox
+  Y-->>F: возврат на «Заказ принят»
+  F->>A: GET /orders/:number (X-Order-Key)
+  A-->>F: оплачено
+      </pre>
+    </section>
+
+    <section id="jobs">
+      <h3>Фоновые задачи и письма</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Задача</th><th>Как часто</th><th>Что делает</th></tr></thead>
+        <tbody>
+          <tr><td>Отправка писем</td><td class="num">каждые 5 с</td><td>Забирает до 20 писем из outbox (<code>FOR UPDATE SKIP LOCKED</code>), повторяет с паузой до 8 раз</td></tr>
+          <tr><td>Истечение оплаты</td><td class="num">каждую минуту</td><td>Отменяет заказы, не оплаченные за <code>PAYMENT_TIMEOUT_MINUTES</code>, и возвращает товар</td></tr>
+          <tr><td>Повтор возвратов</td><td class="num">каждые 5 минут</td><td>Возвращает деньги по платежам <code>REFUND_PENDING</code></td></tr>
+          <tr><td>Уборка загрузок</td><td class="num">ежедневно в 4:00</td><td>Удаляет загруженные фото, которые больше суток не попали ни в один товар</td></tr>
+        </tbody>
+      </table></div>
+      <p>Письма: подтверждение заказа, смена статуса, «товар снова в наличии», подтверждение подписки, заявка на возврат. Письмо пишется в базу в той же транзакции, что и событие: оно не потеряется при сбое почты и не уйдёт при откате. Схема безопасна на нескольких экземплярах API.</p>
+    </section>
+
+    <section id="tests">
+      <h3>Тесты и качество</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Набор</th><th class="num">Тестов</th><th>Что покрывает</th></tr></thead>
+        <tbody>
+          <tr><td>Витрина (Vitest, Testing Library)</td><td class="num">299</td><td>Поиск, фасеты, корзина, оформление и сверка корзины, сессия и повтор после 401, подборщик, форма товара, безопасный редирект</td></tr>
+          <tr><td>API, юнит</td><td class="num">81</td><td>Поиск, статусная машина, цены и доставка с часовым поясом, номера, IP ЮKassa, конфиг</td></tr>
+          <tr><td>API, e2e (PostgreSQL)</td><td class="num">34</td><td>Оформление, идемпотентность, гонка за последний товар, оплата, истечение, возврат денег, ротация сессий, роли, загрузка фото и создание товара</td></tr>
+        </tbody>
+      </table></div>
+      <p>Качество кода: TypeScript strict, ESLint (type-aware на API), Prettier, Steiger (FSD). Все проверки проходят без замечаний.</p>
+    </section>
+
+    <!-- ───────────────────────── Продакшен ───────────────────────── -->
+    <div class="part-head" id="env">
+      <span class="part-label">Продакшен и поддержка</span>
+      <h2>Переменные окружения</h2>
+    </div>
+    <section>
+      <p>Конфиг проверяется при старте: опечатка в <code>.env</code> останавливает API с понятным сообщением. Реальные переменные окружения важнее файла <code>.env</code>.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Переменная</th><th>По умолчанию</th><th>Назначение</th></tr></thead>
+        <tbody>
+          <tr><td><code>NODE_ENV</code></td><td><code>development</code></td><td><code>production</code> на сервере</td></tr>
+          <tr><td><code>PORT</code></td><td><code>3000</code></td><td>Порт API</td></tr>
+          <tr><td><code>FRONTEND_URL</code></td><td><code>http://localhost:5173</code></td><td>Адрес витрины: CORS, ссылки в письмах и возврат с оплаты. Несколько адресов — через запятую.</td></tr>
+          <tr><td><code>PUBLIC_API_URL</code></td><td><code>http://localhost:3000</code></td><td>Публичный адрес API для ссылок в письмах</td></tr>
+          <tr><td><code>TRUST_PROXY</code></td><td>— (в продакшене обязательна)</td><td>Сколько прокси перед API. Без неё IP всех клиентов совпадёт: сломаются лимиты и вебхуки ЮKassa.</td></tr>
+          <tr><td><code>LOG_LEVEL</code></td><td><code>info</code></td><td>Подробность логов</td></tr>
+          <tr><td><code>SWAGGER_ENABLED</code></td><td>вкл.; в продакшене выкл.</td><td>Документация API на <code>/api/docs</code></td></tr>
+          <tr><td><code>DATABASE_URL</code></td><td>—</td><td>Строка подключения PostgreSQL</td></tr>
+          <tr><td><code>JWT_ACCESS_SECRET</code></td><td>—</td><td>Не короче 32 символов, случайный. Смена разлогинит всех и сделает недействительными ссылки гостей на заказы.</td></tr>
+          <tr><td><code>JWT_ACCESS_TTL</code> · <code>REFRESH_TTL_DAYS</code></td><td><code>15m</code> · <code>30</code></td><td>Жизнь access-токена и сессии</td></tr>
+          <tr><td><code>SHOP_TIMEZONE</code></td><td><code>Europe/Moscow</code></td><td>Для расчёта даты доставки</td></tr>
+          <tr><td><code>MEDIA_BASE_URL</code></td><td><code>/</code></td><td>Откуда раздаются фото каталога</td></tr>
+          <tr><td><code>UPLOADS_DIR</code> · <code>UPLOADS_BASE_URL</code></td><td><code>uploads</code> · <code>/api/uploads/</code></td><td>Папка и адрес фото из управления</td></tr>
+          <tr><td><code>PAYMENT_TIMEOUT_MINUTES</code></td><td><code>30</code></td><td>Сколько держится резерв неоплаченного заказа</td></tr>
+          <tr><td><code>PAYMENT_PROVIDER</code></td><td><code>mock</code></td><td><code>yookassa</code> в продакшене (mock там запрещён)</td></tr>
+          <tr><td><code>YOOKASSA_SHOP_ID</code> · <code>YOOKASSA_SECRET_KEY</code></td><td>—</td><td>Ключи магазина ЮKassa</td></tr>
+          <tr><td><code>YOOKASSA_SEND_RECEIPT</code> · <code>YOOKASSA_VAT_CODE</code></td><td><code>false</code> · <code>1</code></td><td>Чек по 54-ФЗ и код ставки НДС</td></tr>
+          <tr><td><code>YOOKASSA_CHECK_WEBHOOK_IP</code></td><td><code>true</code></td><td>Проверять IP отправителя вебхука</td></tr>
+          <tr><td><code>SMTP_HOST</code> · <code>SMTP_PORT</code> · <code>SMTP_SECURE</code> · <code>SMTP_USER</code> · <code>SMTP_PASSWORD</code></td><td>Mailpit</td><td>Почтовый сервер</td></tr>
+          <tr><td><code>MAIL_FROM</code></td><td><code>Импульс &lt;hello@impulse.store&gt;</code></td><td>Отправитель писем</td></tr>
+          <tr><td><code>SEED_ADMIN_EMAIL</code> · <code>SEED_ADMIN_PASSWORD</code></td><td>—</td><td>Первый администратор, создаётся сидом</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="deploy">
+      <h3>Развёртывание</h3>
+      <p>Рекомендуемая схема — витрина и API на одном домене: статика витрины отдаётся веб-сервером, <code>/api</code> проксируется в контейнер API. Так refresh-cookie остаётся <code>SameSite=Strict</code>, а CORS не нужен.</p>
+      <ol class="steps">
+        <li><b>Соберите витрину:</b> <code>npm ci &amp;&amp; npm run build</code> в корне. Содержимое <code>dist/</code> вместе с <code>public/media</code> положите на веб-сервер. Все неизвестные пути должны отдавать <code>index.html</code> (SPA).</li>
+        <li><b>Соберите и запустите API:</b> <code>docker build -t impulse-api server</code>. Образ многоступенчатый, работает не от root, с <code>HEALTHCHECK</code>. Перед стартом он сам выполняет <code>prisma migrate deploy</code>.</li>
+        <li><b>Подключите тома:</b> данные PostgreSQL и папку <code>/app/uploads</code> — в ней фото, загруженные в управлении.</li>
+        <li><b>Настройте прокси:</b> <code>location /api/</code> → контейнер API на порту 3000, заголовки <code>X-Forwarded-For</code> и <code>X-Forwarded-Proto</code>. В API выставьте <code>TRUST_PROXY=1</code>.</li>
+        <li><b>Заполните каталог</b> один раз: <code>docker exec … npx prisma db seed</code>.</li>
+        <li><b>ЮKassa:</b> в личном кабинете укажите вебхук <code>https://ваш-домен/api/v1/payments/webhooks/yookassa</code> на события <code>payment.succeeded</code> и <code>payment.canceled</code>.</li>
+      </ol>
+      <p>Для проверки всего стека локально: <code>docker compose --profile app up --build</code> в папке <code>server</code> поднимет PostgreSQL, Mailpit и API в контейнере.</p>
+    </section>
+
+    <section id="launch">
+      <h3>Чек-лист запуска</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Пункт</th><th>Проверка</th></tr></thead>
+        <tbody>
+          <tr><td><code>NODE_ENV=production</code>, <code>TRUST_PROXY</code> задан</td><td>API стартует, <code>/api/health/ready</code> отвечает <code>up</code></td></tr>
+          <tr><td>Свой длинный <code>JWT_ACCESS_SECRET</code></td><td>Не совпадает со значением из примера</td></tr>
+          <tr><td><code>PAYMENT_PROVIDER=yookassa</code> с ключами, вебхук в ЮKassa</td><td>Тестовый платёж в режиме ЮKassa «тестовый магазин» переводит заказ в «Оформлен»</td></tr>
+          <tr><td>Реальный SMTP, домен отправителя с SPF и DKIM</td><td>Письмо о заказе приходит и не попадает в спам</td></tr>
+          <tr><td>Пароль администратора сменён</td><td>Вход со старым паролем не работает</td></tr>
+          <tr><td><code>FRONTEND_URL</code> и <code>PUBLIC_API_URL</code> — боевые адреса</td><td>Ссылки в письмах ведут на сайт</td></tr>
+          <tr><td>Резервные копии базы и <code>uploads</code></td><td>Восстановление проверено хотя бы один раз</td></tr>
+          <tr><td>Контакты в <code>src/shared/config/commerce.ts</code></td><td>Телефон, почта и Telegram — настоящие, а не демо</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="ops">
+      <h3>Эксплуатация</h3>
+      <ul>
+        <li><b>Логи</b> — одна строка JSON на запрос (pino) с <code>X-Request-Id</code>. Тот же id приходит в ответе с ошибкой — по нему находится запрос. Токены, cookie и пароли в логи не попадают.</li>
+        <li><b>Мониторинг:</b> <code>/api/health</code> — процесс жив, <code>/api/health/ready</code> — есть связь с базой. При непредвиденной ошибке API пишет её в лог, аккуратно закрывается и перезапускается оркестратором.</li>
+        <li><b>Лимиты запросов</b> с одного IP: 120 в минуту в целом; вход и регистрация — 10, оформление и трекинг — 10, возвраты и отзывы — 5.</li>
+        <li><b>Резервные копии:</b> ежедневный <code>pg_dump</code> и копия папки <code>uploads</code>. Фото каталога из сида лежат в репозитории (<code>public/media</code>).</li>
+        <li><b>Новая миграция:</b> правка <code>schema.prisma</code> → <code>npm run db:migrate -- --name описание</code> → коммит папки миграции. На сервере она применится при старте контейнера.</li>
+      </ul>
+    </section>
+
+    <section id="troubleshooting">
+      <h3>Решение проблем</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Ситуация</th><th>Что проверить</th></tr></thead>
+        <tbody>
+          <tr><td>Не приходит письмо</td><td>В разработке — Mailpit, <code>localhost:8025</code>. В продакшене — таблица <code>OutboxMessage</code>: статус <code>FAILED</code> и поле <code>lastError</code> покажут причину (обычно SMTP или DNS отправителя).</td></tr>
+          <tr><td>Заказ завис в «Ждёт оплаты»</td><td>Через 30 минут он отменится сам. Если покупатель уверен, что оплатил, откройте заказ в управлении: раздел «Оплата» показывает статус платежа. Опоздавшая оплата вернётся автоматически.</td></tr>
+          <tr><td>Возврат денег не прошёл</td><td>Платёж в статусе <code>REFUND_PENDING</code> — задача повторяет каждые 5 минут. В логах ищите «Refund of payment … failed».</td></tr>
+          <tr><td>Товар не появился на витрине</td><td>Отмечено ли «Продаётся», есть ли фото для карточки. Снимок каталога обновляется в течение минуты.</td></tr>
+          <tr><td>Вебхуки ЮKassa получают 403</td><td>Не задан или неверен <code>TRUST_PROXY</code> — API видит IP прокси вместо IP ЮKassa.</td></tr>
+          <tr><td>Все разлогинились</td><td>Сменился <code>JWT_ACCESS_SECRET</code> или истекли сессии (<code>REFRESH_TTL_DAYS</code>).</td></tr>
+          <tr><td>Забыт пароль администратора</td><td>Сид не меняет пароль существующей почты. Зарегистрируйте новый аккаунт на сайте, затем в Prisma Studio (<code>npm run db:studio</code>) поставьте ему роль <code>ADMIN</code> в таблице <code>User</code>. После входа смените пароль старого аккаунта или снимите с него роль.</td></tr>
+          <tr><td>API не стартует</td><td>Сообщение в консоли называет переменную: обычно <code>DATABASE_URL</code>, короткий <code>JWT_ACCESS_SECRET</code>, <code>TRUST_PROXY</code> или mock-оплата в продакшене.</td></tr>
+          <tr><td>Порт 5440 занят</td><td>Задайте другой в <code>POSTGRES_PORT</code> для docker compose и поправьте <code>DATABASE_URL</code>.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="reference">
+      <h3>Справочник кодов ошибок</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Код</th><th class="num">HTTP</th><th>Когда</th></tr></thead>
+        <tbody>
+          <tr><td><code>VALIDATION_FAILED</code></td><td class="num">400</td><td>Неверные или лишние поля; подробности в <code>errors</code></td></tr>
+          <tr><td><code>UNAUTHORIZED</code> · <code>FORBIDDEN</code></td><td class="num">401 · 403</td><td>Нужно войти · недостаточно прав</td></tr>
+          <tr><td><code>INVALID_CREDENTIALS</code> · <code>EMAIL_TAKEN</code> · <code>INVALID_REFRESH_TOKEN</code></td><td class="num">401 · 409 · 401</td><td>Вход и регистрация</td></tr>
+          <tr><td><code>NOT_FOUND</code> · <code>ORDER_NOT_FOUND</code></td><td class="num">404</td><td>Нет такой записи; заказа с таким номером и телефоном</td></tr>
+          <tr><td><code>PRICE_CHANGED</code> · <code>OUT_OF_STOCK</code> · <code>PRODUCT_UNAVAILABLE</code></td><td class="num">409</td><td>Оформление: свежие цены, доступный остаток, снятые товары</td></tr>
+          <tr><td><code>IDEMPOTENCY_KEY_REQUIRED</code> · <code>IDEMPOTENCY_KEY_REUSED</code></td><td class="num">400 · 422</td><td>Нет ключа · ключ уже использован для другого заказа</td></tr>
+          <tr><td><code>INVALID_STATUS_TRANSITION</code></td><td class="num">422</td><td>Переход статуса не по схеме</td></tr>
+          <tr><td><code>RETURN_NOT_ALLOWED</code> · <code>REVIEW_NOT_ALLOWED</code></td><td class="num">422</td><td>Заказ не получен или прошло 30 дней · нет доставленного заказа с товаром</td></tr>
+          <tr><td><code>PAYMENT_FAILED</code></td><td class="num">502 · 422</td><td>Платёжный сервис не ответил · заказ не ждёт оплаты</td></tr>
+          <tr><td><code>TOO_MANY_REQUESTS</code> · <code>CONFLICT</code> · <code>INTERNAL_ERROR</code></td><td class="num">429 · 409 · 500</td><td>Лимит запросов · запись уже есть · непредвиденная ошибка (смотрите лог по <code>requestId</code>)</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <footer class="foot">
+      Документация Импульса, версия 1.0. Автор — <a href="https://github.com/philip211" target="_blank" rel="noreferrer">philip211</a>. Репозиторий: <a href="https://github.com/philip211/online-store-Impuls" target="_blank" rel="noreferrer">github.com/philip211/online-store-Impuls</a>. Исходник и скриншоты лежат в папке <code>docs/</code> проекта. Скриншоты сняты на десктопе 1440 px и телефоне 390 px с демо-данными базы разработки.
+    </footer>
+  </main>
+</div>
+
+<dialog class="zoom" id="zoom" aria-label="Скриншот крупно">
+  <form method="dialog"><button type="submit">Закрыть</button></form>
+  <img id="zoom-img" alt="">
+  <p id="zoom-cap"></p>
+</dialog>
+
+<script>
+  // Screenshots open full size in a dialog; Esc or the button closes it.
+  const zoom = document.getElementById('zoom')
+  const zoomImg = document.getElementById('zoom-img')
+  const zoomCap = document.getElementById('zoom-cap')
+  document.querySelectorAll('[data-zoom]').forEach((button) => {
+    const img = button.querySelector('img')
+    button.setAttribute('aria-label', `Открыть крупно: ${img.alt}`)
+    button.addEventListener('click', () => {
+      zoomImg.src = img.src
+      zoomImg.alt = img.alt
+      zoomCap.textContent = img.alt
+      zoom.showModal()
+    })
+  })
+  zoom.addEventListener('click', (e) => { if (e.target === zoom) zoom.close() })
+
+  // Highlight the section being read in the table of contents.
+  const links = [...document.querySelectorAll('.toc a')]
+  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]))
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue
+      links.forEach((a) => a.classList.remove('on'))
+      byId.get(entry.target.id)?.classList.add('on')
+    }
+  }, { rootMargin: '-10% 0px -75% 0px' })
+  byId.forEach((_, id) => { const el = document.getElementById(id); if (el) observer.observe(el) })
+</script>

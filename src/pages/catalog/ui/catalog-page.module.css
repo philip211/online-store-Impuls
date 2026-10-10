@@ -1,0 +1,325 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* Top offset comes from <Container page> (--page-top), shared with every index page. */
+  padding-bottom: 120px;
+}
+
+/* Below 1200px filters live in the bottom sheet instead. */
+.side {
+  display: none;
+}
+
+.main {
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px 24px;
+  justify-content: space-between;
+}
+
+.heading {
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--page-title);
+  overflow-wrap: anywhere;
+}
+
+.lede {
+  margin-top: 12px;
+  max-width: 48ch;
+  color: var(--muted);
+  font-size: clamp(16px, 1.3vw, 18px);
+  text-wrap: pretty;
+}
+
+.count {
+  margin-top: 8px;
+  min-height: 1.5em;
+  font-size: 15px;
+  color: var(--muted);
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.countBusy {
+  opacity: 0.5;
+}
+
+/* "Did you mean" line: muted, with a plain underlined text action (no accent). */
+.correction {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.correctionLink {
+  position: relative;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  /* 44px hit area without changing the line height. */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 50% -4px auto;
+    height: var(--target);
+    translate: 0 -50%;
+  }
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Phones: controls take their own full-width row; the select drops below when it does not fit. */
+@media (max-width: 479px) {
+  .controls {
+    width: 100%;
+  }
+  .trigger {
+    flex: 1 1 auto;
+  }
+  .sort {
+    flex: 1 1 auto;
+  }
+}
+
+.trigger {
+  font-weight: 500;
+}
+
+.triggerCount {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  /* Small inline count: proportional figures, no "1 2" gaps. */
+  font-variant-numeric: proportional-nums;
+  display: grid;
+  place-items: center;
+}
+
+/* Pills row: hairline above results; collapses entirely when nothing is active. */
+.active {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+
+  &:not(:has(li)) {
+    padding-bottom: 0;
+  }
+
+  /* The empty state brings its own top hairline: one rule, not two. */
+  &:has(+ .noResults) {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.results {
+  /* Fresh results fade in (opacity only); `backwards` leaves .stale in charge afterwards. */
+  animation: fade var(--dur-base) var(--ease-out) backwards;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.noResults {
+  min-width: 0;
+}
+
+.stale {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  .layout {
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
+  }
+  .side {
+    display: block;
+    flex: none;
+    width: 248px;
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+    max-height: calc(100dvh - var(--header-h) - 48px);
+    overflow-y: auto;
+    /* Keeps focus outlines of the chips from being clipped by the scroller. */
+    padding: 4px;
+    margin: -4px;
+  }
+  .trigger {
+    display: none;
+  }
+  .main {
+    flex: 1;
+  }
+}
+
+/* Bottom sheet: the dialog body scrolls; head and footer stay pinned. */
+.sheetHead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 12px 12px var(--gutter);
+  border-bottom: 1px solid var(--line);
+  /* Drag zone (data-drag): the pointer drives the sheet, not page scroll. */
+  touch-action: none;
+}
+
+.sheetTitle {
+  font-size: 20px;
+}
+
+.sheetBody {
+  flex: 1;
+  padding: 24px var(--gutter);
+}
+
+.sheetFoot {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 12px;
+  padding: 16px var(--gutter);
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+
+  & button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.sheetShow {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Narrow phones: stack the footer, primary on top, both full width. */
+@media (max-width: 374px) {
+  .sheetFoot {
+    flex-direction: column-reverse;
+    gap: 8px;
+
+    & > button {
+      width: 100%;
+    }
+  }
+}
+
+/* Empty state */
+.emptyActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: min(100%, 440px);
+
+  /* Text action lines up with the button edge; its padding only widens the hit area. */
+  & > .textButton {
+    margin-inline-start: -8px;
+  }
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  text-align: start;
+
+  & li {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.topic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 12px 4px;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  & b {
+    display: block;
+    font-weight: 600;
+  }
+
+  & svg {
+    flex: none;
+    color: var(--muted);
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+
+  &:hover svg {
+    color: var(--ink);
+  }
+}
+
+.topicSummary {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.textButton {
+  min-height: var(--target);
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+}

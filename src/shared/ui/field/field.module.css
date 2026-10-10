@@ -1,0 +1,274 @@
+/*
+ * Form controls. Their border is the only affordance, so it uses --line-strong
+ * (>= 3:1 against every surface) rather than the decorative --line hairline.
+ */
+.field {
+  /* Anchors the visually hidden label of compact selects to the field itself. */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  & label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  & input {
+    min-height: 52px;
+    padding: 0 var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    font-size: 16px;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+
+    &::placeholder {
+      color: var(--muted);
+    }
+    &:hover {
+      border-color: color-mix(in srgb, var(--ink) 60%, var(--line-strong));
+    }
+    &:focus {
+      border-color: var(--ink);
+    }
+  }
+
+  & textarea {
+    min-height: 120px;
+    padding: 14px var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+
+    &::placeholder {
+      color: var(--muted);
+    }
+    &:hover {
+      border-color: color-mix(in srgb, var(--ink) 60%, var(--line-strong));
+    }
+    &:focus {
+      border-color: var(--ink);
+    }
+  }
+}
+
+.bad input,
+.bad input:hover,
+.bad textarea,
+.bad .select {
+  border-color: var(--err);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* Native select drawn like the inputs, with the shared chevron. */
+.selectWrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+
+.select {
+  appearance: none;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 44px 0 var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--ink) 60%, var(--line-strong));
+  }
+  &:focus {
+    border-color: var(--ink);
+  }
+  & option {
+    background: var(--bg);
+    color: var(--ink);
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  translate: 0 -50%;
+  rotate: -90deg;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.error {
+  color: var(--err);
+  font-size: 14px;
+  animation: fade var(--dur-base) var(--ease-out);
+}
+
+.opts {
+  display: grid;
+  gap: var(--space-3);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+
+  & legend {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 0;
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* Selection card with a hand-drawn radio: ring → filled dot. */
+.opt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 56px;
+  padding: 10px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--ink) 60%, var(--line-strong));
+  }
+  &:has(:focus-visible) {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+  }
+  &:has(:disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  & input {
+    appearance: none;
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-strong);
+    display: grid;
+    place-items: center;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ink);
+      opacity: 0;
+      transition: opacity var(--dur-fast) var(--ease-standard);
+    }
+    &:checked {
+      border-color: var(--ink);
+    }
+    &:checked::after {
+      opacity: 1;
+    }
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.optOn {
+  border-color: var(--ink);
+}
+
+.optLabel {
+  flex: 1;
+  font-weight: 500;
+}
+
+.optMeta {
+  font-size: 14px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--target);
+  cursor: pointer;
+  font-size: 15px;
+
+  & input {
+    appearance: none;
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1.5px solid var(--line-strong);
+    display: grid;
+    place-items: center;
+    transition:
+      background-color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 6px;
+      border: 2px solid var(--bg);
+      border-top: 0;
+      border-right: 0;
+      transform: translateY(-1px) rotate(-45deg);
+      opacity: 0;
+      transition: opacity var(--dur-fast) var(--ease-standard);
+    }
+    &:hover {
+      border-color: var(--ink);
+    }
+    &:checked {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    &:checked::after {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .opts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

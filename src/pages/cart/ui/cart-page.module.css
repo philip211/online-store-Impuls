@@ -1,0 +1,9 @@
+.empty {
+  padding-bottom: var(--space-8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

@@ -1,0 +1,25 @@
+.page {
+  padding-bottom: 120px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 56ch;
+  font-size: clamp(16px, 1.3vw, 18px);
+  color: var(--muted);
+}

@@ -1,0 +1,120 @@
+.cta {
+  padding-top: 8px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: var(--radius-2xl);
+  background: var(--s1);
+  animation: scr var(--dur-slow) var(--ease-out);
+}
+
+.stars {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.starRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Hand-drawn rating: outlined stars that fill up to the chosen one. */
+.star {
+  display: grid;
+  place-items: center;
+  width: var(--target);
+  height: var(--target);
+  border-radius: var(--radius-md);
+  color: var(--line-strong);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-standard);
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  &:has(:focus-visible) {
+    outline: var(--focus-ring);
+    outline-offset: 0;
+  }
+}
+
+.on {
+  color: var(--ink);
+}
+
+.word {
+  margin-left: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.fieldError {
+  display: block;
+  margin-top: 8px;
+  color: var(--err);
+  font-size: 14px;
+}
+
+.done:focus {
+  outline: none;
+}
+
+.done:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--s1);
+  animation: fade var(--dur-base) var(--ease-out);
+}

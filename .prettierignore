@@ -1,0 +1,5 @@
+dist
+node_modules
+design-reference
+package-lock.json
+server

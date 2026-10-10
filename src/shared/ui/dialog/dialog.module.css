@@ -1,0 +1,151 @@
+.dialog {
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  max-width: none;
+  max-height: none;
+  opacity: 0;
+  /* Exit runs the same curve in reverse; display/overlay keep it in the top layer until done. */
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-enter) var(--ease-out),
+    overlay var(--dur-enter) allow-discrete,
+    display var(--dur-enter) allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transform: none;
+  }
+
+  &::backdrop {
+    background: var(--scrim);
+    opacity: 0;
+    transition:
+      opacity var(--dur-slow) var(--ease-standard),
+      overlay var(--dur-enter) allow-discrete,
+      display var(--dur-enter) allow-discrete;
+  }
+  &[open]::backdrop {
+    opacity: 1;
+  }
+}
+
+@starting-style {
+  .dialog[open] {
+    opacity: 0;
+  }
+  .sheet[open] {
+    transform: translateX(100%);
+  }
+  .palette[open] {
+    transform: translateY(-16px) scale(0.98);
+  }
+  .bottom[open] {
+    transform: translateY(100%);
+  }
+  .dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Side sheet */
+.sheet {
+  margin: 0 0 0 auto;
+  height: 100dvh;
+  width: min(380px, 88vw);
+  border-width: 0 0 0 1px;
+  transform: translateX(100%);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Command palette */
+.palette {
+  margin: max(16px, 10vh) auto auto;
+  width: min(640px, calc(100vw - 24px));
+  max-height: min(640px, calc(100dvh - 32px));
+  border-radius: var(--radius-xl);
+  transform: translateY(-16px) scale(0.98);
+  box-shadow: var(--shadow-overlay);
+  overflow: hidden;
+}
+
+/* Bottom sheet: rises from the bottom edge, content scrolls inside. */
+.bottom {
+  margin: auto 0 0;
+  width: 100%;
+  max-height: 85dvh;
+  border-width: 1px 0 0;
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  transform: translateY(100%);
+  overflow: hidden;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .body {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/*
+ * Drag zone with the grabber: pulling the sheet down past a third of its height
+ * (or flicking it) dismisses it. Esc, the backdrop and the close button still work.
+ */
+.grab {
+  flex: none;
+  display: grid;
+  place-items: center;
+  height: 24px;
+  touch-action: none;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.handle {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--line-strong);
+}
+
+/* While dragging, the scrim fades with the distance (--drag is set inline, 1 → 0). */
+.bottom[open]::backdrop {
+  opacity: var(--drag, 1);
+}
+
+@media (max-width: 767px) {
+  .palette {
+    margin: 0;
+    width: 100vw;
+    max-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+}
+
+/* On wide screens the sheet keeps a readable measure instead of spanning the window. */
+@media (min-width: 768px) {
+  .bottom {
+    width: min(640px, calc(100vw - 48px));
+    margin: auto auto 0;
+    border-width: 1px 1px 0;
+  }
+}

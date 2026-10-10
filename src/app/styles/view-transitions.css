@@ -1,0 +1,83 @@
+/*
+ * View Transitions: page navigations cross-fade with a short rise, product
+ * tiles morph into the product gallery (names set per slug in components),
+ * and theme switches reveal from the toggle in a circle. Timings come from the
+ * motion tokens so the page swap feels like every other entrance.
+ */
+
+/* Morph groups (product tile -> gallery). */
+::view-transition-group(*) {
+  animation-duration: var(--dur-enter);
+  animation-timing-function: var(--ease-out);
+}
+
+/* Page cross-fade: the old page leaves quickly, the new one enters over --dur-enter. */
+::view-transition-old(root) {
+  animation: var(--dur-fast) var(--ease-standard) both vt-out;
+}
+
+::view-transition-new(root) {
+  animation: var(--dur-enter) var(--ease-out) both vt-in;
+}
+
+/* Morphing product tiles: keep both snapshots crisp while the box resizes. */
+::view-transition-old(*):only-child,
+::view-transition-new(*):only-child {
+  animation-duration: var(--dur-slow);
+}
+
+@keyframes vt-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Theme reveal — one root snapshot so the header is revealed along with the page. */
+html.theme-vt * {
+  view-transition-name: none !important;
+}
+
+/*
+ * The new theme must be complete inside the circle: no colour transitions running
+ * in the live snapshot, or the wipe shows a grey mid-state and ghosted labels.
+ */
+html.theme-vt,
+html.theme-vt *,
+html.theme-vt *::before,
+html.theme-vt *::after {
+  transition: none !important;
+}
+
+html.theme-vt::view-transition-old(root),
+html.theme-vt::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.theme-vt::view-transition-new(root) {
+  animation: var(--dur-image) var(--ease-out) both theme-reveal;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

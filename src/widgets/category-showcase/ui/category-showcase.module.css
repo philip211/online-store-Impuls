@@ -1,0 +1,159 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.cat {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 260px;
+  padding: 20px;
+  border-radius: var(--radius-2xl);
+  background: var(--tile-bg);
+  isolation: isolate;
+
+  /* Only the image responds; the copy stays still. */
+  &:hover .media img {
+    transform: scale(1.04);
+  }
+  &:hover .more {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+}
+
+.sound,
+.desk {
+  grid-column: span 2;
+}
+
+/* The photo fills the tile; the frame's own ratio gives way to the tile's size. */
+/* Two classes: outranks the frame's own `position: relative`. */
+.cat .media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  height: 100%;
+}
+
+/*
+ * Scrim sized by the copy, not the tile: 62% black behind every line of text, easing to clear
+ * over 96px above it. White text there stays above 4.5:1 even over a white photo (#616161).
+ */
+.hasPhoto {
+  color: #fff;
+  background: var(--s2);
+
+  & .copy::before {
+    content: '';
+    position: absolute;
+    /* Past the tile's padding on three sides; the tile clips it. */
+    inset: -96px -100px -100px;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      rgb(0 0 0 / 0.62) calc(100% - 96px),
+      rgb(0 0 0 / 0.38) calc(100% - 60px),
+      rgb(0 0 0 / 0.12) calc(100% - 28px),
+      rgb(0 0 0 / 0) 100%
+    );
+    pointer-events: none;
+  }
+
+  & .tagline {
+    color: rgb(255 255 255 / 0.9);
+  }
+}
+
+.copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.name {
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tagline {
+  max-width: 34ch;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Phones: a wide lead tile, two portrait tiles side by side, a portrait desk tile. */
+@media (max-width: 767px) {
+  /* The ratio sets the height; a min-height here would widen the tile through the ratio. */
+  .cat {
+    min-height: 0;
+  }
+  .sound {
+    aspect-ratio: 4 / 3;
+  }
+  .mobile,
+  .photo {
+    aspect-ratio: 4 / 5;
+    padding: var(--space-4);
+  }
+  /* Portrait like its cover shot, so the reader stays in frame above the copy. */
+  .desk {
+    aspect-ratio: 4 / 5;
+  }
+  .mobile .tagline,
+  .photo .tagline {
+    display: none;
+  }
+}
+
+/*
+ * Desktop: sound takes the left half over two rows, mobile and photo stack in the third
+ * column, desk stands full height in the fourth (its cover is a portrait shot).
+ */
+@media (min-width: 768px) {
+  .bento {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(300px, auto));
+    gap: var(--space-4);
+  }
+  .cat {
+    padding: 28px;
+  }
+  .sound {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    aspect-ratio: auto;
+  }
+  .mobile {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .photo {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .desk {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+  .sound .name {
+    font-size: clamp(30px, 3vw, 44px);
+  }
+}

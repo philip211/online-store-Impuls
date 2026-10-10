@@ -1,0 +1,30 @@
+export const routes = {
+  home: () => '/',
+  catalog: () => '/catalog',
+  category: (id: string) => `/catalog?cat=${id}`,
+  product: (slug: string) => `/product/${slug}`,
+  cart: () => '/cart',
+  favorites: () => '/favorites',
+  search: (query: string) => `/catalog?q=${encodeURIComponent(query.trim())}`,
+  orderSuccess: () => '/order/success',
+  /** Help centre; without a topic shows the index. */
+  help: (topic?: string) => (topic ? `/help/${topic}` : '/help'),
+  /** Guided product finder ("active personalisation"). */
+  finder: () => '/finder',
+  /** Sign in; `next` is where to return afterwards. */
+  login: (next?: string) => (next ? `/login?next=${encodeURIComponent(next)}` : '/login'),
+  register: () => '/login?mode=register',
+  account: () => '/account',
+  accountOrder: (number: string) => `/account/orders/${number}`,
+  accountSettings: () => '/account/settings',
+  admin: () => '/admin',
+  adminOrders: () => '/admin/orders',
+  adminOrder: (number: string) => `/admin/orders/${number}`,
+  adminProducts: () => '/admin/products',
+  adminProduct: (id: number) => `/admin/products/${id}`,
+  adminProductNew: () => '/admin/products/new',
+  adminReviews: () => '/admin/reviews',
+  adminReturns: () => '/admin/returns',
+  adminUsers: () => '/admin/users',
+  adminAudit: () => '/admin/audit',
+} as const

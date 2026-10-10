@@ -1,0 +1,46 @@
+.page {
+  padding-bottom: 120px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 480px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: scr var(--dur-enter) var(--ease-out) both;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: clamp(16px, 1.3vw, 18px);
+  max-width: 44ch;
+}
+
+.modes {
+  margin-top: 8px;
+}
+
+/* The same quiet surface the help flows use. */
+.card {
+  padding: 28px;
+  border-radius: var(--radius-2xl);
+  background: var(--s1);
+}
+
+.fine {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 48ch;
+}
+
+@media (max-width: 479px) {
+  .card {
+    padding: 20px;
+  }
+}
